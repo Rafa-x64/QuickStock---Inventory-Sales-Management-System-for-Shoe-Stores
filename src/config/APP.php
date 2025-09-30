@@ -4,7 +4,7 @@
 
 const SERVERURL = "https://localhost/DEV/PHP/Proyecto/src/";
 
-const NOMBRE = "PROYECTO";
+const NOMBRE = "Quick";
 
 const MONEDA = ["bolivar" => "Bs.", "dolar" => "$", "euro" => "€"];
 
