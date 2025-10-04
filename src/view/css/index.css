@@ -2,9 +2,9 @@
     :root {
         --default-background-color: #fdfdfc;
         --default-font-color: #2d2c28;
-        --font-color-light-grey: #7c7a74;
-        --font-color-dark-grey: #21201c;
-        --font-color-laravel: #ff0000;
+        --font-color-light: #7c7a74;
+        --font-color-dark: #21201c;
+        --font-color-Quick: #495dcc;
     }
 
     body {
@@ -23,11 +23,11 @@
 
 @media(prefers-color-scheme: dark) {
     :root {
-        --default-background-color: #111110;
-        --default-font-color: #f1f0ef;
-        --font-color-light-grey: #f1f0ef;
-        --font-color-dark-grey: #2a2a28;
-        --font-color-laravel: #ff0000;
+        --default-background-color: #050505;
+        --default-font-color: #dedfdc;
+        --font-color-light: #fdfdfd;
+        --font-color-dark: #605e5d;
+        --font-color-Quick: #495dcc;
     }
 
     body {
