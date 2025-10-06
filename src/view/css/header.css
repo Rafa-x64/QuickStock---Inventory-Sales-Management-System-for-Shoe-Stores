@@ -1,128 +1,20 @@
-@media(prefers-color-scheme: light) {
-    .header-custom-link {
-        font-weight: 500 !important;
-        text-decoration: none !important;
-        color: var(--default-font-color);
-    }
-
-    .header-custom-title {
-        font-weight: bold !important;
-        color: var(--font-color-laravel);
-        text-decoration: none !important;
-    }
-
-    .btn-white {
-        border: 2px solid #e9e8e6 !important;
-        border-radius: 0.2rem !important;
-        transition: border-color 0.2s ease;
-    }
-
-    .btn-white:hover {
-        border: 2px solid #d6d6d1 !important;
-        border-radius: 0.2rem !important;
-    }
-
-    .btn-dark {
-        color: #fdfdfc !important;
-        border-radius: 0.2rem !important;
-    }
-
-    .btn-dark:hover {
-        color: var(--font-color-light-grey) !important;
-    }
-
-    .header-custom-search {
-        padding-top: 0.15rem !important;
-        padding-bottom: 0.15rem !important;
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
-        background-color: var(--font-color-light-grey);
-        caret-color: var(--default-font-color);
-        color: var(--default-font-color);
-    }
-
-    .header-custom-search {
-        background-color: #e9e8e6;
-    }
-
-    .header-custom-search input[type=search] {
-        background-color: transparent !important;
-        border: none !important;
-    }
-
-    .header-custom-search input[type=search]:focus {
-        outline: none !important;
-        box-shadow: none !important;
-    }
-
-    .header-custom-icon {
-        color: #95948f !important;
-        transition: color 0.2s ease;
-    }
-
-    .header-custom-icon:hover {
-        color: #63635e !important
-    }
-}
+@media(prefers-color-scheme: light) {}
 
 @media(prefers-color-scheme: dark) {
-    .header-custom-link {
-        font-weight: 500 !important;
-        text-decoration: none !important;
-        color: var(--default-font-color);
+
+    .header-custom {
+        filter: blur(5px);
     }
 
-    .header-custom-title {
-        font-weight: bold !important;
-        color: var(--font-color-laravel);
-        text-decoration: none !important;
+    .header-custom-ul {}
+
+    .header-custom-li {
+        color: var(--font-color-Quick) !important;
     }
 
-    .btn-white {
-        border: 2px solid #e9e8e6 !important;
-        border-radius: 0.2rem !important;
-        transition: border-color 0.2s ease;
-    }
+    .header-custom-a {}
 
-    .btn-white:hover {
-        border: 2px solid #d6d6d1 !important;
-        border-radius: 0.2rem !important;
-    }
+    .header-custom-login {}
 
-    .btn-dark {
-        color: #f1f0ef !important;
-        background-color: #111110;
-        border-radius: 0.2rem !important;
-    }
-
-    .header-custom-search {
-        padding-top: 0.15rem !important;
-        padding-bottom: 0.15rem !important;
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
-        background-color: #2a2a28;
-        caret-color: #f1f0ef;
-        color: #f1f0ef;
-    }
-
-    .header-custom-search input[type=search] {
-        background-color: transparent !important;
-        border: none !important;
-    }
-
-    .header-custom-search input[type=search]:focus {
-        outline: none !important;
-        box-shadow: none !important;
-        color: #f1f0ef !important;
-        background-color: #2a2a28;
-    }
-
-    .header-custom-icon {
-        color: #95948f !important;
-        transition: color 0.2s ease;
-    }
-
-    .header-custom-icon:hover {
-        color: #63635e !important
-    }
+    .header-custom-register {}
 }
