@@ -311,6 +311,7 @@ La carpeta `docs/` centraliza los archivos de documentación técnica y es esenc
 
 ### Contenido de la Carpeta `docs/`
 
+* [todo.md](todo.md): Ver los requisitos funcionales y no funcionales del sistema.
 * [Changelog.md](Changelog.md): Lista cronológica de funcionalidades, mejoras y correcciones por versión.
 * [estructura_proyecto.md](estructura_proyecto.md): Descripción jerárquica de la arquitectura.
 * [manual_desarrollador.md](manual_desarrollador.md): Guía técnica principal de funcionamiento.
