@@ -2,9 +2,9 @@
 
 //constantes que se usan a lo largo del codigo
 
-const SERVERURL = "https://localhost/DEV/PHP/Proyecto/src/";
+const SERVERURL = "https://localhost/DEV/PHP/QuickStock/src/";
 
-const NOMBRE = "Quick";
+const NOMBRE = "QuickStock";
 
 const ESLOGAN1 = "No seguimos tendencias, las imponemos.";
 

@@ -1,0 +1,145 @@
+.bienvenida {
+    background-image: url('../../assets/images/zapatos_blancos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+    height: 98vh;
+    font-family: 'Oswald', sans-serif;
+}
+
+.bienvenida-custom-login {
+    color: var(--font-color-light);
+    border-color: var(--font-color-light);
+    border-width: 0.2rem;
+}
+
+.bienvenida-custom-login:hover {
+    color: var(--font-color-light);
+    background-color: var(--blue-Quick);
+    border-color: var(--blue-Quick);
+    border-width: 0.2rem;
+}
+
+.bienvenida-custom-register {
+    color: var(--font-color-light);
+    border-color: var(--red-Quick);
+    background-color: var(--red-Quick);
+    border-width: 0.2rem;
+}
+
+.bienvenida-custom-register:hover {
+    color: var(--font-color-light);
+    border-color: var(--red-Quick);
+    border-width: 0.2rem;
+}
+
+@media(prefers-color-scheme: light) {
+    .beneficios-item {
+        background-color: transparent;
+        color: var(--font-color-dark) !important;
+        border: 3px solid var(--blue-Quick);
+        border-radius: 1rem;
+        transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .beneficios-item:hover {
+        background-color: var(--blue-Quick);
+        color: var(--font-color-light) !important;
+    }
+
+    .beneficios-table {
+        font-size: 12px;
+        color: var(--font-color-light);
+        font-weight: normal;
+        /* Propiedades Clave */
+        border-collapse: separate;
+        /* Asegura que la tabla no colapse los bordes */
+        border-spacing: 0;
+        /* Elimina el espacio entre celdas (opcional pero recomendado) */
+        overflow: hidden;
+        /* ¡La clave! Esto recorta el contenido de las celdas */
+
+        /* Tu estilo de borde */
+        border-radius: 0.5rem;
+        border: 2px solid transparent;
+        /* Tu borde original */
+    }
+
+    .beneficios-table th {
+        background-color: var(--red-Quick);
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+
+    .beneficios-table th:nth-child(1),
+    .beneficios-table th:nth-child(2) {
+        border-right: 1px solid var(--font-color-light);
+    }
+
+    .beneficios-table td:nth-child(1),
+    .beneficios-table td:nth-child(2) {
+        border-right: 1px solid var(--font-color-light);
+    }
+
+    .beneficios-table td {
+        background-color: #9c1e2a;
+        border-bottom: 1px solid var(--font-color-light);
+        padding: 0.3rem;
+    }
+}
+
+@media(prefers-color-scheme: dark) {
+    .beneficios-item {
+        background-color: transparent;
+        color: var(--font-color-light) !important;
+        border: 3px solid var(--font-color-light);
+        border-radius: 1rem;
+        transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .beneficios-item:hover {
+        background-color: var(--red-Quick);
+        border-color: var(--red-Quick);
+        color: var(--font-color-light) !important;
+    }
+
+    .beneficios-table {
+        font-size: 12px;
+        color: var(--font-color-light);
+        font-weight: normal;
+        /* Propiedades Clave */
+        border-collapse: separate;
+        /* Asegura que la tabla no colapse los bordes */
+        border-spacing: 0;
+        /* Elimina el espacio entre celdas (opcional pero recomendado) */
+        overflow: hidden;
+        /* ¡La clave! Esto recorta el contenido de las celdas */
+
+        /* Tu estilo de borde */
+        border-radius: 0.5rem;
+        border: 2px solid transparent;
+        /* Tu borde original */
+    }
+
+    .beneficios-table th {
+        background-color: var(--blue-Quick);
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+
+    .beneficios-table th:nth-child(1),
+    .beneficios-table th:nth-child(2) {
+        border-right: 1px solid var(--font-color-dark);
+    }
+
+    .beneficios-table td:nth-child(1),
+    .beneficios-table td:nth-child(2) {
+        border-right: 1px solid var(--blue-Quick);
+    }
+
+    .beneficios-table td {
+        background-color: #091e26;
+        border-bottom: 1px solid var(--blue-Quick);
+        padding: 0.3rem;
+    }
+}
