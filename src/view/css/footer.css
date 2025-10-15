@@ -1,57 +1,62 @@
+.footer-custom-img {
+    width: 3rem;
+    height: 3rem;
+}
+
 @media(prefers-color-scheme: light) {
-    .footer-custom {
-        color: var(--default-font-color) !important;
+    .footer {
+        background-color: #dfdfe3;
+        color: var(--font-color-dark);
     }
 
-    .footer-custom-icon {
-        color: var(--font-color-light-grey) !important;
-        transition: color 0.2s ease;
+    .footer-custom-input {
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid var(--font-color-dark);
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+        transition: padding 0.2s ease;
+        transition: border-bottom 0.2 ease;
+        /* hereda el color del contenedor */
     }
 
-    .footer-custom-icon:hover {
-        color: var(--font-color-dark-grey) !important
-    }
-
-    .footer-custom-li {
-        color: var(--font-color-light-grey) !important;
-        transition: color 0.2s ease;
-    }
-
-    .footer-custom-li:hover {
-        color: var(--font-color-dark-grey) !important;
-        cursor: pointer;
-    }
-
-    .custom-footer-svg {
-        color: #ff0000;
+    .footer-custom-input:focus {
+        background-color: var(--default-background-color);
+        border: none;
+        border-bottom: none;
+        padding: 0.5rem;
+        outline: none;
+        box-shadow: none;
+        color: inherit;
     }
 }
 
 @media(prefers-color-scheme: dark) {
-    .footer-custom {
-        color: var(--default-font-color) !important;
+    .footer {
+        background-color: #2c2e2f;
+        color: var(--font-color-dark);
     }
 
-    .footer-custom-icon {
-        color: var(--font-color-dark-grey) !important;
-        transition: color 0.2s ease;
+    .footer-custom-input {
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid var(--font-color-dark);
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+        transition: padding 0.2s ease;
+        transition: border-bottom 0.2 ease;
+        /* hereda el color del contenedor */
     }
 
-    .footer-custom-icon:hover {
-        color: var(--font-color-light-grey) !important
-    }
-
-    .footer-custom-li {
-        color: var(--font-color-dark-grey) !important;
-        transition: color 0.2s ease;
-    }
-
-    .footer-custom-li:hover {
-        color: var(--font-color-light-grey) !important;
-        cursor: pointer;
-    }
-
-    .custom-footer-svg {
-        color: #ff0000;
+    .footer-custom-input:focus {
+        background-color: var(--default-background-color);
+        border: none;
+        border-bottom: none;
+        padding: 0.5rem;
+        outline: none;
+        box-shadow: none;
+        color: inherit;
     }
 }

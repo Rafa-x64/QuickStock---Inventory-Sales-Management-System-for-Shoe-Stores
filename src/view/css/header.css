@@ -1,20 +1,26 @@
+.btn-link {
+    color: var(--font-color-light);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    border-radius: 0 !important;
+}
+
+.btn-link:focus {
+    color: var(--font-color-light) !important;
+    background-color: var(--red-Quick);
+}
+
+.header {
+    background-color: var(--blue-Quick);
+    font-family: 'Oswald', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+#header-menu {
+    background-color: var(--ligth-blue-Quick);
+}
+
 @media(prefers-color-scheme: light) {}
 
-@media(prefers-color-scheme: dark) {
-
-    .header-custom {
-        filter: blur(5px);
-    }
-
-    .header-custom-ul {}
-
-    .header-custom-li {
-        color: var(--font-color-Quick) !important;
-    }
-
-    .header-custom-a {}
-
-    .header-custom-login {}
-
-    .header-custom-register {}
-}
+@media(prefers-color-scheme: dark) {}
