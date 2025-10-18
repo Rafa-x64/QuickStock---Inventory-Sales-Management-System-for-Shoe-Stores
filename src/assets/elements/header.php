@@ -6,31 +6,36 @@
         </div>
         <div class="col-1 d-flex p-0 h-100">
             <button class="btn btn-link w-100 h-100 d-flex justify-content-center align-items-center" type="button" id="header-buton-menu">
-                <i class="material-icons fs-3">menu</i>
+                <i class="material-icons fs-3 text-white">menu</i>
             </button>
         </div>
     </div>
-    <div class="row d-none" id="header-menu">
-        <div class="col d-flex flex-column justify-content-between align-items-start">
-            <ul>
+    <div class="row d-none position-absolute w-100" id="header-menu">
+        <div class="col-12 d-flex flex-column justify-content-between align-items-start">
+            <ul class="w-100 list-unstyled px-3">
                 <li class="list-group-item mt-4">
-                    <a href="" class="text-decoration-none text-white">
+                    <a href="#bienvenida" class="text-decoration-none text-white">
                         <h6 class="">INICIO</h6>
                     </a>
                 </li>
                 <li class="list-group-item mt-4">
-                    <a href="" class="text-decoration-none text-white">
+                    <a href="#acerca-de-nosotros" class="text-decoration-none text-white">
                         <h6 class="">ACERCA DE NOSOTROS</h6>
                     </a>
                 </li>
                 <li class="list-group-item mt-4">
-                    <a href="" class="text-decoration-none text-white">
-                        <h6 class="">GALERIA</h6>
+                    <a href="#beneficios" class="text-decoration-none text-white">
+                        <h6 class="">BENEFICIOS</h6>
                     </a>
                 </li>
                 <li class="list-group-item mt-4">
-                    <a href="" class="text-decoration-none text-white">
-                        <h6 class="">CONTACTO</h6>
+                    <a href="#comparativa" class="text-decoration-none text-white">
+                        <h6 class="">COMPARATIVA</h6>
+                    </a>
+                </li>
+                <li class="list-group-item mt-4">
+                    <a href="#testimonios" class="text-decoration-none text-white">
+                        <h6 class="">TESTIMONIOS</h6>
                     </a>
                 </li>
             </ul>

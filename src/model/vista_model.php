@@ -5,14 +5,16 @@ class vista_model
     //metodo que obtiene la vista que se le asigna en $pagina
     protected static function obtenerVista($pagina) //recive una variable pagina
     {
-        //lista de paginas del proyecto
-        $paginas_existentes = ["inicio"]; //lista de paginas del proyecto
+        // ruta esperada del archivo de vista
+        $ruta = "html/" . $pagina . "-view.php";
 
-        if (!in_array($pagina, $paginas_existentes)) { //si no esta en el array entonces...
-            return "404-view.php"; //pagina de 404
+        // verifica si el archivo existe físicamente en el sistema
+        if (!file_exists($ruta)) { // si no existe el archivo entonces...
+            return "404-view.php"; // página de error 404
             exit();
         }
 
-        return $pagina . "-view.php"; //retorna $pagina-view para ser abierta por el controlador si esa pagina existe en la lista
+        // retorna $pagina-view para ser abierta por el controlador si el archivo existe
+        return $pagina . "-view.php";
     }
 }
