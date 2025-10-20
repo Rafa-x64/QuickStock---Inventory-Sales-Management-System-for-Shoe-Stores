@@ -26,17 +26,6 @@
     background-color: var(--red-Quick);
 }
 
-.Quick-white-btn {
-    color: var(--font-color-light);
-    border: 2px solid var(--font-color-light);
-    transition: color 0.2s ease;
-}
-
-.Quick-white-btn:hover {
-    color: var(--red-Quick);
-    background-color: var(--font-color-light);
-}
-
 @media(prefers-color-scheme: light) {
     :root {
         --default-background-color: #fdfdfc;
@@ -104,7 +93,28 @@
         color: inherit;
     }
 
+    .Quick-white-btn {
+        color: var(--font-color-light);
+        border: 2px solid var(--font-color-light);
+        transition: color 0.2s ease;
+    }
+
+    .Quick-white-btn:hover {
+        color: var(--red-Quick);
+        background-color: var(--font-color-light);
+    }
+
     a {
+        color: var(--default-font-color);
+        text-decoration: none !important;
+    }
+
+    .Quick-white-link {
+        color: var(--font-color-light);
+        text-decoration: none !important;
+    }
+
+    .Quick-dark-link {
         color: var(--default-font-color);
         text-decoration: none !important;
     }
@@ -174,8 +184,29 @@
         color: inherit;
     }
 
+    .Quick-white-btn {
+        color: var(--font-color-light);
+        border: 2px solid var(--font-color-light);
+        transition: color 0.2s ease;
+    }
+
+    .Quick-white-btn:hover {
+        color: var(--blue-Quick);
+        background-color: var(--font-color-light);
+    }
+
     a {
         color: var(--font-color-light);
+        text-decoration: none !important;
+    }
+
+    .Quick-white-link {
+        color: var(--default-font-color);
+        text-decoration: none !important;
+    }
+
+    .Quick-dark-link {
+        color: var(--font-color-dark);
         text-decoration: none !important;
     }
 }

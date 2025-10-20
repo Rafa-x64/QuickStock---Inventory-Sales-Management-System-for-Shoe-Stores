@@ -1,0 +1,148 @@
+.menu-lateral-gerente {
+    box-sizing: border-box;
+    transition: width 0.3s ease;
+    width: 8.333333%;
+    z-index: 1030;
+    /* No debe haber overflow-y aquí */
+}
+
+.menu-lateral-gerente.expanded {
+    width: 25%;
+}
+
+.menu-items-scrollable {
+    /* CRÍTICO: Propiedades para asegurar el scroll dentro del flex-column */
+    flex-grow: 1;
+    flex-basis: 0;
+    height: 100%;
+    /* Ayuda a que overflow-y: scroll funcione */
+
+    overflow-y: scroll;
+    /* El desplazamiento vertical se activa aquí */
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.menu-item {
+    cursor: pointer;
+    padding: 8px 0.5rem;
+}
+
+.menu-details summary {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    list-style: none;
+}
+
+.menu-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu-submenu {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* Asegúrate de que no haya padding-left forzado aquí */
+}
+
+/* Estilos para los enlaces dentro del submenú */
+.menu-submenu a {
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    /* Ajusta el padding vertical si lo necesitas */
+    padding: 4px 0;
+    transition: background-color 0.3s ease, border-top-left-radius 0.3s ease, border-bottom-left-radius 0.3s ease;
+}
+
+.menu-submenu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.menu-lateral-gerente .menu-details summary {
+    justify-content: center !important;
+}
+
+.menu-lateral-gerente .texto-menu {
+    opacity: 0;
+    width: 0;
+    transition: opacity 0.3s ease, width 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+}
+
+.menu-lateral-gerente.expanded .menu-item {
+    padding-left: 1rem;
+    margin-left: 0;
+}
+
+.menu-lateral-gerente.expanded .menu-details summary {
+    padding-left: 3rem;
+    justify-content: flex-start !important;
+    transition: padding-left 0.3s ease,
+        color 0.3s ease,
+        border-top-left-radius 0.3s ease,
+        border-bottom-left-radius 0.3s ease;
+}
+
+.menu-lateral-gerente.expanded .texto-menu {
+    opacity: 1;
+    width: auto;
+    margin-left: 0.75rem !important;
+}
+
+.menu-lateral-gerente .imagen-usuario {
+    border-radius: 50%;
+    border: 0.188rem solid var(--font-color-light);
+}
+
+.imagen-usuario {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.menu-lateral-gerente.expanded .imagen-usuario {
+    width: 80px;
+    height: 80px;
+}
+
+@media(prefers-color-scheme: light) {
+    .menu-lateral-gerente {
+        background-color: var(--red-Quick);
+        color: white;
+    }
+
+    .menu-lateral-gerente.expanded .menu-details summary:hover {
+        color: var(--red-Quick);
+        background-color: var(--default-background-color);
+        padding-left: 4rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+}
+
+@media(prefers-color-scheme: dark) {
+    .menu-lateral-gerente {
+        background-color: var(--blue-Quick);
+        color: white;
+    }
+
+    .menu-lateral-gerente.expanded .menu-details summary:hover {
+        color: var(--font-color-light);
+        background-color: var(--default-background-color);
+        padding-left: 4rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+}

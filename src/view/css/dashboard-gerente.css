@@ -1,0 +1,12 @@
+#mainContent {
+    padding-left: 8.333333%;
+    transition: padding-left 0.3s ease;
+}
+
+#mainContent.expanded {
+    padding-left: 25%;
+}
+
+@media(prefers-color-scheme: light) {}
+
+@media(prefers-color-scheme: dark) {}

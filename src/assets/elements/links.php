@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/footer.css" ?>">
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/inicio-sesion-usuario.css" ?>">
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/registro-usuario.css" ?>">
+    <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/menu-lateral-gerente.css" ?>">
+    <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/dashboard-gerente.css" ?>">
+    <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/listado-compras.css" ?>">
 </head>
 
 <body>
