@@ -1,28 +1,31 @@
 1. Inventario
+
     Este módulo se centra en los productos.
+
     Vista Principal (CRUD de Productos):
-    Qué es: Una tabla o cuadrícula con todos tus productos (Leer).
-    Columnas: Código de Barras, Nombre, Categoría, Stock Actual (Req: Visualización de cantidad), Precio (USD/Bs), Proveedor.
+        Qué es: Una tabla o cuadrícula con todos tus productos (Leer).
+        Columnas: Código de Barras, Nombre, Categoría, Stock Actual (Req: Visualización de cantidad), Precio (USD/Bs), Proveedor.
+
     Acciones:
-    Botón "Crear Producto" (Lleva al formulario de creación).
+        Botón "Crear Producto" (Lleva al formulario de creación).
+
     Acciones por fila: Editar, Eliminar, Ver Historial (Req: Historial de movimientos).
     Filtros: Poder buscar por nombre/código, filtrar por categoría y por "stock bajo".
 
 Vista "Crear/Editar Producto" (Formulario):
 
-Qué es: Un formulario para registrar o modificar un producto (Crear / Actualizar).
+    Qué es: Un formulario para registrar o modificar un producto (Crear / Actualizar).
 
-Campos:
+    Campos:
+        Datos básicos: Nombre, Descripción, Categoría(s) (Req: múltiples referencias).
 
-Datos básicos: Nombre, Descripción, Categoría(s) (Req: múltiples referencias).
+    Identificadores: Código de Barras / SKU (Req: Códigos de barras).
 
-Identificadores: Código de Barras / SKU (Req: Códigos de barras).
+    Precios: Campos para Bs, USD, EUR (Req: Precios en múltiples monedas).
 
-Precios: Campos para Bs, USD, EUR (Req: Precios en múltiples monedas).
+    Inventario: Stock Inicial, Stock Mínimo (Req: Alertas de stock).
 
-Inventario: Stock Inicial, Stock Mínimo (Req: Alertas de stock).
-
-Asociaciones: Proveedor principal, Sucursal (Req: Asociación).
+    Asociaciones: Proveedor principal, Sucursal (Req: Asociación).
 
 Vista "Gestión de Categorías" (CRUD Secundario):
 
