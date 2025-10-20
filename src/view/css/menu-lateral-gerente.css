@@ -3,24 +3,10 @@
     transition: width 0.3s ease;
     width: 8.333333%;
     z-index: 1030;
-    /* No debe haber overflow-y aquí */
 }
 
 .menu-lateral-gerente.expanded {
     width: 25%;
-}
-
-.menu-items-scrollable {
-    /* CRÍTICO: Propiedades para asegurar el scroll dentro del flex-column */
-    flex-grow: 1;
-    flex-basis: 0;
-    height: 100%;
-    /* Ayuda a que overflow-y: scroll funcione */
-
-    overflow-y: scroll;
-    /* El desplazamiento vertical se activa aquí */
-    overflow-x: hidden;
-    width: 100%;
 }
 
 .menu-item {
@@ -130,6 +116,17 @@
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
     }
+
+    .menu-items-scrollable {
+        flex-grow: 1;
+        flex-basis: 0;
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        width: 100%;
+        scrollbar-color: var(--font-color-light) var(--ligth-red-Quick);
+        scrollbar-width: thin;
+    }
 }
 
 @media(prefers-color-scheme: dark) {
@@ -144,5 +141,16 @@
         padding-left: 4rem;
         border-top-left-radius: 1rem;
         border-bottom-left-radius: 1rem;
+    }
+
+    .menu-items-scrollable {
+        flex-grow: 1;
+        flex-basis: 0;
+        height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        width: 100%;
+        scrollbar-color: var(--font-color-light) var(--ligth-blue-Quick);
+        scrollbar-width: thin;
     }
 }

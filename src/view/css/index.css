@@ -33,7 +33,8 @@
         --font-color-light: #ffffff;
         --font-color-medium: #9797a4;
         --font-color-dark: #4c4c58;
-        --red-Quick: #e53142;
+        --red-Quick: #c62938;
+        --ligth-red-Quick: #f15d66;
         --blue-Quick: #263f4f;
         --ligth-blue-Quick: #3e657b;
     }
@@ -127,7 +128,8 @@
         --font-color-light: #ffffff;
         --font-color-medium: #d9dee3;
         --font-color-dark: #b5bdc3;
-        --red-Quick: #e53142;
+        --red-Quick: #c62938;
+        --ligth-red-Quick: #f15d66;
         --blue-Quick: #263f4f;
         --ligth-blue-Quick: #3e657b;
     }
