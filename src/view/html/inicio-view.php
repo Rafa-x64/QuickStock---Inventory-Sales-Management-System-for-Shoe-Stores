@@ -25,10 +25,14 @@
             </div>
             <div class="col-12 py-3 d-flex flex-row justify-content-center align-items-center">
                 <button type="button" class="btn w-4 h-3 me-2 bienvenida-custom-login">
-                    <h6 class="m-0 py-2">Iniciar Sesion</h6>
+                    <a href="inicio-sesion-usuario" class="text-white">
+                        <h6 class="m-0 py-2">Iniciar Sesion</h6>
+                    </a>
                 </button>
                 <button type="button" class="btn w-4 h-3 ms-2 bienvenida-custom-register">
-                    <h6 class="m-0 py-2">Registrarse</h6>
+                    <a href="registro-usuario" class="text-white">
+                        <h6 class="m-0 py-2">Registrarse</h6>
+                    </a>
                 </button>
             </div>
         </div>

@@ -8,27 +8,23 @@
 }
 
 .bienvenida-custom-login {
-    color: var(--font-color-light);
     border-color: var(--font-color-light);
     border-width: 0.2rem;
 }
 
 .bienvenida-custom-login:hover {
-    color: var(--font-color-light);
     background-color: var(--blue-Quick);
     border-color: var(--blue-Quick);
     border-width: 0.2rem;
 }
 
 .bienvenida-custom-register {
-    color: var(--font-color-light);
     border-color: var(--red-Quick);
     background-color: var(--red-Quick);
     border-width: 0.2rem;
 }
 
 .bienvenida-custom-register:hover {
-    color: var(--font-color-light);
     border-color: var(--red-Quick);
     border-width: 0.2rem;
 }

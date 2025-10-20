@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo NOMBRE; ?></title>
     <link rel="icon" href="assets/icons/QuickStock-logos/web/favicon.ico" type="image/x-icon">
     <!--cargar css de bootstrap-->
@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/menu-lateral.css" ?>">
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/inicio.css" ?>">
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/footer.css" ?>">
+    <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/inicio-sesion-usuario.css" ?>">
+    <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/registro-usuario.css" ?>">
 </head>
 
 <body>

@@ -1,6 +1,6 @@
 DirectoryIndex index.php index.html
 RewriteEngine On
-RewriteBase /DEV/PHP/Proyecto/src/
+RewriteBase /DEV/PHP/QuickStock/src/
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f

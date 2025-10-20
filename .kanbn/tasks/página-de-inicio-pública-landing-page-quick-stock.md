@@ -1,12 +1,12 @@
 ---
 created: 2025-10-12T14:59:10.644Z
-updated: 2025-10-12T14:59:10.604Z
+updated: 2025-10-20T01:38:55.627Z
 assigned: Rafa
-progress: 0
+progress: 1
 tags: []
-due: 2025-10-13T00:00:00.000Z
-started: 2025-10-12T00:00:00.000Z
-completed: 2025-10-13T00:00:00.000Z
+due: 2025-10-12T00:00:00.000Z
+started: 2025-10-11T00:00:00.000Z
+completed: 2025-10-18T00:00:00.000Z
 ---
 
 # Página de Inicio Pública (Landing Page QuickStock)
