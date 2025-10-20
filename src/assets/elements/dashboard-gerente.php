@@ -109,7 +109,7 @@
                         <i class="bi bi-file-earmark-text fs-5"></i>
                         <p class="texto-menu">Contabilidad y Reportes</p>
                     </summary>
-                    <div class="menu-submenu d-flex flex-column">
+                    <div class="menu-submenu d-flex flex-column ps-5">
                         <a href="#" class="ms-3">Reportes de Rotacion</a>
                         <a href="#" class="ms-3">Reporte de Ventas</a>
                         <a href="#" class="ms-3">Reporte de Inventario</a>
@@ -125,7 +125,7 @@
                         <i class="bi bi-currency-exchange fs-5"></i>
                         <p class="texto-menu">Monedas y Tasas</p>
                     </summary>
-                    <div class="menu-submenu d-flex flex-column">
+                    <div class="menu-submenu d-flex flex-column ps-5">
                         <a href="#" class="ms-3">Ver Tasas Activas</a>
                         <a href="#" class="ms-3">Gestionar Tasas</a>
                         <a href="#" class="ms-3">Historial de Tasas</a>
@@ -139,7 +139,7 @@
                         <i class="bi bi-person-lock fs-5"></i>
                         <p class="texto-menu">Seguridad y Accceso</p>
                     </summary>
-                    <div class="menu-submenu d-flex flex-column">
+                    <div class="menu-submenu d-flex flex-column ps-5">
                         <a href="#" class="ms-3">Gestion de Usuarios</a>
                         <a href="#" class="ms-3">Gestionar Roles y Permisos</a>
                     </div>
@@ -154,3 +154,7 @@
 
     </div>
 </div>
+
+<script>
+    
+</script>
