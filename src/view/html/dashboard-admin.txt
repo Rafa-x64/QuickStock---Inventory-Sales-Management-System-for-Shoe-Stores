@@ -1,0 +1,200 @@
+1. Inventario
+
+    Este módulo se centra en los productos.
+
+    Vista Principal (CRUD de Productos):
+
+        Qué es: Una tabla o cuadrícula con todos tus productos (Leer).
+        Columnas: Código de Barras, Nombre, Categoría, Stock Actual (Req: Visualización de cantidad), Precio (USD/Bs), Proveedor.
+
+        Acciones:
+            Botón "Crear Producto" (Lleva al formulario de creación).
+
+        Acciones por fila: Editar, Eliminar, Ver Historial (Req: Historial de movimientos).
+        Filtros: Poder buscar por nombre/código, filtrar por categoría y por "stock bajo".
+
+    Vista "Crear/Editar Producto" (Formulario):
+
+        Qué es: Un formulario para registrar o modificar un producto (Crear / Actualizar).
+
+        Campos:
+            Datos básicos: Nombre, Descripción, Categoría(s) (Req: múltiples referencias).
+
+        Identificadores: Código de Barras / SKU (Req: Códigos de barras).
+
+        Precios: Campos para Bs, USD, EUR (Req: Precios en múltiples monedas).
+
+        Inventario: Stock Inicial, Stock Mínimo (Req: Alertas de stock).
+
+        Asociaciones: Proveedor principal, Sucursal (Req: Asociación).
+
+    Vista "Gestión de Categorías" (CRUD Secundario):
+
+        Qué es: Una vista simple para crear, editar o eliminar las categorías de productos (Ej: "Bebidas", "Limpieza", "Snacks").
+
+2. Compras
+
+    Este módulo es para ingresar mercancía al inventario.
+
+    Vista Principal (Listado de Compras):
+
+        Qué es: Un historial de todas las compras hechas a proveedores (Leer).
+
+        Columnas: N° de Factura (Proveedor), Proveedor, Fecha, Monto Total, Estatus (Ej: "Recibida", "Pendiente").
+
+        Acciones:
+
+        Botón "Registrar Nueva Compra" (Lleva al formulario de ingreso).
+
+        Acción por fila: Ver Detalle.
+
+    Vista "Registrar Nueva Compra" (Formulario):
+
+        Qué es: El formulario para dar entrada al inventario (Crear).
+
+        Campos:
+
+        Encabezado: Seleccionar Proveedor, N° de Factura del proveedor, Fecha.
+
+        Detalle (interactivo): Un buscador de productos para añadir líneas a la compra.
+
+        Por cada línea: Producto, Cantidad (recibida), Costo (unidad y/bulto) (Req: Precios por unidad y por bulto).
+
+        Acción Final: Un botón "Confirmar y Cargar a Inventario" (Esto ejecuta el Req: Descuento automático... y reposiciones).
+
+3. Ventas
+
+    Este es el corazón operativo. Necesita dos vistas principales.
+
+    Vista "Punto de Venta (POS)" (Formulario Interactivo):
+
+        Qué es: La pantalla que usa el cajero para facturar (Crear Venta).
+
+        Secciones:
+
+        Búsqueda: Campo para escanear/buscar productos (valida stock al añadir) (Req: Validación de disponibilidad).
+
+        Cliente: Buscador de clientes por Cédula/RIF (Req: Gestión de Clientes).
+
+        Carrito: Lista de productos a facturar, con opciones para cambiar cantidad o aplicar descuentos (Req: Aplicación de descuentos).
+
+        Pago: Selección de métodos de pago (múltiples), cálculo de totales en Bs/USD (Req: Cálculo de precios... moneda seleccionada).
+
+        Acción Final: Botón "Facturar" (Genera la factura e imprime) (Req: Emisión automática de facturas).
+
+    Vista "Historial de Ventas/Facturas":
+
+        Qué es: Una tabla con todas las ventas realizadas (Leer).
+
+        Columnas: N° Factura, Cliente, Fecha, Monto Total, Empleado/Cajero.
+
+        Acciones: Ver detalle, Anular Factura, Re-imprimir.
+
+    Vista "Cierre de Caja":
+
+        Qué es: Una vista de proceso (Req: Gestión Financiera).
+
+        Visualización: Muestra los totales esperados por cada método de pago (Req: Cálculo de ingresos).
+
+        Acción: Un botón "Cerrar Caja" que registra el cierre del turno/día (Req: Cierre automático de caja).
+
+4. Clientes
+    Vista Principal (CRUD de Clientes):
+
+    Qué es: La base de datos de clientes (Leer).
+
+        Columnas: Cédula/RIF, Nombre, Teléfono, Correo.
+
+        Acciones: Crear Cliente, Editar, Eliminar, Ver Historial.
+
+        Filtros: Buscador por Cédula/RIF (Req: búsqueda por cédula/RIF).
+
+    Vista "Crear/Editar Cliente" (Formulario):
+
+        Qué es: Formulario para datos del cliente (Crear / Actualizar).
+
+        Campos: Cédula/RIF, Nombre, Dirección, Teléfono, Correo (Req: Registro).
+
+        Vista "Detalle de Cliente":
+
+        Qué es: Una vista que muestra la info del cliente y, muy importante, una pestaña o tabla con su Historial de Compras (Req: Historial de compras por cliente).
+
+5. Proveedores
+    Muy similar al módulo de Clientes.
+
+    Vista Principal (CRUD de Proveedores):
+
+        Qué es: La base de datos de proveedores (Leer).
+
+        Columnas: RIF, Nombre, País, Teléfono.
+
+        Acciones: Crear Proveedor, Editar, Eliminar, Ver Detalle.
+
+    Vista "Crear/Editar Proveedor" (Formulario):
+
+        Qué es: Formulario para datos del proveedor (Crear / Actualizar).
+
+        Campos: RIF, Nombre, País, Dirección, Contacto, Teléfonos (Req: Registro completo).
+
+    Vista "Detalle de Proveedor":
+
+        Qué es: Info del proveedor y una lista de los productos asociados a él y sus costos (Req: Margen de ganancia).
+
+6. Empleados
+    Vista Principal (CRUD de Empleados):
+
+        Qué es: Lista del personal (Leer).
+
+        Columnas: Cédula, Nombre, Cargo, Sucursal.
+
+        Acciones: Crear Empleado, Editar, Desactivar.
+
+    Vista "Crear/Editar Empleado" (Formulario):
+
+        Qué es: Formulario de datos del empleado (Crear / Actualizar).
+
+        Campos: Datos personales, Cargo, Sucursal.
+
+        Campos Clave: % de Comisión (Req: Asignación de comisiones), y un selector para su "Rol de Usuario" (Vinculado a Seguridad).
+
+7. Contabilidad y Reportes
+    Este módulo no es de CRUDs, es solo de Visualización (Leer). Debería ser un sub-menú.
+
+    Reporte de Rotación: Filtros de fecha -> Muestra "Top 10 Más Vendidos" y "Top 10 Menos Rotativos" (Req: Reporte de productos).
+
+    Reporte de Ventas: Filtros (fecha, empleado, sucursal) -> Muestra ventas detalladas (Req: Reporte de ventas por empleado).
+
+    Reporte de Inventario: Vista del inventario actual valorizado y una lista de "Alertas de Stock Mínimo".
+
+    Reporte Financiero: Un resumen de ingresos vs. egresos (compras) y conciliación de métodos de pago (Req: Reportes diarios de caja).
+
+    Reporte de Auditoría: Una tabla/log que muestra: Usuario, Acción, Fecha/Hora, Máquina (Req: Auditoría de usuarios).
+
+8. Seguridad y Acceso
+
+    Este módulo es para gestionar quién puede hacer qué.
+
+    Vista "Gestión de Usuarios" (CRUD):
+
+        Qué es: Lista de las cuentas para entrar al sistema (Leer).
+
+        Columnas: Nombre de Usuario, Empleado Asociado, Rol.
+
+        Acciones: Crear Usuario, Editar (Ej: Resetear clave), Desactivar.
+
+    Formulario (Crear/Editar): Campo de usuario, clave, y un selector para vincularlo a un Empleado y asignarle un Rol.
+
+        Vista "Gestión de Roles" (CRUD):
+
+        Qué es: Lista de los perfiles (Ej: "Administrador", "Cajero", "Gerente") (Leer).
+
+        Acciones: Crear Rol, Editar Permisos.
+
+    Formulario (Editar Rol): Una lista de checkboxes con todos los permisos del sistema (Ej: "Puede eliminar facturas", "Puede ver reportes financieros", "Puede editar productos") (Req: Validación de roles).
+
+(Extra) Configuración General
+Probablemente te falte un ítem en el menú llamado "Configuración".
+
+Vista "Datos de la Empresa": Formulario con el RIF, Nombre, Dirección, etc., para que aparezcan en las facturas.
+
+Vista "Monedas y Tasas": Un widget que muestre la tasa BCV actual (Req: Integración BCV) y un campo para ponerla manual si la API falla.
