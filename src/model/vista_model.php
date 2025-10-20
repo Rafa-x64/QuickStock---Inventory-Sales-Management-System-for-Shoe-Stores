@@ -6,7 +6,7 @@ class vista_model
     protected static function obtenerVista($pagina) //recive una variable pagina
     {
         // ruta esperada del archivo de vista
-        $ruta = "html/" . $pagina . "-view.php";
+        $ruta = "view/html/" . $pagina . "-view.php";
 
         // verifica si el archivo existe físicamente en el sistema
         if (!file_exists($ruta)) { // si no existe el archivo entonces...

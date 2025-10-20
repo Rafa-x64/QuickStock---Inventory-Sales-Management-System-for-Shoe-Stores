@@ -10,6 +10,33 @@
     color: var(--blue-Quick) !important;
 }
 
+.Quick-blue-btn {
+    border: 2px solid var(--font-color-light);
+}
+
+.Quick-blue-btn:hover {
+    background-color: var(--blue-Quick);
+}
+
+.Quick-red-btn {
+    border: 2px solid var(--red-Quick);
+}
+
+.Quick-red-btn:hover {
+    background-color: var(--red-Quick);
+}
+
+.Quick-white-btn {
+    color: var(--font-color-light);
+    border: 2px solid var(--font-color-light);
+    transition: color 0.2s ease;
+}
+
+.Quick-white-btn:hover {
+    color: var(--red-Quick);
+    background-color: var(--font-color-light);
+}
+
 @media(prefers-color-scheme: light) {
     :root {
         --default-background-color: #fdfdfc;
@@ -36,7 +63,7 @@
     }
 
     .Quick-title {
-        color: var(--font-color-ligth);
+        color: var(--font-color-ligth) !important;
         font-family: 'Oswald', sans-serif;
         font-weight: normal;
     }
@@ -52,6 +79,34 @@
 
     .p-subtitle:hover {
         color: var(--default-font-color);
+    }
+
+    .Quick-custom-input {
+        background-color: var(--red-Quick);
+        border: none;
+        border-bottom: 2px solid var(--font-color-light);
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+        border-radius: 0px;
+        transition: border-bottom 0.2 ease;
+        transition: border-radius 0.2 ease;
+
+    }
+
+    .Quick-custom-input:focus {
+        background-color: rgba(69, 109, 134, 0.5);
+        border: none;
+        border-radius: 0.5rem;
+        border-bottom: none;
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+    }
+
+    a {
+        color: var(--default-font-color);
+        text-decoration: none !important;
     }
 }
 
@@ -94,6 +149,34 @@
 
     .p-subtitle:hover {
         color: var(--font-color-medium);
+    }
+
+    .Quick-custom-input {
+        background-color: var(--blue-Quick);
+        border: none;
+        border-bottom: 2px solid var(--font-color-dark);
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+        border-radius: 0px;
+        transition: border-bottom 0.2 ease;
+        transition: border-radius 0.2 ease;
+
+    }
+
+    .Quick-custom-input:focus {
+        background-color: rgba(69, 109, 134, 0.5);
+        border: none;
+        border-radius: 0.5rem;
+        border-bottom: none;
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+    }
+
+    a {
+        color: var(--font-color-light);
+        text-decoration: none !important;
     }
 }
 
@@ -145,6 +228,8 @@
         /* 19px */
     }
 }
+
+/*custom html elements*/
 
 /*custom bootstrap clases*/
 .row {
