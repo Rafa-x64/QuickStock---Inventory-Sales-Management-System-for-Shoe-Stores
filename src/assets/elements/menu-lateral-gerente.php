@@ -54,7 +54,7 @@
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
                                 <a href="listado-compras" class="ms-3">Listado de Compras</a>
-                                <a href="#" class="ms-3">Registrar Nueva Compra</a>
+                                <a href="añadir-compras" class="ms-3">Registrar Nueva Compra</a>
                             </div>
                         </details>
                     </div>
@@ -219,7 +219,7 @@
                     <div class="menu-submenu d-flex flex-column ps-5">
                         <a href="inventario-ver-productos" class="ms-3">Ver Productos</a>
                         <a href="inventario-añadir-producto" class="ms-3">Añadir Productos</a>
-                        <a href="#" class="ms-3">Gestionar Categorias</a>
+                        <a href="inventario-gestionar-categorias" class="ms-3">Gestionar Categorias</a>
                     </div>
                 </details>
             </div>
