@@ -1,0 +1,7 @@
+</body>
+
+<!--cargar scripts-->
+<script src="view/js/menu-lateral-linkanimation.js"></script>
+<script src="view/js/registro-usuario.js"></script>
+<script src="view/js/inicio-sesion-usuario.js"></script>
+</html>

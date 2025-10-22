@@ -1,0 +1,56 @@
+.menu-lateral {
+    background-color: var(--blue-Quick);
+    font-family: 'Oswald', sans-serif;
+    font-style: normal;
+    font-weight: normal !important;
+}
+
+.custom-title {
+    color: var(--red-Quick);
+}
+
+.menu-lateral-custom-img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.menu-lateral-custom-link:hover {
+    color: var(--red-Quick);
+}
+
+.menu-lateral-custom-link.active {
+    color: var(--red-Quick) !important;
+    /* Fuerza el color de resalte */
+}
+
+@media(prefers-color-scheme: light) {
+    .menu-lateral-custom-link {
+        color: var(--font-color-light);
+        transition: color 0.2s ease;
+    }
+
+    .menu-lateral-custom-icon {
+        color: var(--font-color-medium);
+        transition: color 0.2s ease;
+    }
+
+    .menu-lateral-custom-icon:hover {
+        color: var(--font-color-light);
+    }
+}
+
+@media(prefers-color-scheme: dark) {
+    .menu-lateral-custom-link {
+        color: var(--font-color-medium);
+        transition: color 0.2s ease;
+    }
+
+    .menu-lateral-custom-icon {
+        color: var(--font-color-dark);
+        transition: color 0.2s ease;
+    }
+
+    .menu-lateral-custom-icon:hover {
+        color: var(--font-color-light);
+    }
+}
