@@ -1,16 +1,3 @@
-<!--<style>
-    [class^="col"] {
-        border: 2px solid blue;
-    }
-
-    [class^="row"] {
-        border: 2px solid red;
-    }
-
-    [class^="container"] {
-        border: 2px solid green;
-    }
-</style>-->
 <div class="container-fluid" id="mainContent"><!--para hacer la vista responsive y poder meterle el dashboard-->
     <div class="row d-flex flex-column justify-content-center align-items-center"><!--importante poner-->
         <div class="col-12 p-3 p-lg-5"><!--importante añadir-->
