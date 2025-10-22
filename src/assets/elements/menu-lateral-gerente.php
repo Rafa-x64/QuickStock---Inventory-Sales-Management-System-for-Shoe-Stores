@@ -39,8 +39,8 @@
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
                                 <a href="inventario-ver-productos" class="ms-3">Ver Productos</a>
-                                <a href="#" class="ms-3">Gestionar Producto</a>
-                                <a href="#" class="ms-3">Gestionar Categorias</a>
+                                <a href="inventario-añadir-producto" class="ms-3">Añadir Producto</a>
+                                <a href="inventario-gestionar-categorias" class="ms-3">Gestionar Categorias</a>
                             </div>
                         </details>
                     </div>
