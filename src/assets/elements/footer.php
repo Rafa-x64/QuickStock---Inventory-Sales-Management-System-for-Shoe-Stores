@@ -16,7 +16,7 @@
                     <div class="col-12 d-flex flex-column justify-content-center align-items-start pt-3">
                         <h6 class="text-uppercase">Envianos un comentario</h6>
                         <form id="footer-input" class="p-0 m-0">
-                            <input type="text" id="" class="form-controller w-100 footer-custom-input">
+                            <input type="text" id="" class="form-controller w-100 Quick-input">
                             <button type="submit" class="btn btn-outline-danger w-100 my-2">Enviar</button>
                         </form>
                     </div>

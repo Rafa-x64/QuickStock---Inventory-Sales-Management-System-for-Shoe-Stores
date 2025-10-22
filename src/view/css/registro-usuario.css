@@ -90,14 +90,14 @@
 .registro-usuario-right .registro-usuario-custom-input {
     background-color: var(--blue-Quick);
     border: none;
-    border-bottom: 2px solid var(--font-color-dark);
+    border-bottom: 2px solid var(--font-color-light);
     outline: none;
     box-shadow: none;
     color: inherit;
     border-radius: 0px;
     transition: border-bottom 0.2 ease;
     transition: border-radius 0.2 ease;
-    
+
 }
 
 .registro-usuario-right .registro-usuario-custom-input:focus {

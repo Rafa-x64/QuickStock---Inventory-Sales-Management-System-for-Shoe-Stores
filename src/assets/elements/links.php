@@ -18,6 +18,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <!--cargar chart.js-->
+    <script src="https://localhost/DEV/PHP/QuickStock/vendor/chart.js-4.5.1/package/dist/chart.umd.min.js"></script>
     <!--estilos css-->
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/index.css" ?>">
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/404.css" ?>">

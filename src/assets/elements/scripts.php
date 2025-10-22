@@ -6,4 +6,6 @@
 <script src="view/js/inicio-sesion-usuario.js"></script>
 <script src="view/js/dashboard-gerente.js"></script>
 
+<!--carcar Chart.js-->
+
 </html>
