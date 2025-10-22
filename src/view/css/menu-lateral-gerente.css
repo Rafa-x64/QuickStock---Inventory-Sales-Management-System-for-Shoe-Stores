@@ -1,3 +1,39 @@
+/*para el menu en dispociones medianas y pequeñas*/
+@media(max-width: 768px) and (min-width: 425px) {
+    .offcanvas-start {
+        max-width: 30.625rem;
+    }
+}
+
+@media(max-width: 425px) {
+    .offcanvas-start {
+        max-width: 15.625rem;
+    }
+}
+
+@media(prefers-color-scheme: dark) {
+    .menu-sm-lateral-gerente {
+        color: var(--font-color-light);
+        background-color: var(--blue-Quick);
+    }
+
+    .menu-lateral-gerente ul{
+        background-color: var(--blue-Quick);
+    }
+}
+
+@media(prefers-color-scheme: light) {
+    .menu-sm-lateral-gerente {
+        color: var(--font-color-light);
+        background-color: var(--red-Quick);
+    }
+
+    .menu-lateral-gerente ul {
+        background-color: var(--red-Quick);
+    }
+}
+
+/*para el menu en disposiciones grandes*/
 .menu-lateral-gerente {
     box-sizing: border-box;
     transition: width 0.3s ease;
@@ -29,13 +65,47 @@
     display: none;
 }
 
+.menu-details-link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    list-style: none;
+    justify-content: center !important;
+    transition: padding-left 0.3s ease,
+        color 0.3s ease,
+        border-top-left-radius 0.3s ease,
+        border-bottom-left-radius 0.3s ease;
+}
+
+.menu-details-link .texto-menu {
+    opacity: 0;
+    width: 0;
+    transition: opacity 0.3s ease, width 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+}
+
+.menu-lateral-gerente.expanded .menu-details-link {
+    padding-left: 3rem;
+    justify-content: flex-start !important;
+}
+
+.menu-lateral-gerente.expanded .menu-details-link .texto-menu {
+    opacity: 1;
+    width: auto;
+    margin-left: 0.75rem !important;
+}
+
 .menu-submenu {
     padding-top: 5px;
     padding-bottom: 5px;
-    /* Asegúrate de que no haya padding-left forzado aquí */
 }
 
-/* Estilos para los enlaces dentro del submenú */
 .menu-submenu a {
     color: inherit;
     text-decoration: none;
@@ -43,7 +113,6 @@
     white-space: nowrap;
     overflow: hidden;
     display: block;
-    /* Ajusta el padding vertical si lo necesitas */
     padding: 4px 0;
     transition: background-color 0.3s ease, border-top-left-radius 0.3s ease, border-bottom-left-radius 0.3s ease;
 }
@@ -117,6 +186,14 @@
         border-bottom-left-radius: 1rem;
     }
 
+    .menu-lateral-gerente.expanded .menu-details-link:hover {
+        color: var(--red-Quick);
+        background-color: var(--default-background-color);
+        padding-left: 4rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+
     .menu-items-scrollable {
         flex-grow: 1;
         flex-basis: 0;
@@ -136,6 +213,14 @@
     }
 
     .menu-lateral-gerente.expanded .menu-details summary:hover {
+        color: var(--font-color-light);
+        background-color: var(--default-background-color);
+        padding-left: 4rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+
+    .menu-lateral-gerente.expanded .menu-details-link:hover {
         color: var(--font-color-light);
         background-color: var(--default-background-color);
         padding-left: 4rem;

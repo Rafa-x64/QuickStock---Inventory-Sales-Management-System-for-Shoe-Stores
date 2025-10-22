@@ -2,7 +2,7 @@
 
 session_start();
 
-$dashboard = ["dashboard-gerente-view.php"];
+$dashboard = ["dashboard-gerente-view.php", "inventario-ver-productos-view.php", "inventario-añadir-producto-view.php", "listado-compras-view.php"];
 $excepciones = ["404-view.php", "inicio-sesion-usuario-view.php", "registro-usuario-view.php"];
 
 // siempre se incluyen los enlaces al inicio
@@ -25,9 +25,8 @@ if ($vista === "inicio-sesion-usuario-view.php" || $vista === "registro-usuario-
     include_once("assets/elements/scripts.php"); // scripts JS
 }
 
-//is es dashboard admin
 if (in_array($vista, $dashboard)) {
-    include_once("assets/elements/dashboard-gerente.php"); // encabezado
+    include_once("assets/elements/menu-lateral-gerente.php"); // encabezado
     include_once("view/html/" . $vista); // contenido principal
     include_once("assets/elements/scripts.php"); // scripts JS
 }

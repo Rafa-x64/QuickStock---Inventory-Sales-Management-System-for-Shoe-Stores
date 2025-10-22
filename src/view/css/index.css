@@ -26,15 +26,32 @@
     background-color: var(--red-Quick);
 }
 
+.Quick-input:focus {
+    background-color: var(--default-background-color);
+    border: none;
+    border-bottom: none;
+    border-radius: 0.5rem;
+    outline: none;
+    box-shadow: none;
+    color: inherit;
+}
+
+.Quick-widget {
+    background-color: var(--backgroun-color-medium);
+    border: 1px solid transparent;
+    border-radius: 1rem;
+}
+
 @media(prefers-color-scheme: light) {
     :root {
         --default-background-color: #fdfdfc;
+        --backgroun-color-medium: #e0e0dc;
         --default-font-color: #000000;
         --font-color-light: #ffffff;
         --font-color-medium: #9797a4;
         --font-color-dark: #4c4c58;
         --red-Quick: #c62938;
-        --ligth-red-Quick: #f15d66;
+        --ligth-red-Quick: #e53142;
         --blue-Quick: #263f4f;
         --ligth-blue-Quick: #3e657b;
     }
@@ -71,7 +88,28 @@
         color: var(--default-font-color);
     }
 
-    .Quick-custom-input {
+    .Quick-input {
+        background-color: var(--backgroun-color-medium);
+        border: none;
+        border-bottom: 2px solid var(--font-color-dark);
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+        border-radius: 0px;
+        transition: border-bottom 0.2 ease, border-radius 0.2 ease;
+    }
+
+    .Quick-input:focus {
+        background-color: var(--backgroun-color-medium);
+        border: none;
+        border-radius: 0.5rem;
+        border-bottom: none;
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+    }
+
+    .Quick-form-input {
         background-color: var(--red-Quick);
         border: none;
         border-bottom: 2px solid var(--font-color-light);
@@ -81,7 +119,52 @@
         border-radius: 0px;
         transition: border-bottom 0.2 ease;
         transition: border-radius 0.2 ease;
+    }
 
+    .Quick-form-input:focus {
+        background-color: rgba(156, 30, 42, 0.5);
+        border: none;
+        border-radius: 0.5rem;
+        border-bottom: none;
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+    }
+
+    .Quick-select {
+        /* --- Estilos Base replicando .Quick-form-input --- */
+        background-color: var(--red-Quick);
+        border: none;
+        border-bottom: 2px solid var(--font-color-light);
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+        border-radius: 0px;
+
+        /* Unificar las transiciones en una sola línea */
+        transition: border-bottom 0.2s ease, border-radius 0.2s ease, background-color 0.2s ease;
+
+        /* Propiedades necesarias para Select (para eliminar la apariencia nativa) */
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        /* Añadir propiedades de tamaño para consistencia */
+        width: 100%;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .Quick-select:focus {
+        /* --- Estilos de Enfoque replicando .Quick-form-input:focus --- */
+        background-color: rgba(156, 30, 42, 0.5);
+        border: none;
+        border-radius: 0.5rem;
+        border-bottom: none;
+        /* Elimina el borde inferior al enfocar */
+        outline: none;
+        box-shadow: none;
+        color: inherit;
     }
 
     .Quick-custom-input:focus {
@@ -119,11 +202,59 @@
         color: var(--default-font-color);
         text-decoration: none !important;
     }
+
+    .Quick-form {
+        background-color: var(--red-Quick);
+        color: var(--font-color-light)
+    }
+
+    .Quick-table {
+        border-collapse: collapse;
+        margin-bottom: 0px;
+        width: 100%;
+    }
+
+    .Quick-table thead {
+        background-color: var(--ligth-red-Quick);
+        color: var(--font-color-light);
+        text-transform: uppercase;
+    }
+
+    .Quick-table thead th:nth-child(1),
+    .Quick-table thead th:nth-child(2) {
+        border-right: 2px solid var(--backgroun-color-medium);
+    }
+
+    .Quick-table tbody tr td {
+        color: var(--default-font-color);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .Quick-table tbody tr:nth-child(odd) {
+        background-color: var(--backgroun-color-medium) !important;
+    }
+
+    .Quick-table tbody tr:nth-child(even) {
+        background-color: var(--default-background-color) !important;
+    }
+
+    .Quick-table tbody tr td:nth-child(:last-child) {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .Quick-table tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+    }
+
 }
 
 @media(prefers-color-scheme: dark) {
     :root {
         --default-background-color: #1b1c1d;
+        --backgroun-color-medium: #2c2e2f;
         --default-font-color: #dedfdc;
         --font-color-light: #ffffff;
         --font-color-medium: #d9dee3;
@@ -210,6 +341,131 @@
     .Quick-dark-link {
         color: var(--font-color-dark);
         text-decoration: none !important;
+    }
+
+    .Quick-input {
+        background-color: var(--default-background-color);
+        border: none;
+        border-bottom: 2px solid var(--font-color-light);
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+        border-radius: 0px;
+        transition: border-bottom 0.2 ease, border-radius 0.2 ease;
+    }
+
+    .Quick-input:focus {
+        background-color: var(--backgroun-color-medium);
+        border: none;
+        border-radius: 0.5rem;
+        border-bottom: none;
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+    }
+
+
+
+    .Quick-form-input {
+        background-color: var(--blue-Quick);
+        border: none;
+        border-bottom: 2px solid var(--font-color-dark);
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+        border-radius: 0px;
+        transition: border-bottom 0.2 ease;
+        transition: border-radius 0.2 ease;
+    }
+
+    .Quick-form-input:focus {
+        background-color: rgba(69, 109, 134, 0.5);
+        border: none;
+        border-radius: 0.5rem;
+        border-bottom: none;
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+    }
+
+    .Quick-select {
+        /* --- Estilos Base replicando .Quick-form-input --- */
+        background-color: var(--blue-Quick);
+        border: none;
+        border-bottom: 2px solid var(--font-color-dark);
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+        border-radius: 0px;
+
+        /* Unificar las transiciones en una sola línea */
+        transition: border-bottom 0.2s ease, border-radius 0.2s ease, background-color 0.2s ease;
+
+        /* Propiedades necesarias para Select (para eliminar la apariencia nativa) */
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        /* Añadir propiedades de tamaño para consistencia */
+        width: 100%;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .Quick-select:focus {
+        /* --- Estilos de Enfoque replicando .Quick-form-input:focus --- */
+        background-color: rgba(69, 109, 134, 0.5);
+        border: none;
+        border-radius: 0.5rem;
+        border-bottom: none;
+        /* Elimina el borde inferior al enfocar */
+        outline: none;
+        box-shadow: none;
+        color: inherit;
+    }
+
+    .Quick-form {
+        background-color: var(--blue-Quick);
+    }
+
+    .Quick-table {
+        border-collapse: collapse;
+        margin-bottom: 0px;
+        width: 95%;
+    }
+
+    .Quick-table thead {
+        background-color: var(--ligth-blue-Quick);
+        color: var(--font-color-light);
+        text-transform: uppercase;
+    }
+
+    .Quick-table thead th:not(:last-child) {
+        border-right: 2px solid var(--font-color-light);
+    }
+
+    .Quick-table tbody tr td {
+        color: var(--font-color-light);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .Quick-table tbody tr:nth-child(even) {
+        background-color: var(--backgroun-color-medium) !important;
+    }
+
+    .Quick-table tbody tr:nth-child(odd) {
+        background-color: var(--default-background-color) !important;
+    }
+
+    .Quick-table tbody tr td:last-child {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .Quick-table tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        cursor: pointer;
     }
 }
 

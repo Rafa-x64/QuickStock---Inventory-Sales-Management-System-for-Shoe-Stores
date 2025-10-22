@@ -16,19 +16,12 @@
         outline: none;
         box-shadow: none;
         color: inherit;
-        transition: padding 0.2s ease;
-        transition: border-bottom 0.2 ease;
+        transition: padding 0.2s ease, border-bottom 0.2 ease;
         /* hereda el color del contenedor */
     }
 
     .footer-custom-input:focus {
-        background-color: var(--default-background-color);
-        border: none;
-        border-bottom: none;
-        padding: 0.5rem;
-        outline: none;
-        box-shadow: none;
-        color: inherit;
+        
     }
 }
 
@@ -45,16 +38,14 @@
         outline: none;
         box-shadow: none;
         color: inherit;
-        transition: padding 0.2s ease;
-        transition: border-bottom 0.2 ease;
-        /* hereda el color del contenedor */
+        transition: border-radius 0.2s ease, border-bottom 0.2 ease;
     }
 
     .footer-custom-input:focus {
         background-color: var(--default-background-color);
         border: none;
+        border-radius: 0.5rem;
         border-bottom: none;
-        padding: 0.5rem;
         outline: none;
         box-shadow: none;
         color: inherit;
