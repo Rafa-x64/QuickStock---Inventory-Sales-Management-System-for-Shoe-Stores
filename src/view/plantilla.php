@@ -2,7 +2,7 @@
 
 session_start();
 
-$dashboard = ["dashboard-gerente-view.php", "inventario-ver-productos-view.php", "inventario-añadir-producto-view.php", "inventario-gestionar-categorias-view.php", "listado-compras-view.php"];
+$dashboard = ["dashboard-gerente-view.php", "inventario-ver-productos-view.php", "inventario-añadir-producto-view.php", "inventario-gestionar-categorias-view.php", "listado-compras-view.php", "añadir-compras-view.php"];
 $excepciones = ["404-view.php", "inicio-sesion-usuario-view.php", "registro-usuario-view.php"];
 
 // siempre se incluyen los enlaces al inicio
