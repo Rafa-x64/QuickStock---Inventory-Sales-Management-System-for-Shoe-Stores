@@ -1,0 +1,11 @@
+.wizard-step {
+    display: none;
+}
+
+.wizard-step[data-step="1"] {
+    display: block;
+}
+
+@media(prefers-color-scheme: light) {}
+
+@media(prefers-color-scheme: dark) {}

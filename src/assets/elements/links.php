@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/menu-lateral-gerente.css" ?>">
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/dashboard-gerente.css" ?>">
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/listado-compras.css" ?>">
+    <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/punto-venta.css" ?>">
 </head>
 
 <body>
