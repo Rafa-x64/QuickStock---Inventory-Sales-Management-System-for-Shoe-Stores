@@ -67,9 +67,9 @@
                                 <p class="texto-menu m-0 ms-2">Ventas</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="#" class="ms-3">Punto de Venta</a>
-                                <a href="#" class="ms-3">Historial de Facturas</a>
-                                <a href="#" class="ms-3">Cierre de Caja</a>
+                                <a href="punto-venta" class="ms-3">Punto de Venta</a>
+                                <a href="historial-facturas" class="ms-3">Historial de Facturas</a>
+                                <a href="cierre-caja" class="ms-3">Cierre de Caja</a>
                             </div>
                         </details>
                     </div>
@@ -232,7 +232,7 @@
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
                         <a href="listado-compras" class="ms-3">Listado de Compras</a>
-                        <a href="#" class="ms-3">Registrar Nueva Compra</a>
+                        <a href="añadir-compras" class="ms-3">Registrar Nueva Compra</a>
                     </div>
                 </details>
             </div>
@@ -244,9 +244,9 @@
                         <p class="texto-menu">Ventas</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="#" class="ms-3">Punto de Venta</a>
-                        <a href="#" class="ms-3">Historial de Facturas</a>
-                        <a href="#" class="ms-3">Cierre de Caja</a>
+                        <a href="punto-venta" class="ms-3">Punto de Venta</a>
+                        <a href="historial-facturas" class="ms-3">Historial de Facturas</a>
+                        <a href="cierre-caja" class="ms-3">Cierre de Caja</a>
                     </div>
                 </details>
             </div>

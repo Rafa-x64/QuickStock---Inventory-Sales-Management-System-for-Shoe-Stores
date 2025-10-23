@@ -220,8 +220,7 @@
         text-transform: uppercase;
     }
 
-    .Quick-table thead th:nth-child(1),
-    .Quick-table thead th:nth-child(2) {
+    .Quick-table thead th:not(:last-child) {
         border-right: 2px solid var(--backgroun-color-medium);
     }
 
