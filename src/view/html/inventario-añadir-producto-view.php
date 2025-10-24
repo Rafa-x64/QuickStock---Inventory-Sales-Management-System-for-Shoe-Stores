@@ -75,7 +75,7 @@
                                             <button type="reset" class="btn btn-danger">Limpiar</button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> 
                             </div>
                         </form>
                     </div>

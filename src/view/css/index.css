@@ -26,16 +26,6 @@
     background-color: var(--red-Quick);
 }
 
-.Quick-input:focus {
-    background-color: var(--default-background-color);
-    border: none;
-    border-bottom: none;
-    border-radius: 0.5rem;
-    outline: none;
-    box-shadow: none;
-    color: inherit;
-}
-
 .Quick-widget {
     background-color: var(--backgroun-color-medium);
     border: 1px solid transparent;
@@ -100,7 +90,7 @@
     }
 
     .Quick-input:focus {
-        background-color: var(--backgroun-color-medium);
+        background-color: var(--default-background-color);
         border: none;
         border-radius: 0.5rem;
         border-bottom: none;
@@ -343,7 +333,7 @@
     }
 
     .Quick-input {
-        background-color: var(--default-background-color);
+        background-color: var(--backgroun-color-medium);
         border: none;
         border-bottom: 2px solid var(--font-color-light);
         outline: none;
@@ -354,7 +344,7 @@
     }
 
     .Quick-input:focus {
-        background-color: var(--backgroun-color-medium);
+        background-color: var(--default-background-color);
         border: none;
         border-radius: 0.5rem;
         border-bottom: none;

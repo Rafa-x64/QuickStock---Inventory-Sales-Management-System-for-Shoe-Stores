@@ -82,8 +82,8 @@
                                 <p class="texto-menu m-0 ms-2">Clientes</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="#" class="ms-3">Ver listado de Clientes</a>
-                                <a href="#" class="ms-3">Gestionar Clientes</a>
+                                <a href="clientes-ver-listado-clientes" class="ms-3">Ver listado de Clientes</a>
+                                <a href="clientes-gestionar-clientes" class="ms-3">Gestionar Clientes</a>
                             </div>
                         </details>
                     </div>
@@ -96,9 +96,9 @@
                                 <p class="texto-menu m-0 ms-2">Proveedores</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="#" class="ms-3">Ver listado de Proveedores</a>
-                                <a href="#" class="ms-3">Gestionar Proveedores</a>
-                                <a href="#" class="ms-3">Detalles Proveedor</a>
+                                <a href="proveedores-lista" class="ms-3">Ver listado de Proveedores</a>
+                                <a href="proveedores-gestionar-proveedores-view.php" class="ms-3">Añadir Proveedor</a>
+                                <a href="proveedores-detalles" class="ms-3">Detalles Proveedor</a>
                             </div>
                         </details>
                     </div>
@@ -111,8 +111,8 @@
                                 <p class="texto-menu m-0 ms-2">Empleados</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="#" class="ms-3">Listado de Empleados</a>
-                                <a href="#" class="ms-3">Gestionar Empleados</a>
+                                <a href="empleados-lista-empleados" class="ms-3">Listado de Empleados</a>
+                                <a href="empleado-gestionar-empleado" class="ms-3">Gestionar Empleados</a>
                             </div>
                         </details>
                     </div>
@@ -258,8 +258,8 @@
                         <p class="texto-menu">Clientes</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="#" class="ms-3">Ver listado de Clientes</a>
-                        <a href="#" class="ms-3">Gestionar Clientes</a>
+                        <a href="clientes-ver-listado-clientes" class="ms-3">Ver listado de Clientes</a>
+                        <a href="clientes-gestionar-clientes" class="ms-3">Gestionar Clientes</a>
                     </div>
                 </details>
             </div>
@@ -271,9 +271,9 @@
                         <p class="texto-menu">Proveedores</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="#" class="ms-3">Ver listado de Proveedores</a>
-                        <a href="#" class="ms-3">Gestionar Proveedores</a>
-                        <a href="#" class="ms-3">Detalles Proveedor</a>
+                        <a href="proveedores-lista" class="ms-3">Ver listado de Proveedores</a>
+                        <a href="proveedores-gestionar-proveedores" class="ms-3">Añadir Proveedor</a>
+                        <a href="proveedores-detalles" class="ms-3">Detalles Proveedor</a>
                     </div>
                 </details>
             </div>
@@ -285,8 +285,8 @@
                         <p class="texto-menu">Empleados</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="#" class="ms-3">Listado de Empleados</a>
-                        <a href="#" class="ms-3">Gestionar Empleados</a>
+                        <a href="empleados-lista-empleados" class="ms-3">Listado de Empleados</a>
+                        <a href="empleado-gestionar-empleado" class="ms-3">Añadir Empleado</a>
                     </div>
                 </details>
             </div>
