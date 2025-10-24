@@ -6,6 +6,38 @@
     display: block;
 }
 
-@media(prefers-color-scheme: light) {}
+@media(prefers-color-scheme: light) {
+    .nav-pills .nav-link.active {
+        background-color: var(--red-Quick);
+    }
 
-@media(prefers-color-scheme: dark) {}
+    .nav-pills .nav-link.disabled {
+        background-color: white;
+    }
+
+    .nav-link {
+        color: var(--red-Quick);
+    }
+
+    .progress-bar {
+        background-color: var(--red-Quick);
+    }
+}
+
+@media(prefers-color-scheme: dark) {
+    .nav-pills .nav-link.active {
+        background-color: var(--blue-Quick);
+    }
+
+    .nav-pills .nav-link.disabled {
+        background-color: white;
+    }
+
+    .nav-link {
+        color: var(--blue-Quick);
+    }
+
+    .progress-bar {
+        background-color: var(--blue-Quick);
+    }
+}

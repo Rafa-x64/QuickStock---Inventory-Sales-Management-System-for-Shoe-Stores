@@ -128,3 +128,5 @@
         </div>
     </div>
 </div>
+
+<script src="view/js/registro-usuario.js"></script>
