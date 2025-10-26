@@ -1,9 +1,21 @@
-# 💡 Proyecto Base MVC en PHP
+# Sistema de Gestión de Inventario en PHP (MVC)
 
-Aplicación web modular construida bajo el patrón **Modelo-Vista-Controlador** (**MVC**) para facilitar el desarrollo escalable, seguro y mantenible de interfaces dinámicas en PHP.
+Aplicación web modular desarrollada bajo el patrón **Modelo-Vista-Controlador (MVC)**, diseñada para facilitar la administración eficiente de inventario en entornos escalables y mantenibles. Este sistema permite separar la lógica de negocio, la presentación y el control de flujo, garantizando una arquitectura clara, reutilizable y segura.
 
 ---
-## 📝 Tareas
+
+## Características principales
+
+- **Arquitectura modular** con controladores, modelos y vistas independientes
+- **Carga dinámica de vistas** mediante rutas limpias y control centralizado
+- **Sistema de plantillas** con includes reutilizables para encabezado, pie y scripts
+- **Validación de rutas** con manejo automático de errores (`404-view.php`)
+- **Estilo responsivo y adaptable** con Bootstrap 5 y Offcanvas para navegación lateral
+- **Control de inventario en tiempo real**, con vistas como `inicio`, `registro`, `inicio-sesion`
+- **Sistema preparado para escalabilidad**, ideal para negocios pequeños o medianos
+
+---
+## Tareas
 
 Para ver la **Estructura Completa de Tareas y Pendientes**, visita nuestro [Tablero Kanban aquí ➡️](.kanbn/index.md).
 
@@ -14,11 +26,11 @@ Para ver la **Estructura Completa de Tareas y Pendientes**, visita nuestro [Tabl
 
 Este repositorio corresponde al sistema QuickStock, una aplicación web modular desarrollada en PHP bajo el patrón MVC. Su estructura está diseñada para facilitar la mantenibilidad, escalabilidad y claridad técnica en entornos de desarrollo profesional.
 
-Para conocer el flujo de trabajo, convenciones internas y recomendaciones de implementación, consulta el [manual del desarrollador](/src/docs/manual_desarrollador.md).
+Para conocer el flujo de trabajo, convenciones internas y recomendaciones de implementación, consulta el [manual del desarrollador ➡️](/src/docs/manual_desarrollador.md).
 
 ---
 
-## 🛠️ Tecnologías Principales
+## Tecnologías Principales
 
 El proyecto está construido con un stack moderno y enfocado en la seguridad y la modularidad.
 
@@ -51,10 +63,10 @@ cd DEV/PHP
 Clona el proyecto en la carpeta creada:
 
 ```bash
-git clone https://LINK_DEL_REPOSITORIO
-cd nombre-del-repositorio
+git clone https://github.com/Rafa-x64/QuickStock---Inventory-Sales-Management-System-for-Shoe-Stores.git
+cd QuickStock
 git init
-git remote add origin https://LINK_DEL_REPOSITORIO
+git remote add origin https://github.com/Rafa-x64/QuickStock---Inventory-Sales-Management-System-for-Shoe-Stores.git
 git switch master
 git pull origin master
 ```
@@ -70,7 +82,7 @@ composer install
 ### 4. Verificar configuración de Apache
 Asegúrate de que el módulo mod_rewrite esté habilitado y que el archivo .htaccess esté siendo interpretado correctamente. Esto es necesario para la reescritura de URLs.
 
-### 5. Configurar base de datos (PostgreSQL)
+### 5. Configurar base de datos (MySQL, phpMyAdmin)
 
 Importa el archivo src/config/quickstock.sql en tu gestor de base de datos (por ejemplo, phpMyAdmin) y ajusta las credenciales en src/config/SERVER.php según tu entorno local.
 
@@ -92,7 +104,7 @@ Edita el archivo src/config/SERVER.php para adaptar la conexión a PostgreSQL ut
 define('DB_CONNECTION', pg_connect("host=localhost port=5432 dbname=nombre_base_datos user=tu_usuario password=tu_clave"));
 ```
 
-> 💡 Por lo general el usuario por defecto es postgres y en caso de no haber configurado una contraseña se omite el campo 'password=' del DSN
+> 💡 Por lo general el usuario por defecto es 'postgres' y en caso de no haber configurado una contraseña se omite el campo 'password=' del DSN
 
 #### c. Validar compatibilidad
 Verifica que los modelos y funciones que interactúan con la base de datos estén adaptados para PostgreSQL. Si originalmente fueron escritos para MySQL (por ejemplo, usando mysqli_* o PDO con mysql:), será necesario refactorizar las llamadas para usar funciones compatibles con pg_*.
@@ -101,6 +113,8 @@ Verifica que los modelos y funciones que interactúan con la base de datos esté
 Asegúrate de que los tipos de datos en el script SQL sean compatibles con PostgreSQL.
 
 Revisa el uso de comillas, funciones específicas (NOW(), AUTO_INCREMENT, etc.) y sintaxis de claves primarias/foráneas.
+
+---
 
 
 ## Estructura del Proyecto (MVC)
@@ -119,11 +133,11 @@ El núcleo del sistema sigue el patrón **Modelo-Vista-Controlador (MVC)**, gara
 
 ### Referencia a estructura del proyecto
 
->[Estructura del proyecto](src/docs/estructura_proyecto.md)
+>[Estructura del proyecto ➡️](src/docs/estructura_proyecto.md)
 
 ---
 
-## 🤝 Contribución
+## Contribución
 
 **¡Las contribuciones son bienvenidas!** Para colaborar en el desarrollo:
 
@@ -149,11 +163,11 @@ git branch -D feature/nombre-funcionalidad
 
 ### Referencia a Guia de contribucion
 
->[Contributing.md](src/docs/Contributing.md)
+>[Contributing.md ➡️](src/docs/Contributing.md)
 
 ---
 
-## 🛡️ Seguridad
+## Seguridad
 
 La seguridad es una prioridad. Por favor, asegúrate de:
 
@@ -163,6 +177,6 @@ La seguridad es una prioridad. Por favor, asegúrate de:
 
 ---
 
-## 📄 Licencia
+## Licencia
 
-Este proyecto está bajo la Licencia **MIT** - ver el archivo [LICENSE.md](src/docs/LICENSE.MD) para más detalles.
+Este proyecto está bajo la Licencia **MIT** - ver el archivo [LICENSE.md ➡️](src/docs/LICENSE.MD) para más detalles.

@@ -8,29 +8,40 @@ class mainModel
     //--------------------conexion a la base de datos-------------------------
     protected static function conectar_base_datos()
     {
-        try {
-            //instaciar el objeto pdo usando las constantes de SERVER.php
-            $con = new PDO(SGBD, USER, PASS, [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8' COLLATE 'utf8_spanish_ci'"
-            ]);
-            return $con; //retornar la conexion
-        } catch (PDOException $e) {
-            echo $e->getMessage(); //imprimir errores
+        //instaciar el objeto pdo usando las constantes de SERVER.php
+        $con = pg_connect(PostgreSQL);
+        if (!$con) {
+            die("error de conexion a la base de datos");
         }
+
+        return $con; //retornar la conexion
     }
 
     //--------------------hacer una consulta simple-------------------------
-    protected static function consulta($sentenciaSQL)
+    protected static function consulta($sentenciaSQL, $valores = [])
     {
+        //valida si el parametro es un string
         if (!is_string($sentenciaSQL)) {
             throw new InvalidArgumentException("el parametro debe ser un string");
         }
 
-        $operacion = self::conectar_base_datos()->prepare($sentenciaSQL);
-        $operacion->execute();
-        return $operacion;
+        //realiza la conexion y le asigna un nombre unico a la consulta preparada
+        $conexion = self::conectar_base_datos();
+        $nombre_consulta = "consulta_" . md5($sentenciaSQL);
+
+        //prepara la consulta 
+        if (!pg_prepare($conexion, $nombre_consulta, $sentenciaSQL)) {
+            die("error en la preparacion de la consulta");
+        }
+
+        //ejecuta la consulta con los valores proporcionados
+        $resultado = pg_execute($conexion, $nombre_consulta, $valores);
+        if (!$resultado) {
+            die("error en la ejecucion de la consulta");
+        }
+
+        //retorna el resultado de la consulta
+        return $resultado;
     }
 
     //------------------desencriptar la matriz sesion---------------------
@@ -117,5 +128,4 @@ class mainModel
 
         return openssl_decrypt($dato, METHOD, CLAVE, 0, IV);
     }
-
 }
