@@ -9,9 +9,12 @@ Para ver la **Estructura Completa de Tareas y Pendientes**, visita nuestro [Tabl
 
 ---
 
-## 🚀 Inicio Rápido
 
-Este repositorio sirve como **plantilla base** para cualquier aplicación web construida en PHP que requiera una estructura organizada, segura y modular. Ir a [manual de desarrollador](src/docs/manual_desarrollador.md) para más detalles.
+## Inicio rápido
+
+Este repositorio corresponde al sistema QuickStock, una aplicación web modular desarrollada en PHP bajo el patrón MVC. Su estructura está diseñada para facilitar la mantenibilidad, escalabilidad y claridad técnica en entornos de desarrollo profesional.
+
+Para conocer el flujo de trabajo, convenciones internas y recomendaciones de implementación, consulta el [manual del desarrollador](/src/docs/manual_desarrollador.md).
 
 ---
 
@@ -30,55 +33,89 @@ El proyecto está construido con un stack moderno y enfocado en la seguridad y l
 
 ---
 
-## ⚙️ Instalación y Configuración
+## Instalación y Configuración
 
-Sigue estos pasos para poner en marcha el proyecto en tu entorno local (requiere **PHP 8.0+**, **Apache** y **Composer**).
+Sigue estos pasos para poner en marcha el proyecto en tu entorno local. Requisitos mínimos: PHP 8.0+, Apache y Composer.
 
-### 1. Clonar el Repositorio
+### 1. Preparar el entorno de desarrollo
 
-Clona el proyecto en tu directorio de servidor web (ej. `htdocs` de XAMPP):
+Ubica el directorio raíz de tu servidor web (por ejemplo, `htdocs` en XAMPP) y crea la siguiente estructura:
 
 ```bash
-git clone [URL_DEL_REPO]
-cd proyecto
+cd xampp/htdocs
+mkdir -p DEV/PHP
+cd DEV/PHP
 ```
-## 2. Instalar Dependencias
 
-Usa **Composer** para descargar todas las librerías necesarias (incluyendo Bootstrap):
+### 2. Clonar el repositorio
+Clona el proyecto en la carpeta creada:
+
+```bash
+git clone https://LINK_DEL_REPOSITORIO
+cd nombre-del-repositorio
+git init
+git remote add origin https://LINK_DEL_REPOSITORIO
+git switch master
+git pull origin master
+```
+### 3. Instalar dependencias
+Ejecuta Composer para instalar las librerías necesarias:
+
+> 💡 Presiona ctrl + ñ para abrir el terminal integrado o abre la terminal en la carpeta raiz del proyecto 
 
 ```bash
 composer install
 ```
-## 3. Configuración Inicial
 
-Configura las **variables esenciales del sistema** en los siguientes archivos. Asegúrate de configurar `config/SERVER` para la conexión a la base de datos.
+### 4. Verificar configuración de Apache
+Asegúrate de que el módulo mod_rewrite esté habilitado y que el archivo .htaccess esté siendo interpretado correctamente. Esto es necesario para la reescritura de URLs.
 
-* `config/SERVER`: Credenciales de BD, claves de encriptación y parámetros sensibles. **⚠️ Añadir a `.gitignore`.**
-* `config/APP`: Nombre del sistema, ruta base y configuración general.
+### 5. Configurar base de datos (PostgreSQL)
 
----
+Importa el archivo src/config/quickstock.sql en tu gestor de base de datos (por ejemplo, phpMyAdmin) y ajusta las credenciales en src/config/SERVER.php según tu entorno local.
 
-## 4. Iniciar el Servidor
+> 💡 En caso de utilizar **PostgreSQL** como manejador de base de datos, sigue estos pasos adicionales:
 
-Accede al proyecto en tu navegador. El punto de entrada es `index.php`, que gestiona las rutas dinámicas.
+#### a. Importar la base de datos
+
+Utiliza tu gestor de base de datos (por ejemplo, pgAdmin o la terminal) para importar el archivo `src/config/quickstock.sql` a tu instancia de PostgreSQL. Asegúrate de crear previamente la base de datos con el nombre correspondiente.
 
 ```bash
-https://localhost/nombre_del_proyecto/
+psql -U tu_usuario -d nombre_base_datos -f src/config/quickstock.sql
 ```
----
 
-## 🏗️ Estructura del Proyecto (MVC)
+#### b. Modificar la conexión en el código
+
+Edita el archivo src/config/SERVER.php para adaptar la conexión a PostgreSQL utilizando pg_connect. Asegúrate de que el formato sea compatible. Ejemplo:
+
+```php
+define('DB_CONNECTION', pg_connect("host=localhost port=5432 dbname=nombre_base_datos user=tu_usuario password=tu_clave"));
+```
+
+> 💡 Por lo general el usuario por defecto es postgres y en caso de no haber configurado una contraseña se omite el campo 'password=' del DSN
+
+#### c. Validar compatibilidad
+Verifica que los modelos y funciones que interactúan con la base de datos estén adaptados para PostgreSQL. Si originalmente fueron escritos para MySQL (por ejemplo, usando mysqli_* o PDO con mysql:), será necesario refactorizar las llamadas para usar funciones compatibles con pg_*.
+
+#### d. Revisión adicional
+Asegúrate de que los tipos de datos en el script SQL sean compatibles con PostgreSQL.
+
+Revisa el uso de comillas, funciones específicas (NOW(), AUTO_INCREMENT, etc.) y sintaxis de claves primarias/foráneas.
+
+
+## Estructura del Proyecto (MVC)
 
 El núcleo del sistema sigue el patrón **Modelo-Vista-Controlador (MVC)**, garantizando la separación de responsabilidades:
 
-| Carpeta       | Responsabilidad     | Descripción                                                         |
-| :------------ | :------------------ | :------------------------------------------------------------------ |
-| `controller/` | **Controlador (C)** | Gestiona el flujo de la aplicación e interactúa con el Modelo.      |
-| `model/`      | **Modelo (M)**      | Lógica de negocio, conexión a BD, validaciones y encriptación.      |
-| `view/html/`  | **Vista (V)**       | Archivos `.php` que contienen la interfaz de usuario (`-view.php`). |
-| `assets/`     | **Recursos**        | CSS, JS, imágenes, layouts y componentes reutilizables.             |
-| `helpers/`    | **Auxiliares**      | Funciones de PHP y JavaScript reutilizables para todo el sistema.   |
-| `config/`     | **Configuración**   | Constantes y parámetros de entorno.                                 |
+| Carpeta         | Rol dentro del MVC     | Descripción                                                                 |
+| :-------------- | :--------------------- | :-------------------------------------------------------------------------- |
+| `controller/`   | **Controlador (C)**    | Gestiona el flujo de la aplicación e invoca las vistas según la URL.        |
+| `model/`        | **Modelo (M)**         | Lógica de negocio, conexión a la base de datos, encriptación y validaciones.|
+| `view/`         | **Vista (V)**          | Archivos de presentación: HTML, CSS, JS y plantilla base.                   |
+| `assets/`       | **Recursos visuales**  | Bootstrap, componentes, imágenes, iconos y elementos PHP reutilizables.     |
+| `shared/`       | **Lógica compartida**  | Traits PHP reutilizables entre modelos y controladores.                     |
+| `config/`       | **Configuración**      | Constantes globales, credenciales y script de base de datos.                |
+| `docs/`         | **Documentación**      | Manuales técnicos, changelog, estructura y diagramas del sistema.           |
 
 ### Referencia a estructura del proyecto
 
@@ -99,6 +136,16 @@ git checkout -b feature/nombre-funcionalidad
 2.  Sigue las **Convenciones de Desarrollo**.
 3.  Asegúrate de que tus cambios pasen las pruebas.
 4.  Realiza un `commit` descriptivo y abre un **Pull Request (PR)**.
+``` bash
+git add .
+git commit -m "commit descriptivo"
+```
+
+5. Borrar la rama que creaste luego de hacer pull request con:
+
+```bash
+git branch -D feature/nombre-funcionalidad
+```
 
 ### Referencia a Guia de contribucion
 
