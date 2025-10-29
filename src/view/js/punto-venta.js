@@ -1,7 +1,5 @@
-// --- Lógica del Wizard (Navegación y Validación) ---
-// Variables de estado
 let currentStep = 1;
-const totalSteps = 3;
+const totalSteps = 3; // Tienes 3 pasos en tu wizard
 
 // Datos simulados
 const mockArticulos = {

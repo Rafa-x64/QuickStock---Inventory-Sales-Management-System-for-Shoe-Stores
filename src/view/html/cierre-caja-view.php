@@ -2,7 +2,7 @@
     <div class="row d-flex flex-column justify-content-center align-items-center">
         <div class="col-12 p-3 p-lg-5">
             <div class="card shadow-lg">
-                <div class="card-header bg-primary text-white text-center">
+                <div class="card-header text-white text-center">
                     <h4 class="mb-0">Reporte de Cierre de Caja</h4>
                 </div>
                 <div class="card-body">
@@ -17,7 +17,10 @@
                         <div class="col-md-6 text-md-end">
                             <h5>**Ventas Resumidas**</h5>
                             <p class="mb-1"><strong>Ventas Totales Realizadas:</strong> 15</p>
-                            <p class="mb-1"><strong>Monto de Apertura (Caja Base):</strong> $ 50.00 / Bs. 1850.00</p>
+                            <p class="mb-1">
+                                <strong>Monto de Apertura (Caja Base):</strong>
+                                $ 50.00 / Bs. 1850.00
+                            </p>
                         </div>
                     </div>
 
@@ -25,9 +28,9 @@
 
                     <h5 class="mt-4">**Ingresos por Métodos de Pago**</h5>
                     <div class="table-responsive">
-                        <table class="table table-sm table-striped w-100 Quick-table">
+                        <table class="table table-sm table-striped w-100">
                             <thead>
-                                <tr>
+                                <tr class="">
                                     <th>Tipo de Pago</th>
                                     <th class="text-end">Monto en Bolívares (Bs.)</th>
                                     <th class="text-end">Monto en Dólares ($)</th>
@@ -74,7 +77,7 @@
                                     **+ Monto de Apertura (Base):**
                                     <span>$ 50.00 / Bs. 1,850.00</span>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center fw-bold bg-success text-white">
+                                <li class="list-group-item d-flex justify-content-between align-items-center fw-bold text-white cierre-caja-total" style="">
                                     **= Total en Caja (Efectivo y Mixto):**
                                     <span>$ 850.00 / Bs. 298,850.00</span>
                                 </li>

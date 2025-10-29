@@ -2,7 +2,7 @@
     <div class="row d-flex flex-column justify-content-center align-items-center">
         <div class="col-12 p-3 p-lg-5">
             <div class="card shadow-lg">
-                <div class="card-header bg-primary text-white text-center">
+                <div class="card-header text-white text-center">
                     <h4 class="mb-0">Módulo de Punto de Venta (Wizard)</h4>
                 </div>
                 <div class="card-body">
@@ -135,3 +135,5 @@
         </div>
     </div>
 </div>
+
+<script src="view/js/punto-venta.js"></script>

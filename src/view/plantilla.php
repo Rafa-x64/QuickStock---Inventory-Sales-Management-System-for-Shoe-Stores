@@ -2,9 +2,8 @@
 
 session_start();
 
-$dashboard = ["dashboard-gerente-view.php", "inventario-ver-productos-view.php", "inventario-añadir-producto-view.php", "inventario-gestionar-categorias-view.php", "listado-compras-view.php", "añadir-compras-view.php", "punto-venta-view.php", "historial-facturas-view.php", "cierre-caja-view.php", "clientes-ver-listado-clientes-view.php"];
+$dashboard_gerente = ["dashboard-gerente-view.php", "inventario-ver-productos-view.php", "inventario-añadir-producto-view.php", "inventario-gestionar-categorias-view.php", "listado-compras-view.php", "añadir-compras-view.php", "punto-venta-view.php", "historial-facturas-view.php", "cierre-caja-view.php", "clientes-ver-listado-clientes-view.php", "clientes-gestionar-clientes-view.php", "proveedores-lista-view.php", "proveedores-detalles-view.php", "proveedores-gestionar-proveedores-view.php", "empleados-lista-empleados-view.php", "empleado-gestionar-empleado-view.php"];
 $excepciones = ["404-view.php", "inicio-sesion-usuario-view.php", "registro-usuario-view.php"];
-
 // siempre se incluyen los enlaces al inicio
 include_once("assets/elements/links.php");
 
@@ -25,7 +24,7 @@ if ($vista === "inicio-sesion-usuario-view.php" || $vista === "registro-usuario-
     include_once("assets/elements/scripts.php"); // scripts JS
 }
 
-if (in_array($vista, $dashboard)) {
+if (in_array($vista, $dashboard_gerente)) {
     include_once("assets/elements/menu-lateral-gerente.php"); // encabezado
     include_once("view/html/" . $vista); // contenido principal
     include_once("assets/elements/scripts.php"); // scripts JS

@@ -50,11 +50,8 @@
                 <p class="p-subtitle text-center">Diseñado desde la experiencia, validado en la práctica.</p>
             </div>
             <div class="row d-flex flex-row justify-content-center align-items-center">
-                <div class="col-12 col-md-4 px-0">
-                    <img src="assets/images/QuickStock-dashboard.png" alt="imagen del sistema abierto en le navegador" class="img-fluid">
-                </div>
-                <div class="col-12 col-lg-8 p-3 p-lg-0">
-                    <p class="p-concept text-start">En <b><b>QuickStock</b></b> creemos que la gestión operativa debe ser clara, modular y confiable. Nuestro sistema fue diseñado para responder a las necesidades reales de negocios que manejan inventario, clientes, proveedores y reparto, integrando cada módulo con trazabilidad, automatización y control por roles. Nacido de un análisis técnico profundo y una entrevista directa con usuarios reales, <b><b>QuickStock</b></b> no es solo una propuesta académica: es una solución adaptable, pensada para crecer con cada empresa y facilitar su día a día.</p>
+                <div class="col-12 p-3">
+                    <p class="p-concept text-center">En <b><b>QuickStock</b></b> creemos que la gestión operativa debe ser clara, modular y confiable. Nuestro sistema fue diseñado para responder a las necesidades reales de negocios que manejan inventario, clientes, proveedores y reparto, integrando cada módulo con trazabilidad, automatización y control por roles. Nacido de un análisis técnico profundo y una entrevista directa con usuarios reales, <b><b>QuickStock</b></b> no es solo una propuesta académica: es una solución adaptable, pensada para crecer con cada empresa y facilitar su día a día.</p>
                 </div>
             </div>
         </div>

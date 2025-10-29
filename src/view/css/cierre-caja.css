@@ -1,0 +1,25 @@
+@media(prefers-color-scheme: dark) {
+    .card-header {
+        background-color: var(--blue-Quick);
+    }
+
+    .table {
+        color: var(--default-font-color);
+    }
+
+    .cierre-caja-total {
+        color: var(--font-color-light);
+        background-color: var(--blue-Quick);
+    }
+}
+
+@media(prefers-color-scheme: light) {
+    .card-header {
+        background-color: var(--red-Quick);
+    }
+
+    .cierre-caja-total {
+        color: var(--font-color-light);
+        background-color: var(--red-Quick);
+    }
+}
