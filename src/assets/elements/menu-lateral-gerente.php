@@ -82,7 +82,7 @@
                                 <p class="texto-menu m-0 ms-2">Clientes</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="#" class="ms-3">Ver listado de Clientes</a>
+                                <a href="clientes-ver-listado-clientes" class="ms-3">Ver listado de Clientes</a>
                                 <a href="#" class="ms-3">Gestionar Clientes</a>
                             </div>
                         </details>
