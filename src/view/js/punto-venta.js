@@ -4,16 +4,16 @@ const totalSteps = 3; // Tienes 3 pasos en tu wizard
 // Datos simulados
 const mockArticulos = {
     'A001': {
-        nombre: 'Laptop Gamer',
-        precio: 1250.00
+        nombre: 'Zapatillas Deportivas Ultra',
+        precio: 95.99
     },
     'A002': {
-        nombre: 'Monitor 27"',
-        precio: 300.50
+        nombre: 'Zapatos de Vestir Clásicos',
+        precio: 150.00
     },
     'A003': {
-        nombre: 'Teclado Mecánico',
-        precio: 80.00
+        nombre: 'Botines Casuales de Cuero',
+        precio: 89.50
     }
 };
 

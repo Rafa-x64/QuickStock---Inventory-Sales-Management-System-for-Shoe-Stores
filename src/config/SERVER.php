@@ -1,12 +1,12 @@
 <?php
 
-const MySQL = "mysql:host=localhost;dbname=PROYECTO";
+const SGBD = "mysql:host=localhost;dbname=PROYECTO";
+
+const PostgreSQL = "host= localhost port=5432 dbname=QuickStock user=postgres password=postgres";
 
 const USER = "root";
 
 const PASS = "";
-
-const PostgreSQL = "host=localhost port=5432 dbname=quickstock user=rafa";
 
 const METHOD = "AES-256-CBC";
 

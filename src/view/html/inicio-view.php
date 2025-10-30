@@ -1,17 +1,3 @@
-<!--<style>
-    [class^="col"] {
-        border: 2px solid blue;
-    }
-
-    [class^="row"] {
-        border: 2px solid red;
-    }
-
-    [class^="container"] {
-        border: 2px solid white;
-    }
-</style>
--->
 <!--bienvenida-->
 <section class="row bienvenida" id="bienvenida">
     <div class="col-3 d-none d-md-block">
