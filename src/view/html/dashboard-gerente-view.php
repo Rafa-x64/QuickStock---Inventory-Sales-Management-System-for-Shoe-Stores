@@ -1,16 +1,3 @@
-<!--<style>
-    [class^="col"] {
-        border: 2px solid blue;
-    }
-
-    [class^="row"] {
-        border: 2px solid red;
-    }
-
-    [class^="container"] {
-        border: 2px solid white;
-    }
-</style>-->
 <div class="container-fluid" id="mainContent">
     <div class="row">
         <div class="col-12 p-3 p-lg-5">
