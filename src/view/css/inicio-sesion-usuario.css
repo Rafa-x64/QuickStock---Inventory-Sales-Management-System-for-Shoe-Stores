@@ -24,9 +24,7 @@
     box-shadow: none;
     color: inherit;
     border-radius: 0px;
-    transition: border-bottom 0.2 ease;
-    transition: border-radius 0.2 ease;
-
+    transition: border-bottom 0.2 ease, border-radius 0.2 ease;
 }
 
 .inicio-sesion-usuario-right .inicio-sesion-usuario-custom-input:focus {
@@ -41,4 +39,25 @@
 
 .inicio-sesion-usuario-right .inicio-sesion-usuario-register {
     border-top: 1px solid var(--font-color-dark);
+}
+
+.inicio-sesion-usuario-acceder-btn{
+    background-color: var(--font-color-light);
+    color: var(--red-Quick);
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.inicio-sesion-usuario-acceder-btn:hover {
+    background-color: inherit;
+    color: var(--font-color-light);
+    border: 2px solid var(--font-color-light);
+}
+
+.inicio-sesion-usuario-limpiar-btn {
+    background-color: var(--font-color-red);
+    color: var(--font-color-light);
+    border-radius: 0.5rem;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }

@@ -51,7 +51,7 @@
                             <div class="progress-step-custom" id="stepIndicator4"></div>
                         </div>
 
-                        <form action="" method="POST">
+                        <form action="" method="POST"><!--asignar el id_rol automaticamente a 1 por ser el gerente (el campo no aparece ya que al registrar un Gerente este se sobreentiendo que su rol va a ser gerente)-->
                             <div class="form-steps-container mt-2">
 
                                 <div class="form-step px-3 px-md-1 px-lg-4 w-100" id="step1">

@@ -208,3 +208,5 @@ Mensajes del sistema, actualizaciones, tareas pendientes
         </div>
     </div>
 </div>
+
+<script src="view/js/dashboard-gerente.js"></script>
