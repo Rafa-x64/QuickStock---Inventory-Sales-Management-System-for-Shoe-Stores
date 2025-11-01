@@ -1,3 +1,67 @@
+<!--
+1. Resumen Financiero Diario
+Ingresos totales (hoy): suma de todas las ventas del día
+
+Total de ventas realizadas: número de transacciones
+
+Botón: Descargar Reporte Financiero Diario
+
+2. Alertas de Stock Mínimo
+Tabla con: Código, Producto, Cantidad actual
+
+Botón: Ir a gestión de compras
+
+Opción para imprimir o exportar el listado
+
+3. Producto Más Vendido
+Hoy y Esta semana
+
+Nombre del producto, cantidad vendida
+
+Botón: Imprimir Reporte de Rotación
+
+4. Top 5 Productos Más Vendidos
+Gráfico de barras o pastel
+
+Datos por unidades vendidas y porcentaje
+
+Botón: Ver detalle de ventas por producto
+
+5. Estado de Caja
+Caja inicial, Ingresos, Egresos, Caja final
+
+Botón: Ir a cierre de caja
+
+6. Indicadores de Inventario
+Total de productos activos
+
+Categorías registradas
+
+Productos sin stock
+
+Botón: Ir a gestión de inventario
+
+7. Accesos rápidos
+Botones hacia:
+
+Punto de venta
+
+Añadir producto
+
+Registrar compra
+
+Ver clientes
+
+Ver empleados
+
+8. Eventos recientes del sistema
+Últimas acciones realizadas (auditoría)
+
+Ejemplo: “Se registró una venta por 120$”, “Se añadió el producto ZAP-10A”
+
+9. Panel de notificaciones
+Mensajes del sistema, actualizaciones, tareas pendientes
+-->
 <div class="container-fluid" id="mainContent">
     <div class="row">
         <div class="col-12 p-3 p-lg-5">

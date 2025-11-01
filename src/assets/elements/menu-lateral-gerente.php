@@ -51,6 +51,21 @@
                     <div class="col-12 p-0 m-0 menu-item">
                         <details class="menu-details">
                             <summary class="d-flex flex-row align-items-center Quick-white-link">
+                                <i class="bi bi-shop fs-6"></i>
+                                <p class="texto-menu m-0 ms-2">Sucursales</p>
+                            </summary>
+                            <div class="menu-submenu d-flex flex-column ps-2">
+                                <a href="sucursales-añadir" class="ms-3">Añadir Sucursal</a>
+                                <a href="sucursales-listado" class="ms-3">Listado de Sucursales</a>
+                                <a href="sucursales-detalle" class="ms-3">Detalle de Sucursal</a>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+                <li class="list-group-item pt-2">
+                    <div class="col-12 p-0 m-0 menu-item">
+                        <details class="menu-details">
+                            <summary class="d-flex flex-row align-items-center Quick-white-link">
                                 <i class="bi bi-bag-plus fs-6"></i>
                                 <p class="texto-menu m-0 ms-2">Compras</p>
                             </summary>
@@ -226,6 +241,20 @@
                         <a href="inventario-gestionar-categorias" class="ms-3">Gestionar Categorias</a>
                         <a href="inventario-ajustes-manuales-stock" class="ms-3">Ajustes Manuales de Stock</a>
                         <a href="inventario-stock-bajo" class="ms-3">Alertas de Stock Bajo</a>
+                    </div>
+                </details>
+            </div>
+
+            <div class="col-12 p-0 mt-2 menu-item">
+                <details class="menu-details">
+                    <summary class="d-flex flex-row align-items-center Quick-white-link">
+                        <i class="bi bi-shop fs-5"></i>
+                        <p class="texto-menu">Sucursales</p>
+                    </summary>
+                    <div class="menu-submenu d-flex flex-column ps-5">
+                        <a href="sucursales-añadir" class="ms-3">Añadir Sucursal</a>
+                        <a href="sucursales-listado" class="ms-3">Listado de Sucursales</a>
+                        <a href="sucursales-detalle" class="ms-3">Detalle de Sucursal</a>
                     </div>
                 </details>
             </div>
