@@ -13,6 +13,11 @@ $dashboard_gerente = [
     "inventario-ajustes-manuales-stock-view.php",
     "inventario-stock-bajo-view.php",
 
+    //SUCURSALES
+    "sucursales-añadir-view.php",
+    "sucursales-detalle-view.php",
+    "sucursales-listado-view.php",
+
     // 3. COMPRAS
     "listado-compras-view.php",          // Si este es diferente a "compras-historial"
     "compras-añadir-view.php",

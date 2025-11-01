@@ -42,26 +42,44 @@
 
 #multiStepForm {
     background: transparent;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 100%;
-    overflow: hidden;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 500px;
+        width: 100%;
+        overflow: hidden;
+        /* 🔥 AJUSTADO: Se reduce de 420px a 360px para compactar el espacio. */
+        min-height: 360px;
 }
 
+/* Opcional, pero recomendado: Asegurar que el contenedor de pasos no tenga un margen negativo innecesario
+   Si el margen negativo que tienes (-30px 0) es para compensar un padding, este ajuste es clave. */
 .form-steps-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 300%;
-    margin: -30px 0;
+    width: 400%;
+    /* Cambié de 300% a 400% ya que ahora son 4 pasos */
+    margin: 0;
+    /* 🔥 RECOMENDADO: Eliminar el margen negativo si causa problemas. */
 }
 
 .form-step {
-    min-width: 33.3333%;
+    min-width: 25%;
+    /* 🔥 CAMBIAR a 25% para 4 pasos */
     box-sizing: border-box;
     padding: 30px;
     padding-top: 0;
     padding-bottom: 0;
+}
+
+.form-step .row .mb-3 {
+    margin-bottom: 12px !important;
+    /* Valor reducido de Bootstrap (ej: 1rem/16px a 12px) */
+}
+
+/* Opcional: Ajustar el margen de los botones si el espacio sigue siendo mucho */
+.navigation-buttons {
+    padding-top: 10px !important;
+    /* Reducir el padding superior si es necesario */
 }
 
 .progress-bar-custom {
@@ -108,4 +126,37 @@
     outline: none;
     box-shadow: none;
     color: inherit;
+}
+
+.registro-usuario-right textarea.registro-usuario-custom-input {
+    /* Deshabilitar la capacidad del usuario de redimensionar el textarea */
+    resize: none;
+    /* Asegurar que también tenga el mismo estilo de borde que los inputs */
+    border-bottom: 2px solid var(--font-color-light);
+    border-radius: 0px;
+}
+
+/* 🔥 NUEVO: Aplicar el estilo de enfoque también al textarea */
+.registro-usuario-right textarea.registro-usuario-custom-input:focus {
+    background-color: rgba(69, 109, 134, 0.5);
+    border: none;
+    border-radius: 0.5rem;
+    outline: none;
+    box-shadow: none;
+    color: inherit;
+}
+
+.validation-tooltip .tooltip-inner {
+    background-color: var(--red-Quick, #dc3545);
+    /* Usar el color rojo de Bootstrap o tu variable */
+    color: var(--font-color-light, #fff);
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+}
+
+/* Cambiar el color del triángulo (arrow) para que coincida con el fondo */
+.validation-tooltip.bs-tooltip-bottom .tooltip-arrow::before,
+.validation-tooltip.bs-tooltip-auto[data-popper-placement^="bottom"] .tooltip-arrow::before {
+    border-bottom-color: var(--red-Quick, #dc3545);
 }
