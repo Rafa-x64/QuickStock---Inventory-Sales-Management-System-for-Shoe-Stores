@@ -223,15 +223,16 @@
     }
 
     .Quick-table {
-        border-collapse: collapse;
-        margin-bottom: 0px;
         width: 100%;
+        border-collapse: collapse;
+        overflow-x: auto;
     }
 
     .Quick-table thead {
         background-color: var(--ligth-red-Quick);
         color: var(--font-color-light);
         text-transform: uppercase;
+        text-align: center;
     }
 
     .Quick-table thead th:not(:last-child) {
@@ -240,28 +241,21 @@
 
     .Quick-table tbody tr td {
         color: var(--default-font-color);
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
+        padding: 0.5rem;
+        text-align: center;
     }
 
     .Quick-table tbody tr:nth-child(odd) {
-        background-color: var(--backgroun-color-medium) !important;
+        background-color: var(--backgroun-color-medium);
     }
 
     .Quick-table tbody tr:nth-child(even) {
-        background-color: var(--default-background-color) !important;
-    }
-
-    .Quick-table tbody tr td:nth-child(:last-child) {
-        text-align: center;
-        font-weight: bold;
+        background-color: var(--default-background-color);
     }
 
     .Quick-table tbody tr:hover {
         background-color: rgba(0, 0, 0, 0.05);
-        cursor: pointer;
     }
-
 }
 
 @media(prefers-color-scheme: dark) {
@@ -442,15 +436,16 @@
     }
 
     .Quick-table {
+        width: 100%;
         border-collapse: collapse;
-        margin-bottom: 0px;
-        width: 95%;
+        overflow-x: auto;
     }
 
     .Quick-table thead {
         background-color: var(--ligth-blue-Quick);
         color: var(--font-color-light);
         text-transform: uppercase;
+        text-align: center;
     }
 
     .Quick-table thead th:not(:last-child) {
@@ -459,26 +454,20 @@
 
     .Quick-table tbody tr td {
         color: var(--font-color-light);
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
+        padding: 0.5rem;
+        text-align: center;
     }
 
     .Quick-table tbody tr:nth-child(even) {
-        background-color: var(--backgroun-color-medium) !important;
+        background-color: var(--backgroun-color-medium);
     }
 
     .Quick-table tbody tr:nth-child(odd) {
-        background-color: var(--default-background-color) !important;
-    }
-
-    .Quick-table tbody tr td:last-child {
-        text-align: center;
-        font-weight: bold;
+        background-color: var(--default-background-color);
     }
 
     .Quick-table tbody tr:hover {
-        background-color: rgba(0, 0, 0, 0.05);
-        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.05);
     }
 }
 
@@ -528,6 +517,29 @@
     body {
         font-size: 1.1875rem;
         /* 19px */
+    }
+}
+
+@media (max-width: 768px) {
+    .Quick-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 0.5rem;
+    }
+
+    .Quick-table table {
+        min-width: 900px;
+        /* evita que se rompa la estructura */
+    }
+
+    .Quick-table thead th {
+        text-align: center;
+    }
+
+    .Quick-table tbody td {
+        text-align: center;
     }
 }
 
