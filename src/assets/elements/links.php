@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/listado-compras.css" ?>">
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/punto-venta.css" ?>">
     <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/cierre-caja.css" ?>">
+    <link rel="stylesheet" href="<?php echo SERVERURL . "view/css/inventario-stock-bajo.css" ?>">
 </head>
 
 <body>
