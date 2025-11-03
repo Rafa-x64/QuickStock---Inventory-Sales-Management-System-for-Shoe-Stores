@@ -142,10 +142,14 @@
                     </div>
                     <div class="col-12 p-0 py-md-2 m-0 d-flex flex-column flex-md-row justify-content-between align-items-center justify-content-md-around align-items-md-center">
                         <button class="btn btn-success mb-2 mb-md-0">
-                            Lista de Compras
+                            <a href="compras-historial" class="Quick-white-link">
+                                Historial de compras
+                            </a>
                         </button>
                         <button class="btn btn-success">
-                            Inventario
+                            <a href="inventario-ver-productos" class="Quick-white-link">
+                                Inventario
+                            </a>
                         </button>
                     </div>
                 </div>
@@ -162,7 +166,9 @@
                             </div>
                             <div class="col-12 p-0 py-2 m-0 d-flex flex-row justify-content-end align-items-center">
                                 <button type="button" class="btn btn-success me-3">
-                                    Lista de productos
+                                    <a href="inventario-ver-productos" class="Quick-white-link">
+                                        Lista de Productos
+                                    </a>
                                 </button>
                             </div>
                         </div>
@@ -177,7 +183,9 @@
                             </div>
                             <div class="col-12 p-0 py-2 m-0 d-flex flex-row justify-content-end align-items-center">
                                 <button type="button" class="btn btn-success me-3">
-                                    Lista de productos
+                                    <a href="inventario-ver-productos" class="Quick-white-link">
+                                        Lista de Productos
+                                    </a>
                                 </button>
                             </div>
                         </div>
@@ -229,10 +237,9 @@
                             </div>
                             <div class="col-12 p-0 py-2 m-0 d-flex flex-column flex-md-row justify-content-around align-items-center">
                                 <button class="btn btn-success mb-2 mb-md-0">
-                                    Gestionar Categorias
-                                </button>
-                                <button class="btn btn-success">
-                                    Inventario
+                                    <a href="inventario-gestionar-categorias" class="Quick-white-link">
+                                        Gestionar Categorias
+                                    </a>
                                 </button>
                             </div>
                         </div>

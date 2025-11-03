@@ -12,6 +12,7 @@ $dashboard_gerente = [
     "inventario-gestionar-categorias-view.php",
     "inventario-ajustes-manuales-stock-view.php",
     "inventario-stock-bajo-view.php",
+    "inventario-detalle-producto-view.php",
 
     //SUCURSALES
     "sucursales-añadir-view.php",
