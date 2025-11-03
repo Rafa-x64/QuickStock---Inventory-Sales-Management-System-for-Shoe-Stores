@@ -1,5 +1,5 @@
 <style>
-    
+
 </style>
 <!--menu para disposiciones mdianas y pequeñas-->
 <button
@@ -38,6 +38,7 @@
                             <div class="menu-submenu d-flex flex-column ps-2">
                                 <a href="inventario-ver-productos" class="ms-3">Ver Productos</a>
                                 <a href="inventario-añadir-producto" class="ms-3">Añadir Productos</a>
+                                <a href="inventario-detalle-producto" class="ms-3">Detalle de Producto</a>
                                 <a href="inventario-gestionar-categorias" class="ms-3">Gestionar Categorias</a>
                                 <a href="inventario-ajustes-manuales-stock" class="ms-3">Ajustes Manuales de Stock</a>
                                 <a href="inventario-stock-bajo" class="ms-3">Alertas de Stock Bajo</a>
@@ -236,6 +237,7 @@
                     <div class="menu-submenu d-flex flex-column ps-5">
                         <a href="inventario-ver-productos" class="ms-3">Ver Productos</a>
                         <a href="inventario-añadir-producto" class="ms-3">Añadir Productos</a>
+                        <a href="inventario-detalle-producto" class="ms-3">Detalle de Producto</a>
                         <a href="inventario-gestionar-categorias" class="ms-3">Gestionar Categorias</a>
                         <a href="inventario-ajustes-manuales-stock" class="ms-3">Ajustes Manuales de Stock</a>
                         <a href="inventario-stock-bajo" class="ms-3">Alertas de Stock Bajo</a>
