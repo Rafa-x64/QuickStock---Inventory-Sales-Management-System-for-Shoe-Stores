@@ -1,24 +1,5 @@
 <style>
-    .menu-flotante {
-        position: fixed;
-        top: 10px;
-        /* distancia desde arriba */
-        left: 10px;
-        /* distancia desde el borde izquierdo */
-        z-index: 1050;
-        /* asegúrate que quede por encima del contenido */
-        border-radius: 0.5rem;
-        background-color: var(--bs-secondary);
-        color: white;
-        padding: 8px 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        transition: all 0.3s ease;
-    }
-
-    .menu-flotante:hover {
-        background-color: var(--bs-primary);
-        transform: scale(1.1);
-    }
+    
 </style>
 <!--menu para disposiciones mdianas y pequeñas-->
 <button
@@ -285,7 +266,7 @@
                     <div class="menu-submenu d-flex flex-column ps-5">
                         <a href="compras-historial" class="ms-3">Historial de Compras</a>
                         <a href="compras-añadir" class="ms-3">Registrar Nueva Compra</a>
-                        <a href="compra-detalle" class="ms-3">Detalle de Compra</a>
+                        <a href="compras-detalle" class="ms-3">Detalle de Compra</a>
                     </div>
                 </details>
             </div>

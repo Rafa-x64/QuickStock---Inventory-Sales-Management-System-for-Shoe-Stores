@@ -1,0 +1,8 @@
+@media (max-width: 768px) {
+    .detalle-fila {
+        border: 1px solid var(--border-color-light, #ddd);
+        border-radius: 0.5rem;
+        padding: 0.5rem !important;
+        margin-bottom: 1rem;
+    }
+}
