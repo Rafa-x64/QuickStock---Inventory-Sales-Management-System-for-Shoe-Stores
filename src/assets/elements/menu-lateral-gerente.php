@@ -1,18 +1,35 @@
+<style>
+    .menu-flotante {
+        position: fixed;
+        top: 10px;
+        /* distancia desde arriba */
+        left: 10px;
+        /* distancia desde el borde izquierdo */
+        z-index: 1050;
+        /* asegúrate que quede por encima del contenido */
+        border-radius: 0.5rem;
+        background-color: var(--bs-secondary);
+        color: white;
+        padding: 8px 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .menu-flotante:hover {
+        background-color: var(--bs-primary);
+        transform: scale(1.1);
+    }
+</style>
 <!--menu para disposiciones mdianas y pequeñas-->
-<div class="col-1 d-block d-lg-none">
-    <div class="fixed-top p-1">
-        <button
-            class="btn btn-secondary"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasMenu"
-            aria-controls="offcanvasMenu">
-            <span class="navbar-toggler-icon d-flex flex-column justify-content-center align-items-center">
-                <i class="bi bi-list fs-5"></i>
-            </span>
-        </button>
-    </div>
-</div>
+<button
+    class="btn btn-secondary menu-flotante d-lg-none"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasMenu"
+    aria-controls="offcanvasMenu">
+    <i class="bi bi-list fs-5"></i>
+</button>
+
 
 <div class="offcanvas offcanvas-start menu-sm-lateral-gerente" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
     <div class="offcanvas-header">
