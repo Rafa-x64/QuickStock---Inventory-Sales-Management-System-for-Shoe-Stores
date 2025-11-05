@@ -1,0 +1,22 @@
+@media (max-width: 768px) {
+    #mainContent .card {
+        margin-bottom: 1rem !important;
+    }
+
+    #mainContent .card-header h5 {
+        font-size: 1rem;
+    }
+
+    #mainContent .breadcrumb {
+        font-size: 0.85rem;
+    }
+
+    #mainContent h1 {
+        font-size: 1.3rem;
+    }
+
+    .table th,
+    .table td {
+        font-size: 0.9rem;
+    }
+}

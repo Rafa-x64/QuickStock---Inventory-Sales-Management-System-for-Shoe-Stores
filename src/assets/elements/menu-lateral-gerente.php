@@ -1,18 +1,16 @@
+<style>
+
+</style>
 <!--menu para disposiciones mdianas y pequeñas-->
-<div class="col-1 d-block d-lg-none">
-    <div class="fixed-top p-1">
-        <button
-            class="btn btn-secondary"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasMenu"
-            aria-controls="offcanvasMenu">
-            <span class="navbar-toggler-icon d-flex flex-column justify-content-center align-items-center">
-                <i class="bi bi-list fs-5"></i>
-            </span>
-        </button>
-    </div>
-</div>
+<button
+    class="btn btn-secondary menu-flotante d-lg-none"
+    type="button"
+    data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasMenu"
+    aria-controls="offcanvasMenu">
+    <i class="bi bi-list fs-5"></i>
+</button>
+
 
 <div class="offcanvas offcanvas-start menu-sm-lateral-gerente" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
     <div class="offcanvas-header">
@@ -39,8 +37,26 @@
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
                                 <a href="inventario-ver-productos" class="ms-3">Ver Productos</a>
-                                <a href="inventario-añadir-producto" class="ms-3">Añadir Producto</a>
+                                <a href="inventario-añadir-producto" class="ms-3">Añadir Productos</a>
+                                <a href="inventario-detalle-producto" class="ms-3">Detalle de Producto</a>
                                 <a href="inventario-gestionar-categorias" class="ms-3">Gestionar Categorias</a>
+                                <a href="inventario-ajustes-manuales-stock" class="ms-3">Ajustes Manuales de Stock</a>
+                                <a href="inventario-stock-bajo" class="ms-3">Alertas de Stock Bajo</a>
+                            </div>
+                        </details>
+                    </div>
+                </li>
+                <li class="list-group-item pt-2">
+                    <div class="col-12 p-0 m-0 menu-item">
+                        <details class="menu-details">
+                            <summary class="d-flex flex-row align-items-center Quick-white-link">
+                                <i class="bi bi-shop fs-6"></i>
+                                <p class="texto-menu m-0 ms-2">Sucursales</p>
+                            </summary>
+                            <div class="menu-submenu d-flex flex-column ps-2">
+                                <a href="sucursales-añadir" class="ms-3">Añadir Sucursal</a>
+                                <a href="sucursales-listado" class="ms-3">Listado de Sucursales</a>
+                                <a href="sucursales-detalle" class="ms-3">Detalle de Sucursal</a>
                             </div>
                         </details>
                     </div>
@@ -53,8 +69,9 @@
                                 <p class="texto-menu m-0 ms-2">Compras</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="listado-compras" class="ms-3">Listado de Compras</a>
-                                <a href="añadir-compras" class="ms-3">Registrar Nueva Compra</a>
+                                <a href="compras-historial" class="ms-3">Historial de Compras</a>
+                                <a href="compras-añadir" class="ms-3">Registrar Nueva Compra</a>
+                                <a href="compras-detalle" class="ms-3">Detalle de Compra</a>
                             </div>
                         </details>
                     </div>
@@ -67,9 +84,13 @@
                                 <p class="texto-menu m-0 ms-2">Ventas</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="punto-venta" class="ms-3">Punto de Venta</a>
-                                <a href="historial-facturas" class="ms-3">Historial de Facturas</a>
-                                <a href="cierre-caja" class="ms-3">Cierre de Caja</a>
+                                <a href="ventas-punto-venta" class="ms-3">Interfaz de Venta Rapida</a>
+                                <a href="ventas-historial-facturas" class="ms-3">Historial de Facturas</a>
+                                <a href="ventas-productos-populares" class="ms-3">Productos mas Vendidos</a>
+                                <a href="ventas-cierre-caja" class="ms-3">Cierre de Caja</a>
+                                <a href="ventas-añadir-metodo-pago" class="ms-3">Añadir Metodo de Pago</a>
+                                <a href="ventas-lista-metodos-pago" class="ms-3">Listado de Metodos de pago</a>
+                                <a href="ventas-detalle-metodo-pago" class="ms-3">Detalle Metodo de Pago</a>
                             </div>
                         </details>
                     </div>
@@ -82,12 +103,17 @@
                                 <p class="texto-menu m-0 ms-2">Clientes</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
+<<<<<<< HEAD
                                 <a href="clientes-ver-listado-clientes" class="ms-3">Ver listado de Clientes</a>
                                 <<<<<<< HEAD
                                     <a href="#" class="ms-3">Gestionar Clientes</a>
                                     =======
                                     <a href="clientes-gestionar-clientes" class="ms-3">Gestionar Clientes</a>
                                     >>>>>>> 02bf0b61342218dfe68b70b36a693b14acf0371f
+=======
+                                <a href="clientes-listado" class="ms-3">Ver listado de Clientes</a>
+                                <a href="clientes-detalle" class="ms-3">Detalle Cliente</a>
+>>>>>>> 26f5d611de811372fd60a541dc95a71e1355db15
                             </div>
                         </details>
                     </div>
@@ -100,8 +126,8 @@
                                 <p class="texto-menu m-0 ms-2">Proveedores</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="proveedores-lista" class="ms-3">Ver listado de Proveedores</a>
-                                <a href="proveedores-gestionar-proveedores-view.php" class="ms-3">Añadir Proveedor</a>
+                                <a href="proveedores-listado" class="ms-3">lista de Proveedores</a>
+                                <a href="proveedores-añadir" class="ms-3">Añadir Proveedor</a>
                                 <a href="proveedores-detalles" class="ms-3">Detalles Proveedor</a>
                             </div>
                         </details>
@@ -115,8 +141,12 @@
                                 <p class="texto-menu m-0 ms-2">Empleados</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="empleados-lista-empleados" class="ms-3">Listado de Empleados</a>
-                                <a href="empleado-gestionar-empleado" class="ms-3">Gestionar Empleados</a>
+                                <a href="empleados-listado" class="ms-3">Listado de Empleados</a>
+                                <a href="empleados-añadir" class="ms-3">Añadir Empleado</a>
+                                <a href="empleados-detalle" class="ms-3">Detalle Empleado</a>
+                                <a href="empleados-añadir-rol" class="ms-3">Añadir Rol</a>
+                                <a href="empleados-lista-roles" class="ms-3">Lista de Roles</a>
+                                <a href="empleados-detalle-rol" class="ms-3">Detalle Rol</a>
                             </div>
                         </details>
                     </div>
@@ -146,33 +176,26 @@
                                 <p class="texto-menu m-0 ms-2">Monedas y Tasas</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="#" class="ms-3">Ver Tasas Activas</a>
-                                <a href="#" class="ms-3">Gestionar Tasas</a>
-                                <a href="#" class="ms-3">Historial de Tasas</a>
+                                <a href="monedas-tasas-activas" class="ms-3">Ver Tasas Activas</a>
+                                <a href="monedas-añadir-tasas" class="ms-3">Añadir Tasas</a>
+                                <a href="monedas-historial" class="ms-3">Historial de Cambios en Tasas</a>
+                                <a href="monedas-añadir" class="ms-3">Añadir Monedas</a>
+                                <a href="monedas-listado" class="ms-3">Ver Lista de Monedas</a>
                             </div>
                         </details>
                     </div>
                 </li>
                 <li class="list-group-item pt-2">
-                    <div class="col-12 p-0 m-0 menu-item">
-                        <details class="menu-details">
-                            <summary class="d-flex flex-row align-items-center Quick-white-link">
-                                <i class="bi bi-person-lock fs-6"></i>
-                                <p class="texto-menu m-0 ms-2">Seguridad y Accceso</p>
-                            </summary>
-                            <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="#" class="ms-3">Gestion de Usuarios</a>
-                                <a href="#" class="ms-3">Gestionar Roles y Permisos</a>
-                            </div>
-                        </details>
-                    </div>
+                    <a href="configurar-cuenta" class="d-flex flex-row align-items-center text-decoration-none Quick-white-link">
+                        <i class="bi bi-person-gear fs-5"></i>
+                        <p class="m-0 ms-2">Configurar Cuenta</p>
+                    </a>
                 </li>
                 <li class="list-group-item pt-2">
                     <a href="inicio" class="d-flex flex-row align-items-center text-decoration-none Quick-white-link">
                         <i class="bi bi-box-arrow-left fs-5"></i>
                         <p class="m-0 ms-2">Salir</p>
                     </a>
-
                 </li>
             </ul>
         </nav>
@@ -223,7 +246,24 @@
                     <div class="menu-submenu d-flex flex-column ps-5">
                         <a href="inventario-ver-productos" class="ms-3">Ver Productos</a>
                         <a href="inventario-añadir-producto" class="ms-3">Añadir Productos</a>
+                        <a href="inventario-detalle-producto" class="ms-3">Detalle de Producto</a>
                         <a href="inventario-gestionar-categorias" class="ms-3">Gestionar Categorias</a>
+                        <a href="inventario-ajustes-manuales-stock" class="ms-3">Ajustes Manuales de Stock</a>
+                        <a href="inventario-stock-bajo" class="ms-3">Alertas de Stock Bajo</a>
+                    </div>
+                </details>
+            </div>
+
+            <div class="col-12 p-0 mt-2 menu-item">
+                <details class="menu-details">
+                    <summary class="d-flex flex-row align-items-center Quick-white-link">
+                        <i class="bi bi-shop fs-5"></i>
+                        <p class="texto-menu">Sucursales</p>
+                    </summary>
+                    <div class="menu-submenu d-flex flex-column ps-5">
+                        <a href="sucursales-añadir" class="ms-3">Añadir Sucursal</a>
+                        <a href="sucursales-listado" class="ms-3">Listado de Sucursales</a>
+                        <a href="sucursales-detalle" class="ms-3">Detalle de Sucursal</a>
                     </div>
                 </details>
             </div>
@@ -235,8 +275,9 @@
                         <p class="texto-menu">Compras</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="listado-compras" class="ms-3">Listado de Compras</a>
-                        <a href="añadir-compras" class="ms-3">Registrar Nueva Compra</a>
+                        <a href="compras-historial" class="ms-3">Historial de Compras</a>
+                        <a href="compras-añadir" class="ms-3">Registrar Nueva Compra</a>
+                        <a href="compras-detalle" class="ms-3">Detalle de Compra</a>
                     </div>
                 </details>
             </div>
@@ -248,9 +289,13 @@
                         <p class="texto-menu">Ventas</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="punto-venta" class="ms-3">Punto de Venta</a>
-                        <a href="historial-facturas" class="ms-3">Historial de Facturas</a>
-                        <a href="cierre-caja" class="ms-3">Cierre de Caja</a>
+                        <a href="ventas-punto-venta" class="ms-3">Interfaz de Venta Rapida</a>
+                        <a href="ventas-historial-facturas" class="ms-3">Historial de Facturas</a>
+                        <a href="ventas-productos-populares" class="ms-3">Productos mas Vendidos</a>
+                        <a href="ventas-cierre-caja" class="ms-3">Cierre de Caja</a>
+                        <a href="ventas-añadir-metodo-pago" class="ms-3">Añadir Metodo de Pago</a>
+                        <a href="ventas-lista-metodos-pago" class="ms-3">Listado de Metodos de pago</a>
+                        <a href="ventas-detalle-metodo-pago" class="ms-3">Detalle Metodo de Pago</a>
                     </div>
                 </details>
             </div>
@@ -262,8 +307,8 @@
                         <p class="texto-menu">Clientes</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="clientes-ver-listado-clientes" class="ms-3">Ver listado de Clientes</a>
-                        <a href="clientes-gestionar-clientes" class="ms-3">Gestionar Clientes</a>
+                        <a href="clientes-listado" class="ms-3">Ver listado de Clientes</a>
+                        <a href="clientes-detalle" class="ms-3">Detalle Cliente</a>
                     </div>
                 </details>
             </div>
@@ -275,8 +320,8 @@
                         <p class="texto-menu">Proveedores</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="proveedores-lista" class="ms-3">Ver listado de Proveedores</a>
-                        <a href="proveedores-gestionar-proveedores" class="ms-3">Añadir Proveedor</a>
+                        <a href="proveedores-listado" class="ms-3">lista de Proveedores</a>
+                        <a href="proveedores-añadir" class="ms-3">Añadir Proveedor</a>
                         <a href="proveedores-detalles" class="ms-3">Detalles Proveedor</a>
                     </div>
                 </details>
@@ -289,8 +334,12 @@
                         <p class="texto-menu">Empleados</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="empleados-lista-empleados" class="ms-3">Listado de Empleados</a>
-                        <a href="empleado-gestionar-empleado" class="ms-3">Añadir Empleado</a>
+                        <a href="empleados-listado" class="ms-3">Listado de Empleados</a>
+                        <a href="empleados-añadir" class="ms-3">Añadir Empleado</a>
+                        <a href="empleados-detalle" class="ms-3">Detalle Empleado</a>
+                        <a href="empleados-añadir-rol" class="ms-3">Añadir Rol</a>
+                        <a href="empleados-lista-roles" class="ms-3">Lista de Roles</a>
+                        <a href="empleados-detalle-rol" class="ms-3">Detalle Rol</a>
                     </div>
                 </details>
             </div>
@@ -318,24 +367,20 @@
                         <p class="texto-menu">Monedas y Tasas</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="#" class="ms-3">Ver Tasas Activas</a>
-                        <a href="#" class="ms-3">Gestionar Tasas</a>
-                        <a href="#" class="ms-3">Historial de Tasas</a>
+                        <a href="monedas-tasas-activas" class="ms-3">Ver Tasas Activas</a>
+                        <a href="monedas-añadir-tasas" class="ms-3">Añadir Tasas</a>
+                        <a href="monedas-historial" class="ms-3">Historial de Cambios en Tasas</a>
+                        <a href="monedas-añadir" class="ms-3">Añadir Monedas</a>
+                        <a href="monedas-listado" class="ms-3">Ver Lista de Monedas</a>
                     </div>
                 </details>
             </div>
 
             <div class="col-12 p-0 mt-2 menu-item">
-                <details class="menu-details">
-                    <summary class="d-flex flex-row align-items-center Quick-white-link">
-                        <i class="bi bi-person-lock fs-5"></i>
-                        <p class="texto-menu">Seguridad y Accceso</p>
-                    </summary>
-                    <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="#" class="ms-3">Gestion de Usuarios</a>
-                        <a href="#" class="ms-3">Gestionar Roles y Permisos</a>
-                    </div>
-                </details>
+                <a href="configurar-cuenta" class="d-flex flex-row align-items-center Quick-white-link menu-details-link">
+                    <i class="bi bi-person-gear fs-5"></i>
+                    <p class="texto-menu">Configurar Cuenta</p>
+                </a>
             </div>
 
             <div class="col-12 p-0 mt-2 menu-item">

@@ -8,40 +8,47 @@ class mainModel
     //--------------------conexion a la base de datos-------------------------
     protected static function conectar_base_datos()
     {
-        //instaciar el objeto pdo usando las constantes de SERVER.php
         $con = pg_connect(PostgreSQL);
+
         if (!$con) {
-            die("error de conexion a la base de datos");
+            error_log("Error de conexión a la base de datos PostgreSQL.");
+            exit();
         }
 
-        return $con; //retornar la conexion
+        return $con;
     }
 
-    //--------------------hacer una consulta simple-------------------------
+    //--------------------hacer una consulta-------------------------
     protected static function consulta($sentenciaSQL, $valores = [])
     {
-        //valida si el parametro es un string
-        if (!is_string($sentenciaSQL)) {
-            throw new InvalidArgumentException("el parametro debe ser un string");
-        }
-
-        //realiza la conexion y le asigna un nombre unico a la consulta preparada
+        //Conexión a la base de datos
         $conexion = self::conectar_base_datos();
-        $nombre_consulta = "consulta_" . md5($sentenciaSQL);
-
-        //prepara la consulta 
-        if (!pg_prepare($conexion, $nombre_consulta, $sentenciaSQL)) {
-            die("error en la preparacion de la consulta");
+        if (!$conexion) {
+            die("Error de conexión a la base de datos.");
         }
 
-        //ejecuta la consulta con los valores proporcionados
-        $resultado = pg_execute($conexion, $nombre_consulta, $valores);
+        //Generar un nombre único para la consulta preparada
+        $nombreConsulta = "consulta_" . md5($sentenciaSQL);
+
+        //Preparar la consulta
+        if (!pg_prepare($conexion, $nombreConsulta, $sentenciaSQL)) {
+            die("Error al preparar la consulta.");
+        }
+
+        //Ejecutar la consulta con los valores
+        $resultado = pg_execute($conexion, $nombreConsulta, $valores);
         if (!$resultado) {
-            die("error en la ejecucion de la consulta");
+            die("Error al ejecutar la consulta.");
         }
 
-        //retorna el resultado de la consulta
-        return $resultado;
+        //Obtener todos los resultados como array asociativo
+        $datos = [];
+        while ($fila = pg_fetch_assoc($resultado)) {
+            $datos[] = $fila;
+        }
+
+        //Retornar el array de resultados
+        return $datos;
     }
 
     //------------------desencriptar la matriz sesion---------------------

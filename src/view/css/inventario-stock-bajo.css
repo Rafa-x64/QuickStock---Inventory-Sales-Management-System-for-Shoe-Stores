@@ -1,0 +1,24 @@
+/* Estilo general */
+.Quick-chart {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: visible;
+    /* 🔹 Quitamos el scroll horizontal */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .Quick-chart {
+        height: 250px;
+        /* 🔹 altura más pequeña en móviles */
+    }
+
+    .Quick-title h1 {
+        font-size: 1.5rem;
+    }
+
+    #valorTotalInventario {
+        font-size: 1.2rem;
+    }
+}
