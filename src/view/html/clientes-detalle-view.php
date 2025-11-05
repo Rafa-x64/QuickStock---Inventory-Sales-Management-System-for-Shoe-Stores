@@ -61,12 +61,6 @@
                                 <label class="form-label fw-bold text-muted small">Email</label>
                                 <div class="form-control bg-light">luisalvarez@gmail.com</div>
                             </div>
-                            <div class="info-group mb-3">
-                                <label class="form-label fw-bold text-muted small">Estado</label>
-                                <div class="form-control bg-light">
-                                    <span class="badge bg-success">Activo</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -106,7 +100,7 @@
                         <div class="col-md-3 mb-3">
                             <div class="card bg-light">
                                 <div class="card-body">
-                                    <h3 class="text-primary">15</h3>
+                                    <h3 class="text-primary">3</h3>
                                     <p class="text-muted mb-0">Compras Realizadas</p>
                                 </div>
                             </div>
@@ -114,7 +108,7 @@
                         <div class="col-md-3 mb-3">
                             <div class="card bg-light">
                                 <div class="card-body">
-                                    <h3 class="text-success">$2,845.50</h3>
+                                    <h3 class="text-success">$500</h3>
                                     <p class="text-muted mb-0">Total Gastado</p>
                                 </div>
                             </div>
@@ -122,7 +116,7 @@
                         <div class="col-md-3 mb-3">
                             <div class="card bg-light">
                                 <div class="card-body">
-                                    <h3 class="text-warning">$150.00</h3>
+                                    <h3 class="text-warning">$50.00</h3>
                                     <p class="text-muted mb-0">Promedio por Compra</p>
                                 </div>
                             </div>
@@ -166,7 +160,7 @@
                                 <tr>
                                     <td>25/09/2025</td>
                                     <td><strong>FAC-2025-001245</strong></td>
-                                    <td>Compra de electrónicos varios</td>
+                                    <td>Compra de Zapatos Deportivos</td>
                                     <td>$258.62</td>
                                     <td>$41.38</td>
                                     <td>
@@ -187,7 +181,7 @@
                                 <tr>
                                     <td>20/10/2025</td>
                                     <td><strong>FAC-2025-001189</strong></td>
-                                    <td>Compra de accesorios computación</td>
+                                    <td>Compra de Accesorios Sports</td>
                                     <td>$129.31</td>
                                     <td>$20.69</td>
                                     <td>
@@ -208,7 +202,7 @@
                                 <tr>
                                     <td>15/10/2025</td>
                                     <td><strong>FAC-2025-001056</strong></td>
-                                    <td>Compra menor - oficina</td>
+                                    <td>Compra de Tacos de Beisbol</td>
                                     <td>$43.10</td>
                                     <td>$6.90</td>
                                     <td>

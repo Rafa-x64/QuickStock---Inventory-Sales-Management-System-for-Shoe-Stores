@@ -16,6 +16,7 @@
                 </a>
             </div>
 
+            <!-- Información del Proveedor -->
             <div class="card mb-4">
                 <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">
@@ -29,11 +30,15 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="info-group mb-3">
-                                <label class="form-label fw-bold text-muted small">RIF/Cédula</label>
+                                <label class="form-label fw-bold text-muted small">Código del Proveedor</label>
+                                <div class="form-control bg-light">PROV-001</div>
+                            </div>
+                            <div class="info-group mb-3">
+                                <label class="form-label fw-bold text-muted small">RIF</label>
                                 <div class="form-control bg-light">J-12345678-9</div>
                             </div>
                             <div class="info-group mb-3">
-                                <label class="form-label fw-bold text-muted small">Nombre de la Empresa</label>
+                                <label class="form-label fw-bold text-muted small">Nombre / Razón Social</label>
                                 <div class="form-control bg-light">Sports Calzados C.A.</div>
                             </div>
                             <div class="info-group mb-3">
@@ -41,8 +46,8 @@
                                 <div class="form-control bg-light">Venezuela</div>
                             </div>
                             <div class="info-group mb-3">
-                                <label class="form-label fw-bold text-muted small">Dirección</label>
-                                <div class="form-control bg-light">Av. Principal, Zona Industrial</div>
+                                <label class="form-label fw-bold text-muted small">Persona de Contacto</label>
+                                <div class="form-control bg-light">Manuel Jimenez</div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -61,30 +66,80 @@
                                 </div>
                             </div>
                             <div class="info-group mb-3">
-                                <label class="form-label fw-bold text-muted small">Tipo de Proveedor</label>
-                                <div class="form-control bg-light">
-                                    <span class="badge bg-info">Calzado Deportivo</span>
-                                </div>
+                                <label class="form-label fw-bold text-muted small">Fecha de Registro</label>
+                                <div class="form-control bg-light">10/05/2023</div>
+                            </div>
+                            <div class="info-group mb-3">
+                                <label class="form-label fw-bold text-muted small">Última Actualización</label>
+                                <div class="form-control bg-light">15/10/2025</div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <div class="info-group mb-3">
-                                <label class="form-label fw-bold text-muted small">Persona de Contacto</label>
-                                <div class="form-control bg-light">Carlos Rodríguez</div>
+                                <label class="form-label fw-bold text-muted small">Dirección Completa</label>
+                                <div class="form-control bg-light">Av. Principal, Zona Industrial, El Vigía, Estado Mérida, Venezuela</div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
                             <div class="info-group mb-3">
-                                <label class="form-label fw-bold text-muted small">Fecha de Registro</label>
-                                <div class="form-control bg-light">2023-05-10</div>
+                                <label class="form-label fw-bold text-muted small">Observaciones</label>
+                                <div class="form-control bg-light">Proveedor especializado en calzado deportivo y casual. Entrega a nivel nacional.</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Estadísticas del Proveedor -->
+            <div class="card mb-4">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">
+                        <i class="bi bi-graph-up"></i> Estadísticas del Proveedor
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h3 class="text-primary">24</h3>
+                                    <p class="text-muted mb-0">Compras Realizadas</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h3 class="text-success">$45,820.75</h3>
+                                    <p class="text-muted mb-0">Total Comprado</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h3 class="text-info">4</h3>
+                                    <p class="text-muted mb-0">Productos Suministrados</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h3 class="text-warning">15 días</h3>
+                                    <p class="text-muted mb-0">Última Compra</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productos Suministrados -->
             <div class="card mb-4">
                 <div class="card-header bg-success text-white">
                     <h5 class="mb-0">
@@ -146,22 +201,16 @@
                                     </td>
                                 </tr>
                             </tbody>
-                            <tfoot>
-                                <tr class="table-active">
-                                    <td colspan="3" class="fw-bold">Total Productos Suministrados:</td>
-                                    <td class="fw-bold text-primary">4</td>
-                                    <td colspan="2"></td>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
             </div>
 
+            <!-- Historial de Compras -->
             <div class="card">
                 <div class="card-header bg-info text-white">
                     <h5 class="mb-0">
-                        <i class="bi bi-clock-history"></i> Historial de Pedidos
+                        <i class="bi bi-clock-history"></i> Historial de Compras Recientes
                     </h5>
                 </div>
                 <div class="card-body">
@@ -169,58 +218,79 @@
                         <table class="table table-striped table-hover">
                             <thead class="table-dark">
                                 <tr>
-                                    <th>Fecha de Pedido</th>
-                                    <th>Número de Pedido</th>
-                                    <th>Productos</th>
-                                    <th>Cantidad Total</th>
-                                    <th>Monto Total</th>
+                                    <th>Fecha</th>
+                                    <th>N° Factura</th>
+                                    <th>Descripción</th>
+                                    <th>Subtotal</th>
+                                    <th>IVA</th>
+                                    <th>Total</th>
                                     <th>Estado</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>2025-10-20</td>
-                                    <td><strong>PED-2025-045</strong></td>
-                                    <td>Zapatillas Running Pro (50), Botín Cuero (30)</td>
-                                    <td>80</td>
+                                    <td>20/10/2025</td>
+                                    <td><strong>FAC-2025-001245</strong></td>
+                                    <td>Compra de calzado deportivo</td>
+                                    <td>$3,706.03</td>
+                                    <td>$592.97</td>
                                     <td>
-                                        <span class="fw-bold text-success">$4,275.00</span>
+                                        <span class="fw-bold text-success">$4,299.00</span>
                                     </td>
                                     <td>
-                                        <span class="badge bg-success">Entregado</span>
+                                        <span class="badge bg-success">Pagado</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i> Ver
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>2025-09-15</td>
-                                    <td><strong>PED-2025-032</strong></td>
-                                    <td>Zapatilla Casual Lona (75), Sandalias (100)</td>
-                                    <td>175</td>
+                                    <td>15/09/2025</td>
+                                    <td><strong>FAC-2025-001189</strong></td>
+                                    <td>Compra de calzado casual</td>
+                                    <td>$4,470.91</td>
+                                    <td>$715.34</td>
                                     <td>
                                         <span class="fw-bold text-success">$5,186.25</span>
                                     </td>
                                     <td>
-                                        <span class="badge bg-success">Entregado</span>
+                                        <span class="badge bg-success">Pagado</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i> Ver
+                                        </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>2025-08-05</td>
-                                    <td><strong>PED-2025-018</strong></td>
-                                    <td>Botín Cuero (40), Zapatillas Running (60)</td>
-                                    <td>100</td>
+                                    <td>05/08/2025</td>
+                                    <td><strong>FAC-2025-001056</strong></td>
+                                    <td>Compra de calzado formal</td>
+                                    <td>$4,086.21</td>
+                                    <td>$653.79</td>
                                     <td>
                                         <span class="fw-bold text-success">$4,740.00</span>
                                     </td>
                                     <td>
-                                        <span class="badge bg-success">Entregado</span>
+                                        <span class="badge bg-success">Pagado</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i> Ver
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr class="table-active">
                                     <td colspan="3" class="fw-bold">Total General:</td>
-                                    <td class="fw-bold text-primary">355</td>
-                                    <td class="fw-bold text-success">$14,201.25</td>
-                                    <td></td>
+                                    <td class="fw-bold">$12,263.15</td>
+                                    <td class="fw-bold">$1,962.10</td>
+                                    <td class="fw-bold text-success">$14,225.25</td>
+                                    <td colspan="2"></td>
                                 </tr>
                             </tfoot>
                         </table>
