@@ -17,7 +17,6 @@
                 </a>
             </div>
 
-            <!-- Información General -->
             <div class="card mb-4">
                 <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">

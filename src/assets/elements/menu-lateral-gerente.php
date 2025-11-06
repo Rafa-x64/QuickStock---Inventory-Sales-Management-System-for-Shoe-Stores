@@ -103,8 +103,17 @@
                                 <p class="texto-menu m-0 ms-2">Clientes</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
+<<<<<<< HEAD
+                                <a href="clientes-ver-listado-clientes" class="ms-3">Ver listado de Clientes</a>
+                                <<<<<<< HEAD
+                                    <a href="#" class="ms-3">Gestionar Clientes</a>
+                                    =======
+                                    <a href="clientes-gestionar-clientes" class="ms-3">Gestionar Clientes</a>
+                                    >>>>>>> 02bf0b61342218dfe68b70b36a693b14acf0371f
+=======
                                 <a href="clientes-listado" class="ms-3">Ver listado de Clientes</a>
                                 <a href="clientes-detalle" class="ms-3">Detalle Cliente</a>
+>>>>>>> 26f5d611de811372fd60a541dc95a71e1355db15
                             </div>
                         </details>
                     </div>

@@ -2,75 +2,8 @@
 
 session_start();
 
-$dashboard_gerente = [
-    // 1. DASHBOARD
-    "dashboard-gerente-view.php",
-
-    // 2. INVENTARIO
-    "inventario-ver-productos-view.php",
-    "inventario-añadir-producto-view.php",
-    "inventario-gestionar-categorias-view.php",
-    "inventario-ajustes-manuales-stock-view.php",
-    "inventario-stock-bajo-view.php",
-    "inventario-detalle-producto-view.php",
-
-    //SUCURSALES
-    "sucursales-añadir-view.php",
-    "sucursales-detalle-view.php",
-    "sucursales-listado-view.php",
-
-    // 3. COMPRAS
-    "listado-compras-view.php",          // Si este es diferente a "compras-historial"
-    "compras-añadir-view.php",
-    "compras-historial-view.php",
-    "compras-detalle-view.php",
-
-    // 4. VENTAS
-    "ventas-punto-venta-view.php",
-    "ventas-historial-facturas-view.php",
-    "ventas-productos-populares-view.php",
-    "ventas-cierre-caja-view.php",
-
-    // 4.1. VENTAS - Métodos de Pago
-    "ventas-añadir-metodo-pago-view.php",
-    "ventas-lista-metodos-pago-view.php",
-    "ventas-detalle-metodo-pago-view.php",
-    "ventas-metodo-pago-view.php", // Si es necesario, lo mantengo
-
-    // 5. CLIENTES
-    "clientes-listado-view.php",
-    "clientes-detalle-view.php",
-
-    // 6. PROVEEDORES
-    "proveedores-listado-view.php",
-    "proveedores-añadir-view.php",
-    "proveedores-detalles-view.php",
-
-    // 7. EMPLEADOS
-    "empleados-listado-view.php",
-    "empleados-añadir-view.php",
-    "empleados-detalle-view.php",
-
-    // 7.1. EMPLEADOS - Roles
-    "empleados-añadir-rol-view.php",
-    "empleados-lista-roles-view.php",
-    "empleados-detalle-rol-view.php",
-
-    // 8. MONEDAS Y TASAS
-    // Tasas
-    "monedas-tasas-activas-view.php",
-    "monedas-añadir-tasas-view.php",
-    "monedas-historial-view.php",
-    // Monedas
-    "monedas-listado-view.php",
-    "monedas-añadir-view.php",
-
-    // 9. CONFIGURACIÓN (Cuenta)
-    "configurar-cuenta-view.php"
-];
-
+$dashboard_gerente = ["dashboard-gerente-view.php", "inventario-ver-productos-view.php", "inventario-añadir-producto-view.php", "inventario-gestionar-categorias-view.php", "listado-compras-view.php", "añadir-compras-view.php", "punto-venta-view.php", "historial-facturas-view.php", "cierre-caja-view.php", "clientes-ver-listado-clientes-view.php", "clientes-gestionar-clientes-view.php", "proveedores-lista-view.php", "proveedores-detalles-view.php", "proveedores-gestionar-proveedores-view.php", "empleados-lista-empleados-view.php", "empleado-gestionar-empleado-view.php"];
 $excepciones = ["404-view.php", "inicio-sesion-usuario-view.php", "registro-usuario-view.php"];
-
 // siempre se incluyen los enlaces al inicio
 include_once("assets/elements/links.php");
 
