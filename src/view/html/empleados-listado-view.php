@@ -32,15 +32,6 @@
                 <div class="col-6 p-5 Quick-title">
                     <h1>Listado de Empleados</h1>
                 </div>
-
-                <div class="col-6 p-5 d-flex flex-row justify-content-end align-items-center">
-                    <form action="">
-                        <input type="search" placeholder="Buscar empleado por ID" class="Quick-input" id="empleados-buscar">
-                        <button type="submit" class="btn btn-secondary">
-                            <i class="bi bi-search fs-6"></i>
-                        </button>
-                    </form>
-                </div>
                 <div class="row p-0 m-0 stats-cards">
                     <div class="col-md-3 mb-3">
                         <div class="stat-card">

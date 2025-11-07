@@ -82,7 +82,7 @@
                                     <td>Calle 42, con carrera 22</td>
                                     <td>0426-478-4267</td>
                                     <td>ginzasports@gmail.com</td>
-                                    <td><span class="badge bg-warning text-dark">Pendiente</span></td>
+                                    <td><span class="badge bg-success">Activo</span></td>
                                     <td>
                                         <a href="#" class="btn btn-sm btn-info text-white">
                                             <i class="bi bi-eye"></i> Ver

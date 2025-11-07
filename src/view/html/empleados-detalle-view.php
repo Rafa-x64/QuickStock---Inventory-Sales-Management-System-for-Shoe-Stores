@@ -177,7 +177,7 @@
                             <div class="timeline-item">
                                 <h5>Ejecutivo de Ventas</h5>
                                 <p class="text-muted mb-1">Departamento de Ventas</p>
-                                <p class="text-muted mb-1">01/08/2014 - 14/12/2016</p>
+                                <p class="text-muted mb-1">01/08/2024 - 14/12/2024</p>
                                 <p>Atención a clientes corporativos</p>
                             </div>
                         </div>
