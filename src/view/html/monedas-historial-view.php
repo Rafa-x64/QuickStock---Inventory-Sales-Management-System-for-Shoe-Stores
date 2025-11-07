@@ -5,16 +5,6 @@
                 <div class="col-6 p-5 Quick-title">
                     <h1>Historial de Cambios en Tasas</h1>
                 </div>
-
-                <div class="col-6 p-5 d-flex flex-row justify-content-end align-items-center">
-                    <form action="">
-                        <input type="search" placeholder="Buscar por moneda o usuario" class="Quick-input" id="historial-buscar">
-                        <button type="submit" class="btn btn-secondary">
-                            <i class="bi bi-search fs-6"></i>
-                        </button>
-                    </form>
-                </div>
-
                 <!-- Filtros -->
                 <div class="row p-0 m-0 filters-section">
                     <div class="col-12">

@@ -106,7 +106,7 @@
                         <div class="col-md-3 mb-3">
                             <div class="card bg-light">
                                 <div class="card-body">
-                                    <h3 class="text-primary">24</h3>
+                                    <h3 class="text-primary">12</h3>
                                     <p class="text-muted mb-0">Compras Realizadas</p>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                         <div class="col-md-3 mb-3">
                             <div class="card bg-light">
                                 <div class="card-body">
-                                    <h3 class="text-success">$45,820.75</h3>
+                                    <h3 class="text-success">$5,820.75</h3>
                                     <p class="text-muted mb-0">Total Comprado</p>
                                 </div>
                             </div>
