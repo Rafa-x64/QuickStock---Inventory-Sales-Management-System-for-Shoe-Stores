@@ -10,12 +10,12 @@
                 <h6 class="my-3 text-center">Control inteligente de inventario y relaciones operativas</h6>
             </div>
             <div class="col-12 py-3 d-flex flex-row justify-content-center align-items-center">
-                <button type="button" class="btn w-4 h-3 me-2 bienvenida-custom-login">
+                <button type="button" class="btn w-4 h-3 me-2 bienvenida-custom-login" id="iniciar_sesion">
                     <a href="inicio-sesion-usuario" class="text-white">
                         <h6 class="m-0 py-2">Iniciar Sesion</h6>
                     </a>
                 </button>
-                <button type="button" class="btn w-4 h-3 ms-2 bienvenida-custom-register">
+                <button type="button" class="btn w-4 h-3 ms-2 bienvenida-custom-register" id="registrarse">
                     <a href="registro-usuario" class="text-white">
                         <h6 class="m-0 py-2">Registrarse</h6>
                     </a>
@@ -192,3 +192,5 @@
         </div>
     </div>
 </section>
+
+<script type="module" src="api/client/inicio.js"></script>

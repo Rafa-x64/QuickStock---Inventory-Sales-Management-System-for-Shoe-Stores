@@ -1,3 +1,5 @@
+<?php  ?>
+
 <div class="container-fluid px-0 px-md-3">
     <div class="row p-1 p-md-3 mx-1 mx-md-3 d-flex flex-row justify-content-around registro-usuario">
 
@@ -51,11 +53,11 @@
                             <div class="progress-step-custom" id="stepIndicator4"></div>
                         </div>
 
-                        <form action="" method="POST"><!--asignar el id_rol automaticamente a 1 por ser el gerente (el campo no aparece ya que al registrar un Gerente este se sobreentiendo que su rol va a ser gerente)-->
+                        <form action="" method="POST">
                             <div class="form-steps-container mt-2">
 
                                 <div class="form-step px-3 px-md-1 px-lg-4 w-100" id="step1">
-                                    <h5 class="mt-0 mb-4 Quick-title">🏢 Información de la Sucursal (1/4)</h5>
+                                    <h5 class="mt-0 mb-4 Quick-title">Información de la Sucursal (1/4)</h5>
                                     <div class="row w-100">
                                         <div class="col-12 mb-3">
                                             <label for="sucursal_nombre" class="form-label">Nombre de la Sucursal:</label>
@@ -69,11 +71,11 @@
                                 </div>
 
                                 <div class="form-step px-3 px-md-1 px-lg-4" id="step2">
-                                    <h5 class="mt-0 mb-4 Quick-title">🏢 Información de la Sucursal (2/4)</h5>
+                                    <h5 class="mt-0 mb-4 Quick-title">Información de la Sucursal (2/4)</h5>
                                     <div class="row w-100">
                                         <div class="col-12 mb-3">
                                             <label for="sucursal_telefono" class="form-label">Teléfono (Sucursal):</label>
-                                            <input type="tel" class="form-control registro-usuario-custom-input" id="sucursal_telefono" name="sucursal_telefono" maxlength="20" required>
+                                            <input type="tel" class="form-control registro-usuario-custom-input" id="sucursal_telefono" name="sucursal_telefono" maxlength="20">
                                         </div>
                                         <div class="col-12 mb-3">
                                             <label for="sucursal_direccion" class="form-label">Dirección:</label>
@@ -83,7 +85,7 @@
                                 </div>
 
                                 <div class="form-step px-3 px-md-1 px-lg-4" id="step3">
-                                    <h5 class="mt-0 mb-4 Quick-title">👤 Información del Gerente (3/4)</h5>
+                                    <h5 class="mt-0 mb-4 Quick-title">Información del Gerente (3/4)</h5>
 
                                     <div class="row w-100">
                                         <div class="col-12 col-md-6 mb-3">
@@ -109,7 +111,7 @@
                                 </div>
 
                                 <div class="form-step px-3 px-md-1 px-lg-4" id="step4">
-                                    <h5 class="mt-0 mb-4 Quick-title">🔑 Información de la Cuenta (4/4)</h5>
+                                    <h5 class="mt-0 mb-4 Quick-title">Información de la Cuenta (4/4)</h5>
                                     <div class="row w-100">
                                         <div class="col-12 mb-3">
                                             <label for="gerente_email" class="form-label">Email (Cuenta de acceso):</label>
@@ -147,3 +149,17 @@
 </div>
 
 <script src="view/js/registro-usuario.js"></script>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once "controller/registro_usuario_C.php";
+
+    if (!registro_usuario_C::agregarSucursal($_POST) || !registro_usuario_C::agregarGerente($_POST)) {
+        echo "<script>alert('Error al registrar la sucursal o el gerente. Por favor, intente nuevamente.');</script>";
+        exit();
+    };
+
+    registro_usuario_C::iniciarSesionGerente();
+    echo "<script>window.location.href = 'dashboard-gerente';</script>";
+}
+?>
