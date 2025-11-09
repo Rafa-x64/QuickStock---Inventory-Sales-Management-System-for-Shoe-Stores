@@ -137,7 +137,7 @@
                 <h2 class="text-uppercase text-center Quick-title">Testimonios</h2>
                 <p class="p-subtitle text-center">Aplicaciones reales, resultados medibles</p>
             </div>
-            <div class="col-12 col-md-8 my-5">
+            <!--<div class="col-12 col-md-8 my-5">
                 <div id="carouselCombinado" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselCombinado" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -185,7 +185,7 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-            </div>
+            </div>-->
             <div class="col-12 py-3">
                 <p class="p-concept text-center">Los resultados hablan por sí solos. En esta sección, verás cómo <b>QuickStock</b> ha transformado procesos reales: desde la automatización del reparto hasta la trazabilidad de pedidos y la gestión eficiente de proveedores. Cada caso de uso demuestra cómo el sistema se adapta a distintos perfiles y necesidades, mientras los testimonios reflejan mejoras concretas en tiempo, precisión y control. Es la evidencia viva de que <b>QuickStock</b> no solo funciona, sino que marca la diferencia.</p>
             </div>

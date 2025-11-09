@@ -90,10 +90,6 @@
                                     <option value="inactivo">Inactivo</option>
                                 </select>
                             </div>
-                            <div class="col-md-3 mb-3">
-                                <label for="fecha-ingreso" class="form-label">Fecha de Ingreso</label>
-                                <input type="date" class="form-control" id="fecha-ingreso">
-                            </div>
                         </div>
                         <div class="row">
                             <div class="col-12 d-flex align-items-end">
@@ -122,7 +118,7 @@
                                 <tr>
                                     <td>EMP-1001</td>
                                     <td>Ana Rodríguez</td>
-                                    <td>Gerente de Ventas</td>
+                                    <td>Gerente</td>
                                     <td>Ventas</td>
                                     <td>0424-183-4067</td>
                                     <td>23.895.612</td>
@@ -142,7 +138,7 @@
                                 <tr>
                                     <td>EMP-1002</td>
                                     <td>Carlos Pérez</td>
-                                    <td>Desarrollador Senior</td>
+                                    <td>Desarrollador</td>
                                     <td>Tecnología</td>
                                     <td>0416-987-6543</td>
                                     <td>14.589.375</td>
@@ -162,7 +158,7 @@
                                 <tr>
                                     <td>EMP-1003</td>
                                     <td>Luis Suarez</td>
-                                    <td>Analista Financiero</td>
+                                    <td>Analista</td>
                                     <td>Finanzas</td>
                                     <td>0426-555-1234</td>
                                     <td>20.803.021</td>

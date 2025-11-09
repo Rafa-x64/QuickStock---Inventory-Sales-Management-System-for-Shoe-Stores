@@ -119,7 +119,7 @@
             </div>
 
             <!-- Información de Pago -->
-            <div class="card mb-4">
+            <!--<div class="card mb-4">
                 <div class="card-header bg-secondary text-white">
                     <h5 class="mb-0">
                         <i class="bi bi-wallet2"></i> Información de Pago
@@ -141,7 +141,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+        </div>-->
         </div>
     </div>
 </div>

@@ -2,35 +2,33 @@
     <div class="row">
         <div class="col-12 p-5">
             <div class="row d-flex flex-row justify-content-center align-items-center">
-                <div class="col-6 p-5 Quick-title">
-                    <h1>Añadir Rol</h1>
-                </div>
+                <h3 class="Quick-title">Añadir Rol</h3>
                 <div class="row p-0 m-0 d-flex flex-row justify-content-center align-items-center">
                     <div class="col-12 form-container">
-                        <div class="row mb-4">
-                            <div class="col-md-6">
-                                <label for="nombre-rol" class="form-label">Nombre del Rol</label>
-                                <input type="text" class="form-control" id="nombre-rol" placeholder="Ej: Supervisor de Ventas" required>
+                        <form action="#">
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label for="nombre-rol" class="form-label">Nombre del Rol</label>
+                                    <input type="text" class="form-control" id="nombre-rol" placeholder="Ej: Supervisor de Ventas" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="descripcion-rol" class="form-label">Descripción</label>
+                                    <input type="text" class="form-control" id="descripcion-rol" placeholder="Breve descripción del rol">
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <label for="descripcion-rol" class="form-label">Descripción</label>
-                                <input type="text" class="form-control" id="descripcion-rol" placeholder="Breve descripción del rol">
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <label for="duplicar-rol" class="form-label">Duplicar Rol Existente (Opcional)</label>
+                                    <select class="form-select" id="duplicar-rol">
+                                        <option value="">Seleccionar rol a duplicar</option>
+                                        <option value="supervisor-ventas">Supervisor de Ventas</option>
+                                        <option value="analista-financiero">Analista Financiero</option>
+                                        <option value="coordinador-operaciones">Coordinador de Operaciones</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col-12">
-                                <label for="duplicar-rol" class="form-label">Duplicar Rol Existente (Opcional)</label>
-                                <select class="form-select" id="duplicar-rol">
-                                    <option value="">Seleccionar rol a duplicar</option>
-                                    <option value="supervisor-ventas">Supervisor de Ventas</option>
-                                    <option value="analista-financiero">Analista Financiero</option>
-                                    <option value="coordinador-operaciones">Coordinador de Operaciones</option>
-                                </select>
-                                <div class="form-text">Selecciona un rol existente para copiar sus permisos</div>
-                            </div>
-                        </div>
 
-                        <div class="permissions-section">
+                            <!--<div class="permissions-section">
                             <h4 class="mb-4">Editor de Permisos</h4>
 
                             <div class="module-card">
@@ -70,10 +68,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
                             <!-- Módulo de Inventario -->
-                            <div class="module-card">
+                            <!--<div class="module-card">
                                 <div class="module-header" data-bs-toggle="collapse" data-bs-target="#modulo-inventario">
                                     <i class="bi bi-box-seam me-2"></i>Módulo de Inventario
                                 </div>
@@ -110,10 +108,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
                             <!-- Módulo de Finanzas -->
-                            <div class="module-card">
+                            <!--<div class="module-card">
                                 <div class="module-header" data-bs-toggle="collapse" data-bs-target="#modulo-finanzas">
                                     <i class="bi bi-cash-coin me-2"></i>Módulo de Finanzas
                                 </div>
@@ -150,10 +148,10 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
                             <!-- Módulo de Reportes -->
-                            <div class="module-card">
+                            <!--<div class="module-card">
                                 <div class="module-header" data-bs-toggle="collapse" data-bs-target="#modulo-reportes">
                                     <i class="bi bi-bar-chart me-2"></i>Módulo de Reportes
                                 </div>
@@ -190,9 +188,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
-                            <div class="row mt-4">
+                            <!--<div class="row mt-4">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
                                     <div>
                                         <span class="text-muted">Permisos seleccionados: </span>
@@ -205,10 +203,18 @@
                                         <button type="submit" class="btn btn-primary btn-submit">Guardar Rol</button>
                                     </div>
                                 </div>
+                            </div>-->
+
+                            <div class="row mt-4">
+                                <div>
+                                    <button type="button" class="btn btn-secondary me-3">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary btn-submit">Guardar Rol</button>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

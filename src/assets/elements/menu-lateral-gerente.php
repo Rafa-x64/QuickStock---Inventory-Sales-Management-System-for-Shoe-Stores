@@ -103,17 +103,17 @@
                                 <p class="texto-menu m-0 ms-2">Clientes</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-<<<<<<< HEAD
-                                <a href="clientes-ver-listado-clientes" class="ms-3">Ver listado de Clientes</a>
                                 <<<<<<< HEAD
-                                    <a href="#" class="ms-3">Gestionar Clientes</a>
-                                    =======
-                                    <a href="clientes-gestionar-clientes" class="ms-3">Gestionar Clientes</a>
-                                    >>>>>>> 02bf0b61342218dfe68b70b36a693b14acf0371f
-=======
-                                <a href="clientes-listado" class="ms-3">Ver listado de Clientes</a>
-                                <a href="clientes-detalle" class="ms-3">Detalle Cliente</a>
->>>>>>> 26f5d611de811372fd60a541dc95a71e1355db15
+                                    <a href="clientes-ver-listado-clientes" class="ms-3">Ver listado de Clientes</a>
+                                    <<<<<<< HEAD
+                                        <a href="#" class="ms-3">Gestionar Clientes</a>
+                                        =======
+                                        <a href="clientes-gestionar-clientes" class="ms-3">Gestionar Clientes</a>
+                                        >>>>>>> 02bf0b61342218dfe68b70b36a693b14acf0371f
+                                        =======
+                                        <a href="clientes-listado" class="ms-3">Ver listado de Clientes</a>
+                                        <a href="clientes-detalle" class="ms-3">Detalle Cliente</a>
+                                        >>>>>>> 26f5d611de811372fd60a541dc95a71e1355db15
                             </div>
                         </details>
                     </div>
@@ -185,12 +185,12 @@
                         </details>
                     </div>
                 </li>
-                <li class="list-group-item pt-2">
+                <!--<li class="list-group-item pt-2">
                     <a href="configurar-cuenta" class="d-flex flex-row align-items-center text-decoration-none Quick-white-link">
                         <i class="bi bi-person-gear fs-5"></i>
                         <p class="m-0 ms-2">Configurar Cuenta</p>
                     </a>
-                </li>
+                </li>-->
                 <li class="list-group-item pt-2">
                     <a href="inicio" class="d-flex flex-row align-items-center text-decoration-none Quick-white-link">
                         <i class="bi bi-box-arrow-left fs-5"></i>
@@ -376,12 +376,12 @@
                 </details>
             </div>
 
-            <div class="col-12 p-0 mt-2 menu-item">
+            <!--<div class="col-12 p-0 mt-2 menu-item">
                 <a href="configurar-cuenta" class="d-flex flex-row align-items-center Quick-white-link menu-details-link">
                     <i class="bi bi-person-gear fs-5"></i>
                     <p class="texto-menu">Configurar Cuenta</p>
                 </a>
-            </div>
+            </div>-->
 
             <div class="col-12 p-0 mt-2 menu-item">
                 <a href="inicio" class="d-flex flex-row align-items-center Quick-white-link menu-details-link">

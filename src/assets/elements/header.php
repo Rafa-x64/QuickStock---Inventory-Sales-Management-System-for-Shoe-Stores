@@ -1,5 +1,5 @@
 <!--header-->
-<header class="container-fluid w-100 d-block d-md-none header" style="height: 80px;">
+<header class="container-fluid w-100 d-block d-md-none header position-fixed" style="height: 80px;">
     <div class="row h-100">
         <div class="col-11 d-flex align-items-center">
             <h2 class="custom-title my-0 mx-0">QUICKSTOCK</h2>
