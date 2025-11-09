@@ -217,20 +217,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // --- 6. MANEJO DEL ENVÍO DEL FORMULARIO (Se mantiene) ---
+    // --- 6. MANEJO DEL ENVÍO DEL FORMULARIO ---
     form.addEventListener('submit', function (e) {
-        e.preventDefault();
 
-        // Validamos el último paso (Paso 4) antes de enviar
-        if (validateStep(currentStep)) {
-            // Asegurarse de ocultar tooltips al enviar exitosamente
-            hideAllTooltips();
-            console.log('Formulario válido y listo para enviar.');
-            alert('¡Formulario validado con éxito! Ahora sí puedes implementar la lógica de envío (AJAX o submit nativo).');
-            // form.submit(); // Descomentar para enviar realmente el formulario
-        } else {
-            console.log('El último paso tiene errores de validación.');
+        // Validar el último paso
+        if (!validateStep(currentStep)) {
+            e.preventDefault();
+            console.log("Errores en el último paso");
+            return;
         }
+
+        hideAllTooltips(); // opcional
+
+        // ✅ Envío NORMAL (POST)
+        // No hacemos e.preventDefault()
+        console.log("Formulario enviado por POST");
     });
 
     // --- 7. INICIALIZACIÓN ---
