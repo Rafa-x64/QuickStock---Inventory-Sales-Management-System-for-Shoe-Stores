@@ -2,7 +2,8 @@
 
 session_start();
 
-$dashboard_gerente = [
+//paginas de la vista que puede manipular el usuario con los menus (importante poner aqui cada pagina nueva para que funcione el js y el menu)
+$paginas_existentes = [
     "dashboard-gerente-view.php",
     "inventario-ver-productos-view.php",
     "inventario-añadir-producto-view.php",
@@ -52,7 +53,9 @@ $dashboard_gerente = [
     "compras-detalle-view.php"
 ];
 
+//paginas que no usan el js de menu lateral
 $excepciones = ["404-view.php", "inicio-sesion-usuario-view.php", "registro-usuario-view.php"];
+
 // siempre se incluyen los enlaces al inicio
 include_once("assets/elements/links.php");
 
@@ -73,8 +76,23 @@ if ($vista === "inicio-sesion-usuario-view.php" || $vista === "registro-usuario-
     include_once("assets/elements/scripts.php"); // scripts JS
 }
 
-if (in_array($vista, $dashboard_gerente)) {
-    include_once("assets/elements/menu-lateral-gerente.php"); // encabezado
+//si el rol es Gerente y esta en la pagina de vistas existentes entonces...
+if ($_SESSION["sesion_usuario"]["rol"]["nombre_rol"] == "Gerente" && in_array($vista, $paginas_existentes)) {
+    include_once("assets/elements/menu-lateral-gerente.php");
+    include_once("view/html/" . $vista); // contenido principal
+    include_once("assets/elements/scripts.php"); // scripts JS
+}
+
+//si el rol es Cajero y esta en la pagina de vistas existentes entonces...
+if($_SESSION["sesion_usuario"]["rol"]["nombre_rol"] == "Cajero" && in_array($vista, $paginas_existentes)){
+    include_once("assets/elements/menu-lateral-cajero.php");
+    include_once("view/html/" . $vista); // contenido principal
+    include_once("assets/elements/scripts.php"); // scripts JS
+}
+
+//si el rol es Adminstrador y esta en la pagina de vistas existentes entonces...
+if ($_SESSION["sesion_usuario"]["rol"]["nombre_rol"] == "Administrador" && in_array($vista, $paginas_existentes)) {
+    include_once("assets/elements/menu-lateral-administrador.php");
     include_once("view/html/" . $vista); // contenido principal
     include_once("assets/elements/scripts.php"); // scripts JS
 }

@@ -1,6 +1,3 @@
-<style>
-
-</style>
 <!--menu para disposiciones mdianas y pequeñas-->
 <button
     class="btn btn-secondary menu-flotante d-lg-none"
@@ -19,7 +16,7 @@
     </div>
 
     <div class="offcanvas-body">
-        <h6>Menu Gerente</h6>
+        <h6>Menu Administrador</h6>
         <nav>
             <ul class="">
                 <li class="list-group-item pt-2">
@@ -54,7 +51,6 @@
                                 <p class="texto-menu m-0 ms-2">Sucursales</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="sucursales-añadir" class="ms-3">Añadir Sucursal</a>
                                 <a href="sucursales-listado" class="ms-3">Listado de Sucursales</a>
                                 <a href="sucursales-detalle" class="ms-3">Detalle de Sucursal</a>
                             </div>
@@ -70,7 +66,6 @@
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
                                 <a href="compras-historial" class="ms-3">Historial de Compras</a>
-                                <a href="compras-añadir" class="ms-3">Registrar Nueva Compra</a>
                                 <a href="compras-detalle" class="ms-3">Detalle de Compra</a>
                             </div>
                         </details>
@@ -84,10 +79,8 @@
                                 <p class="texto-menu m-0 ms-2">Ventas</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <a href="ventas-punto-venta" class="ms-3">Interfaz de Venta Rapida</a>
                                 <a href="ventas-historial-facturas" class="ms-3">Historial de Facturas</a>
                                 <a href="ventas-productos-populares" class="ms-3">Productos mas Vendidos</a>
-                                <a href="ventas-cierre-caja" class="ms-3">Cierre de Caja</a>
                                 <a href="ventas-añadir-metodo-pago" class="ms-3">Añadir Metodo de Pago</a>
                                 <a href="ventas-lista-metodos-pago" class="ms-3">Listado de Metodos de pago</a>
                                 <a href="ventas-detalle-metodo-pago" class="ms-3">Detalle Metodo de Pago</a>
@@ -103,17 +96,10 @@
                                 <p class="texto-menu m-0 ms-2">Clientes</p>
                             </summary>
                             <div class="menu-submenu d-flex flex-column ps-2">
-                                <<<<<<< HEAD
-                                    <a href="clientes-ver-listado-clientes" class="ms-3">Ver listado de Clientes</a>
-                                    <<<<<<< HEAD
-                                        <a href="#" class="ms-3">Gestionar Clientes</a>
-                                        =======
-                                        <a href="clientes-gestionar-clientes" class="ms-3">Gestionar Clientes</a>
-                                        >>>>>>> 02bf0b61342218dfe68b70b36a693b14acf0371f
-                                        =======
-                                        <a href="clientes-listado" class="ms-3">Ver listado de Clientes</a>
-                                        <a href="clientes-detalle" class="ms-3">Detalle Cliente</a>
-                                        >>>>>>> 26f5d611de811372fd60a541dc95a71e1355db15
+                                <a href="clientes-ver-listado-clientes" class="ms-3">Ver listado de Clientes</a>
+                                <a href="clientes-gestionar-clientes" class="ms-3">Gestionar Clientes</a>
+                                <a href="clientes-listado" class="ms-3">Ver listado de Clientes</a>
+                                <a href="clientes-detalle" class="ms-3">Detalle Cliente</a>
                             </div>
                         </details>
                     </div>
@@ -261,7 +247,6 @@
                         <p class="texto-menu">Sucursales</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="sucursales-añadir" class="ms-3">Añadir Sucursal</a>
                         <a href="sucursales-listado" class="ms-3">Listado de Sucursales</a>
                         <a href="sucursales-detalle" class="ms-3">Detalle de Sucursal</a>
                     </div>
@@ -276,7 +261,6 @@
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
                         <a href="compras-historial" class="ms-3">Historial de Compras</a>
-                        <a href="compras-añadir" class="ms-3">Registrar Nueva Compra</a>
                         <a href="compras-detalle" class="ms-3">Detalle de Compra</a>
                     </div>
                 </details>
@@ -289,17 +273,14 @@
                         <p class="texto-menu">Ventas</p>
                     </summary>
                     <div class="menu-submenu d-flex flex-column ps-5">
-                        <a href="ventas-punto-venta" class="ms-3">Interfaz de Venta Rapida</a>
                         <a href="ventas-historial-facturas" class="ms-3">Historial de Facturas</a>
                         <a href="ventas-productos-populares" class="ms-3">Productos mas Vendidos</a>
-                        <a href="ventas-cierre-caja" class="ms-3">Cierre de Caja</a>
                         <a href="ventas-añadir-metodo-pago" class="ms-3">Añadir Metodo de Pago</a>
                         <a href="ventas-lista-metodos-pago" class="ms-3">Listado de Metodos de pago</a>
                         <a href="ventas-detalle-metodo-pago" class="ms-3">Detalle Metodo de Pago</a>
                     </div>
                 </details>
             </div>
-
             <div class="col-12 p-0 mt-2 menu-item">
                 <details class="menu-details">
                     <summary class="d-flex flex-row align-items-center Quick-white-link">
