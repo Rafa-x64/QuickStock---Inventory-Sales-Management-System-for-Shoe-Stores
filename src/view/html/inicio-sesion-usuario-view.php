@@ -12,7 +12,7 @@
                     <h3 class="Quick-title text-uppercase p-0 m-0">Inicia Sesion</h3>
                 </div>
                 <div class="col-12 mt-3 pt-3 px-md-2 px-md-5">
-                    <form action="" class="d-flex flex-column justify-content-center align-items-center needs-validation" novalidate>
+                    <form action="" method="POST" class="d-flex flex-column justify-content-center align-items-center needs-validation" novalidate>
                         <div class="row w-100">
                             <div class="col-12 p-0 position-relative">
                                 <label for="usuario_correo" class="form-label">Correo</label>
@@ -50,28 +50,30 @@
     </div>
 </div>
 
-<script>
-    (() => {
-        'use strict'
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include_once "controller/inicio_sesion_C.php";
 
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.from(forms).forEach(form => {
-            form.addEventListener('submit', event => {
-                if (!form.checkValidity()) {
-                    event.preventDefault()
-                    event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-        })
-    })()
-
-    const link_registro = document.getElementById("link-registro");
-    link_registro.addEventListener("click", () => {
-        window.location.href = "registro-usuario";
-    });
-</script>
+    switch (inicioSesionC::validarAccesso($_POST)) {
+        case "error de correo":
+            echo "<script>alert('Correo invalido. Por favor, intente nuevamente.');</script>";
+            exit();
+            break;
+        case "error de contraseña":
+            echo "<script>alert('Contraseña invalida. Por favor, intente nuevamente.');</script>";
+            exit();
+            break;
+        case "error al iniciar sesion":
+            echo "<script>alert('Error durante inicio de sesion. Por favor, intente nuevamente.');</script>";
+            exit();
+            break;
+        case "sisa mano":
+            echo "<script>window.location.href = 'dashboard-gerente';</script>";
+            break;
+        default:
+            echo "<script>alert('Error desconocido. Por favor, intente nuevamente.');</script>";
+            exit();
+    }
+};
+?>
+<script src="view/html/inicio-sesion.js"></script>

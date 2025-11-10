@@ -1,43 +1,67 @@
 <?php
-
-include_once "model/seguridad_acceso.usuario.php";
-include_once "model/core.sucursal.php";
-
-class registro_usuario_C extends mainModel
+class inicioSesionC extends mainModel
 {
-    public static function agregarSucursal($formulario)
+    public static function validarAccesso($formulario)
     {
-        $rif = ucfirst($formulario["sucursal_rif"]);
-        $nombre = ucwords($formulario["sucursal_nombre"]);
-        $direccion = ucwords($formulario["sucursal_direccion"]);
-        $telefono = $formulario["sucursal_telefono"];
-        if (!sucursal::crearSucursal($rif, $nombre, $direccion, $telefono)) {
-            return false;
+        $correo = trim($formulario["usuario_correo"]);
+        $contraseña = trim($formulario["usuario_contraseña"]);
+
+        if(!self::validarCorreo($correo)){
+            return "error de correo";
         }
-        return true;
+
+        if(!self::validarContraseña($correo, $contraseña)){
+            return "error de contraseña";
+        }
+
+        if (!self::iniciarSesion($correo, $contraseña)) {
+            return "error al iniciar sesion";
+        }
+
+        return "sisa mano";
     }
 
-    public static function agregarGerente($formulario)
-    {
-        $nombre = ucwords($formulario["gerente_nombre"]);
-        $apellido = ucwords($formulario["gerente_apellido"]);
-        $cedula = ucfirst($formulario["gerente_cedula"]);
-        $email = $formulario["gerente_email"];
-        $contraseña = parent::hashear_contraseña($formulario["gerente_contraseña"]);
-        $telefono = $formulario["gerente_telefono"];
-        if (!usuario::crearGerente($nombre, $apellido, $cedula, $email, $contraseña, $telefono)) {
-            return false;
-        }
-        return true;
-    }
-
-    public static function iniciarSesionGerente()
+    public static function validarCorreo($correo)
     {
         $conn = parent::conectar_base_datos();
-        pg_prepare(
-            $conn,
-            "iniciar_sesion_gerente", "
-            SELECT 
+        pg_prepare($conn, "validar_correo", "
+            SELECT * FROM seguridad_acceso.usuario WHERE email = $1
+        ");
+        $resultado = pg_execute($conn, "validar_correo", [$correo]);
+        $fila = pg_fetch_assoc($resultado);
+
+        if (!$fila) {
+            return false;
+        }
+        return true;
+    }
+
+    public static function validarContraseña($correo, $contraseña)
+    {
+        $conn = parent::conectar_base_datos();
+        pg_prepare($conn, "validar_contraseña", "
+            SELECT * FROM seguridad_acceso.usuario WHERE email = $1
+        ");
+        $resultado = pg_execute($conn, "validar_contraseña", [$correo]);
+        $fila = pg_fetch_assoc($resultado);
+
+        if (!$fila) {
+            return false;
+        }
+
+        if(!parent::verificar_contraseña($contraseña, $fila["contraseña"])){
+            return false;
+        }
+
+        return true;
+    }
+
+    public static function iniciarSesion($correo, $contraseña)
+    {
+        $conn = parent::conectar_base_datos();
+
+        pg_prepare($conn, "iniciar_sesion", "
+                SELECT 
                 U.id_usuario,
                 U.nombre,
                 U.apellido,
@@ -59,12 +83,15 @@ class registro_usuario_C extends mainModel
             FROM seguridad_acceso.usuario U
             LEFT JOIN seguridad_acceso.rol R ON U.id_rol = R.id_rol
             LEFT JOIN core.sucursal S ON U.id_sucursal = S.id_sucursal
-            WHERE U.id_usuario = 1
-            AND U.id_rol = 1"
-        );
-        $resultado = pg_execute($conn, "iniciar_sesion_gerente", []);
+            WHERE U.email = $1
+        ");
 
+        $resultado = pg_execute($conn, "iniciar_sesion", [$correo]);
         $fila = pg_fetch_assoc($resultado);
+
+        if (!$fila) {
+            return false;
+        }
 
         $_SESSION["sesion_usuario"] =
             [
@@ -90,5 +117,7 @@ class registro_usuario_C extends mainModel
                     "rif" => $fila["rif"]
                 ]
             ];
+
+        return true;
     }
 }
