@@ -14,4 +14,18 @@ function existeGerente()
 
     return ["existe" => ($data["total"] > 0)];
 }
+
+function obtenerRoles(){
+    $conn = conectar_base_datos();
+    pg_prepare($conn, "obtener_roles", "SELECT * FROM seguridad_acceso.rol");
+    $res = pg_execute($conn, "obtener_roles", []);
+    if(!$res){
+        return ["error" => "Error al realizar la consulta de roles"];
+    }
+    $filas = pg_fetch_all($res);
+    if(!$filas){
+        return [];
+    }
+    return ["filas" => $filas ?: []];
+}
 ?>

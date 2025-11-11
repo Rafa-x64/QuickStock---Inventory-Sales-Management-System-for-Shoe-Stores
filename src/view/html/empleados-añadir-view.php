@@ -1,260 +1,147 @@
+<style>
+    .was-validated .form-control:invalid~.invalid-tooltip,
+    .form-control.is-invalid~.invalid-tooltip {
+        display: block;
+    }
+
+    .col-md-6,
+    .col-md-4,
+    .col-md-12 {
+        position: relative;
+    }
+</style>
 <div class="container-fluid" id="mainContent">
-    <div class="row">
-        <div class="col-12 p-5">
+    <div class="row d-flex flex-column justify-content-center align-items-center">
+        <div class="col-12 p-3 p-lg-5">
             <div class="row d-flex flex-row justify-content-center align-items-center">
-                <div class="col-6 p-5 Quick-title">
-                    <h1>Añadir Empleados</h1>
+                <div class="col-12 p-5 Quick-title">
+                    <h1 class="m-0 p-0">Registrar Nuevo Empleado</h1>
                 </div>
-                <div class="row p-0 m-0 d-flex flex-row justify-content-center align-items-center">
-                    <div class="col-12 form-container">
-                        <ul class="nav nav-tabs mb-4" id="empleadoTabs" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="datos-personales-tab" data-bs-toggle="tab" data-bs-target="#datos-personales" type="button" role="tab">
-                                    <i class="bi bi-person me-2"></i>Datos Personales
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contacto-tab" data-bs-toggle="tab" data-bs-target="#contacto" type="button" role="tab">
-                                    <i class="bi bi-telephone me-2"></i>Contacto
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="laboral-tab" data-bs-toggle="tab" data-bs-target="#laboral" type="button" role="tab">
-                                    <i class="bi bi-briefcase me-2"></i>Datos Laborales
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="permisos-tab" data-bs-toggle="tab" data-bs-target="#permisos" type="button" role="tab">
-                                    <i class="bi bi-shield-lock me-2"></i>Permisos
-                                </button>
-                            </li>
-                        </ul>
 
-                        <div class="tab-content" id="empleadoTabsContent">
-                            <div class="tab-pane fade show active" id="datos-personales" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-md-4 mb-4">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="nombre" class="form-label">Nombre</label>
-                                                <input type="text" class="form-control" id="nombre" required>
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="apellido" class="form-label">Apellido</label>
-                                                <input type="text" class="form-control" id="apellido" required>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="cedula" class="form-label">Cédula</label>
-                                                <input type="text" class="form-control" id="cedula" required>
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
-                                                <input type="date" class="form-control" id="fecha-nacimiento">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                                <label for="genero" class="form-label">Género</label>
-                                                <select class="form-select" id="genero">
-                                                    <option value="">Seleccionar</option>
-                                                    <option value="masculino">Masculino</option>
-                                                    <option value="femenino">Femenino</option>
-                                                    <option value="otro">Otro</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="estado-civil" class="form-label">Estado Civil</label>
-                                                <select class="form-select" id="estado-civil">
-                                                    <option value="">Seleccionar</option>
-                                                    <option value="soltero">Soltero/a</option>
-                                                    <option value="casado">Casado/a</option>
-                                                    <option value="divorciado">Divorciado/a</option>
-                                                    <option value="viudo">Viudo/a</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="contacto" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="telefono" class="form-label">Teléfono</label>
-                                        <input type="tel" class="form-control" id="telefono">
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="celular" class="form-label">Celular</label>
-                                        <input type="tel" class="form-control" id="celular" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 mb-3">
-                                        <label for="direccion" class="form-label">Dirección</label>
-                                        <textarea class="form-control" id="direccion" rows="3"></textarea>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="email-personal" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="email-personal">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label class="form-label">Subir Documentos</label>
-                                        <div class="document-upload">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span>Curriculum</span>
-                                                <button type="button" class="btn btn-sm btn-outline-primary">
-                                                    <i class="bi bi-upload"></i> Subir
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="document-upload">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span>Documentos de Identidad</span>
-                                                <button type="button" class="btn btn-sm btn-outline-primary">
-                                                    <i class="bi bi-upload"></i> Subir
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="Quick-widget col-12 col-md-10 p-0 p-2">
+                    <div class="col-12 Quick-form px-4 rounded-2">
+                        <form action="" method="POST" class="form py-3 needs-validation" novalidate>
 
-                            <!-- Datos Laborales -->
-                            <div class="tab-pane fade" id="laboral" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="codigo-empleado" class="form-label">Código de Empleado</label>
-                                        <input type="text" class="form-control" id="codigo-empleado" value="EMP-1049" readonly>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="fecha-ingreso" class="form-label">Fecha de Ingreso</label>
-                                        <input type="date" class="form-control" id="fecha-ingreso" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="departamento" class="form-label">Departamento</label>
-                                        <select class="form-select" id="departamento" required>
-                                            <option value="">Seleccionar</option>
-                                            <option value="ventas">Ventas</option>
-                                            <option value="tecnologia">Tecnología</option>
-                                            <option value="finanzas">Finanzas</option>
-                                            <option value="operaciones">Operaciones</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="cargo" class="form-label">Cargo</label>
-                                        <select class="form-select" id="cargo" required>
-                                            <option value="">Seleccionar</option>
-                                            <option value="gerente">Gerente</option>
-                                            <option value="supervisor">Supervisor</option>
-                                            <option value="analista">Analista</option>
-                                            <option value="desarrollador">Desarrollador</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="salario" class="form-label">Salario Base</label>
-                                        <input type="number" class="form-control" id="salario" step="0.01">
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="jornada" class="form-label">Jornada Laboral</label>
-                                        <select class="form-select" id="jornada">
-                                            <option value="tiempo-completo">Tiempo Completo</option>
-                                            <option value="medio-tiempo">Medio Tiempo</option>
-                                            <option value="por-horas">Por Horas</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="supervisor" class="form-label">Supervisor Directo</label>
-                                        <select class="form-select" id="supervisor">
-                                            <option value="">Sin supervisor</option>
-                                            <option value="EMP-1001">Ana Rodríguez</option>
-                                            <option value="EMP-1005">María González</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="estado" class="form-label">Estado</label>
-                                        <select class="form-select" id="estado" required>
-                                            <option value="activo">Activo</option>
-                                            <option value="inactivo">Inactivo</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="row d-flex flex-row justify-content-center align-items-center">
 
-                            <!-- Permisos del Sistema -->
-                            <div class="tab-pane fade" id="permisos" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="rol-sistema" class="form-label">Rol del Sistema</label>
-                                        <select class="form-select" id="rol-sistema" required>
-                                            <option value="">Seleccionar rol</option>
-                                            <option value="administrador">Administrador</option>
-                                            <option value="supervisor">Supervisor</option>
-                                            <option value="usuario">Usuario Estándar</option>
-                                            <option value="consulta">Solo Consulta</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="usuario-sistema" class="form-label">Usuario del Sistema</label>
-                                        <input type="text" class="form-control" id="usuario-sistema">
-                                        <div class="form-text">Dejar en blanco para generar automáticamente</div>
-                                    </div>
+                                <!-- PRIMER NOMBRE -->
+                                <div class="col-md-6 d-flex flex-column py-3">
+                                    <label for="nombre_empleado" class="form-label Quick-title">Nombre</label>
+                                    <input type="text" id="nombre_empleado" name="nombre_empleado" class="Quick-form-input" maxlength="100" placeholder="Ej: Juan" required>
+                                    <div class="invalid-tooltip"></div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <label class="form-label">Permisos Específicos</label>
-                                        <div class="border rounded p-3">
-                                            <div class="form-check mb-2">
-                                                <input class="form-check-input" type="checkbox" id="permiso-ventas">
-                                                <label class="form-check-label" for="permiso-ventas">
-                                                    Módulo de Ventas
-                                                </label>
-                                            </div>
-                                            <div class="form-check mb-2">
-                                                <input class="form-check-input" type="checkbox" id="permiso-inventario">
-                                                <label class="form-check-label" for="permiso-inventario">
-                                                    Módulo de Inventario
-                                                </label>
-                                            </div>
-                                            <div class="form-check mb-2">
-                                                <input class="form-check-input" type="checkbox" id="permiso-finanzas">
-                                                <label class="form-check-label" for="permiso-finanzas">
-                                                    Módulo de Finanzas
-                                                </label>
-                                            </div>
-                                            <div class="form-check mb-2">
-                                                <input class="form-check-input" type="checkbox" id="permiso-reportes">
-                                                <label class="form-check-label" for="permiso-reportes">
-                                                    Generación de Reportes
-                                                </label>
-                                            </div>
+
+                                <!-- APELLIDO -->
+                                <div class="col-md-6 d-flex flex-column py-3">
+                                    <label for="apellido_empleado" class="form-label Quick-title">Apellido</label>
+                                    <input type="text" id="apellido_empleado" name="apellido_empleado" class="Quick-form-input" maxlength="100" placeholder="Ej: Pérez" required>
+                                    <div class="invalid-tooltip"></div>
+                                </div>
+
+                                <!-- CEDULA -->
+                                <div class="col-md-4 d-flex flex-column py-3">
+                                    <label for="cedula_empleado" class="form-label Quick-title">Cédula</label>
+                                    <input type="text" id="cedula_empleado" name="cedula_empleado" class="Quick-form-input" maxlength="12" placeholder="Ej: V-12345678" required>
+                                    <div class="invalid-tooltip"></div>
+                                </div>
+
+                                <!-- TELEFONO -->
+                                <div class="col-md-4 d-flex flex-column py-3">
+                                    <label for="telefono_empleado" class="form-label Quick-title">Teléfono</label>
+                                    <input type="tel" id="telefono_empleado" name="telefono_empleado" class="Quick-form-input" maxlength="50" placeholder="+58 412-5551234" required>
+                                    <div class="invalid-tooltip"></div>
+                                </div>
+
+                                <!-- ROL DEL USUARIO (FK id_rol) -->
+                                <div class="col-md-4 d-flex flex-column py-3">
+                                    <label for="id_rol" class="form-label Quick-title">Rol del Empleado</label>
+                                    <select id="id_rol" name="id_rol" class="Quick-select" required>
+
+                                    </select>
+                                </div>
+
+                                <!-- CORREO -->
+                                <div class="col-md-6 d-flex flex-column py-3">
+                                    <label for="email_empleado" class="form-label Quick-title">Correo Electrónico</label>
+                                    <input type="email" id="email_empleado" name="email_empleado" class="Quick-form-input" maxlength="255" placeholder="empleado@quickstock.com" required>
+                                    <div class="invalid-tooltip"></div>
+                                </div>
+
+                                <!-- CONTRASEÑA -->
+                                <div class="col-md-6 d-flex flex-column py-3">
+                                    <label for="contrasena_empleado" class="form-label Quick-title">Contraseña</label>
+                                    <input type="password" id="contrasena_empleado" name="contrasena_empleado" class="Quick-form-input" maxlength="255" required>
+                                    <div class="invalid-tooltip"></div>
+                                </div>
+
+                                <!-- DIRECCION -->
+                                <div class="col-md-12 d-flex flex-column py-3">
+                                    <label for="direccion_empleado" class="form-label Quick-title">Dirección</label>
+                                    <textarea id="direccion_empleado" name="direccion_empleado" class="Quick-form-input" rows="3" maxlength="255" placeholder="Dirección completa..." required></textarea>
+                                    <div class="invalid-tooltip"></div>
+                                </div>
+
+                                <!-- SUCURSAL (FK id_sucursal) -->
+                                <div class="col-md-6 d-flex flex-column py-3">
+                                    <label for="id_sucursal" class="form-label Quick-title">Sucursal Asignada</label>
+                                    <select id="id_sucursal" name="id_sucursal" class="Quick-select" required>
+
+                                    </select>
+                                </div>
+
+                                <!-- ESTADO DEL EMPLEADO (no está en la tabla pero es útil para control) -->
+                                <div class="col-md-6 d-flex flex-column py-3">
+                                    <label for="estado_empleado" class="form-label Quick-title">Estado</label>
+                                    <input type="text" name="estado_empleado" id="estado_empleado" value="activo" class="Quick-form-input" readonly>
+                                </div>
+
+                                <!-- FECHA DE REGISTRO -->
+                                <div class="col-md-6 d-flex flex-column py-3">
+                                    <label for="fecha_registro" class="form-label Quick-title">Fecha de Registro</label>
+                                    <input type="date" id="fecha_registro" name="fecha_registro" class="Quick-form-input" required>
+                                </div>
+
+                                <!-- Botones -->
+                                <div class="col-12 d-flex flex-column flex-md-row justify-content-center align-items-center py-3">
+                                    <div class="row w-100 d-flex justify-content-around">
+                                        <div class="col-md-5 pt-2 pt-md-0 col-md-3 d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-success w-100">Registrar</button>
+                                        </div>
+                                        <div class="col-md-5 pt-2 pt-md-0 col-md-3 d-flex justify-content-center">
+                                            <button type="reset" class="btn btn-danger w-100">Limpiar</button>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="row mt-4">
-                            <div class="col-12 d-flex justify-content-end">
-                                <button type="button" class="btn btn-secondary me-3">Cancelar</button>
-                                <button type="submit" class="btn btn-primary btn-submit">Guardar Empleado</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include_once "controller/empleados_añadir_C.php";
+    switch (empleados_añadir_C::agregarEmpleado($_POST)) {
+        case "Este correo ya existe":
+            echo "<script>alert('Este correo ya existe. Error al crear el empleado');</script>";
+            break;
+        case "Esta cedula ya existe":
+            echo "<script>alert('Esta cedula ya existe. Error al crear el empleado');</script>";
+            break;
+        case "Error al registrar el empleado":
+            echo "<script>alert('Error al registrar el empleado');</script>";
+            break;
+        case "sisa mano":
+            echo "<script>alert('Empleado registrado exitosamente');</script>";
+            echo "<script>window.location.href = 'empleados-listado';</script>";
+    }
+}
+?>
+
+<script type="module" src="api/client/empleados-añadir.js"></script>
+<script src="view/js/empleados-añadir.js"></script>

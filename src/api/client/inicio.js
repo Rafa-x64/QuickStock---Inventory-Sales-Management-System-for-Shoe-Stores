@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(r => r.text())
         .then(t => console.log(t));*/
 
-    api("api/server/index.php", { accion: "existe_gerente" }).then(res => {
+    api({ accion: "existe_gerente" }).then(res => {
         if(res.existe == true){
             registrarse_btn.style.display = "none";
             iniciar_sesion_btn.classList.remove("w-4");

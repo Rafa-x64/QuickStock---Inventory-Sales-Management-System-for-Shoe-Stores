@@ -17,6 +17,16 @@ switch ($accion) {
         $out = obtenerNombreApellido();
         break;
 
+    case "obtener_roles":
+        include_once __DIR__ . "/seguridad_acceso/rol.php";
+        $out = obtenerRoles();
+        break;
+
+    case "obtener_sucursales":
+        include_once __DIR__ . "/core/sucursal.php";
+        $out = obtenerSucursales();
+        break;
+
     default:
         $out = ["error" => "Acción no reconocida"];
 }
