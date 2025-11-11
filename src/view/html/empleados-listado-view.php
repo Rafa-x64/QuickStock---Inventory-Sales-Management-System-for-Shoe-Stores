@@ -1,113 +1,72 @@
-<style>
-    .stats-cards {
-        margin-bottom: 20px;
-    }
-
-    .stat-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        border-radius: 10px;
-        padding: 20px;
-        color: white;
-        text-align: center;
-    }
-
-    .stat-card h3 {
-        font-size: 2rem;
-        margin-bottom: 5px;
-        font-weight: 700;
-    }
-
-    .stat-card.secondary {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    }
-
-    .stat-card.success {
-        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-    }
-</style>
 <div class="container-fluid" id="mainContent">
     <div class="row">
         <div class="col-12 p-5">
+            <h1 class="Quick-title">Listado de Empleados</h1>
             <div class="row d-flex flex-row justify-content-center align-items-center">
-                <div class="col-6 p-5 Quick-title">
-                    <h1>Listado de Empleados</h1>
-                </div>
-                <div class="row p-0 m-0 stats-cards">
-                    <div class="col-md-3 mb-3">
-                        <div class="stat-card">
-                            <h3>3</h3>
-                            <p>Total Empleados</p>
+                <div class="row p-0 my-md-3 d-flex flex-row justify-content-around align-items-center border rounded-3 py-3">
+                    <div class="col-md-2 p-0 m-0 py-2 mt-1 mt-md-0 px-1 d-flex flex-column justify-content-center align-items-center Quick-widget text-success">
+                        <div class="row d-flex flex-column justify-content-center align-items-center">
+                            <h3 class="text-center">3</h3>
+                            <p class="text-center fw-bold">Total Empleados</p>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="stat-card secondary">
-                            <h3>4</h3>
-                            <p>Empleados Activos</p>
+                    <div class="col-md-2 p-0 m-0 py-2 mt-1 mt-md-0 px-1 d-flex flex-column justify-content-center align-items-center Quick-widget text-warning">
+                        <div class="row d-flex flex-column justify-content-center align-items-center">
+                            <h3 class="text-center">4</h3>
+                            <p class="text-center fw-bold">Empleados Activos</p>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="stat-card success">
-                            <h3>0</h3>
-                            <p>Empleados Inactivos</p>
+                    <div class="col-md-2 p-0 m-0 py-2 mt-1 mt-md-0 px-1 d-flex flex-column justify-content-center align-items-center Quick-widget text-danger">
+                        <div class="row d-flex flex-column justify-content-center align-items-center">
+                            <h3 class="text-center">0</h3>
+                            <p class="text-center fw-bold">Empleados Inactivos</p>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <div class="stat-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                            <h3>4</h3>
-                            <p>Departamentos</p>
+                    <div class="col-md-2 p-0 m-0 py-2 mt-1 mt-md-0 px-1 d-flex flex-column justify-content-center align-items-center Quick-widget text-primary">
+                        <div class="row d-flex flex-column justify-content-center align-items-center">
+                            <h3 class="text-center">4</h3>
+                            <p class="text-center fw-bold">Sucursales</p>
                         </div>
                     </div>
                 </div>
-                <div class="row p-0 m-0 filters-section">
+                <div class="row p-0 m-0 filters-section mt-2 mt-md-3">
                     <div class="col-12">
                         <h4 class="mb-4">Filtros</h4>
                         <div class="row">
                             <div class="col-md-3 mb-3">
-                                <label for="departamento-filtro" class="form-label">Departamento</label>
-                                <select class="form-select" id="departamento-filtro">
-                                    <option value="">Todos los departamentos</option>
-                                    <option value="ventas">Ventas</option>
-                                    <option value="tecnologia">Tecnología</option>
-                                    <option value="finanzas">Finanzas</option>
-                                    <option value="operaciones">Operaciones</option>
+                                <label for="departamento-filtro" class="form-label">Sucursal</label>
+                                <select class="form-select" id="sucursal-filtro">
+                                    <option value="">Todas</option>
                                 </select>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="cargo-filtro" class="form-label">Cargo</label>
                                 <select class="form-select" id="cargo-filtro">
-                                    <option value="">Todos los cargos</option>
-                                    <option value="gerente">Gerente</option>
-                                    <option value="supervisor">Supervisor</option>
-                                    <option value="analista">Analista</option>
-                                    <option value="desarrollador">Desarrollador</option>
+                                    <option value="">Todos</option>
                                 </select>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="estado-filtro" class="form-label">Estado</label>
                                 <select class="form-select" id="estado-filtro">
-                                    <option value="">Todos</option>
                                     <option value="activo">Activo</option>
                                     <option value="inactivo">Inactivo</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 d-flex align-items-end">
-                                <button type="button" class="btn btn-primary">Aplicar Filtros</button>
-                                <button type="button" class="btn btn-outline-secondary ms-2">Limpiar Filtros</button>
+                            <div class="col-md-3 mb-3 d-flex align-items-end">
+                                <button type="button" class="btn btn-outline-secondary ms-2" id="reestablecer-filtros">Limpiar Filtros</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row p-0 m-0 d-flex flex-row justify-content-center align-items-center Quick-widget">
-                    <div class="col-12 Quick-table pt-5 mb-3">
-                        <table class="w-100">
+                    <div class="col-12 Quick-table p-3">
+                        <table class="w-100" id="lista_empleados">
                             <thead>
                                 <tr>
                                     <th>ID Empleado</th>
                                     <th>Nombre</th>
                                     <th>Cargo</th>
-                                    <th>Departamento</th>
+                                    <th>Sucursal</th>
                                     <th>Teléfono</th>
                                     <th>Cedula</th>
                                     <th>Estado</th>
@@ -115,66 +74,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>EMP-1001</td>
-                                    <td>Ana Rodríguez</td>
-                                    <td>Gerente</td>
-                                    <td>Ventas</td>
-                                    <td>0424-183-4067</td>
-                                    <td>23.895.612</td>
-                                    <td><span class="badge bg-success">Activo</span></td>
-                                    <td>
-                                        <a href="#" class="btn btn-sm btn-info text-white btn-action">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-warning btn-action">
-                                            <i class="bi bi-pencil"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger btn-action">
-                                            <i class="bi bi-person-x"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>EMP-1002</td>
-                                    <td>Carlos Pérez</td>
-                                    <td>Desarrollador</td>
-                                    <td>Tecnología</td>
-                                    <td>0416-987-6543</td>
-                                    <td>14.589.375</td>
-                                    <td><span class="badge bg-success">Activo</span></td>
-                                    <td>
-                                        <a href="#" class="btn btn-sm btn-info text-white btn-action">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-warning btn-action">
-                                            <i class="bi bi-pencil"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger btn-action">
-                                            <i class="bi bi-person-x"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>EMP-1003</td>
-                                    <td>Luis Suarez</td>
-                                    <td>Analista</td>
-                                    <td>Finanzas</td>
-                                    <td>0426-555-1234</td>
-                                    <td>20.803.021</td>
-                                    <td><span class="badge bg-success">Activo</span></td>
-                                    <td>
-                                        <a href="#" class="btn btn-sm btn-info text-white btn-action">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-warning btn-action">
-                                            <i class="bi bi-pencil"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-sm btn-danger btn-action">
-                                            <i class="bi bi-person-x"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
@@ -183,3 +83,11 @@
         </div>
     </div>
 </div>
+
+<?php
+if (!$_SERVER["REQUEST_METHOD"] == "POST") {
+    include_once "controller/empleados_listado_C.php";
+}
+?>
+
+<script type="module" src="api/client/empleados-listado.js"></script>

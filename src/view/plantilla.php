@@ -2,6 +2,18 @@
 
 session_start();
 
+$paginas_publicas = [
+    "inicio-view.php",
+    "inicio-sesion-usuario-view.php",
+    "registro-usuario-view.php"
+];
+
+// si la vista NO es pública y no hay sesión → redirigir
+if (!in_array($vista, $paginas_publicas) && !isset($_SESSION["sesion_usuario"])) {
+    echo "<script>window.location.href = 'inicio';</script>";
+    exit();
+}
+
 //paginas de la vista que puede manipular el usuario con los menus (importante poner aqui cada pagina nueva para que funcione el js y el menu)
 $paginas_existentes = [
     "dashboard-gerente-view.php",
@@ -54,7 +66,7 @@ $paginas_existentes = [
 ];
 
 //paginas que no usan el js de menu lateral
-$excepciones = ["404-view.php", "inicio-sesion-usuario-view.php", "registro-usuario-view.php"];
+$no_menu_lateral = ["404-view.php", "inicio-sesion-usuario-view.php", "registro-usuario-view.php"];
 
 // siempre se incluyen los enlaces al inicio
 include_once("assets/elements/links.php");
@@ -97,6 +109,6 @@ if ($_SESSION["sesion_usuario"]["rol"]["nombre_rol"] == "Administrador" && in_ar
     include_once("assets/elements/scripts.php"); // scripts JS
 }
 
-// si la vista está en excepciones (ej. 404)
+// si la vista está en no_menu_lateral (ej. 404)
 include_once("view/html/" . $vista); // solo se carga el contenido
 include_once("assets/elements/scripts.php"); // scripts JS

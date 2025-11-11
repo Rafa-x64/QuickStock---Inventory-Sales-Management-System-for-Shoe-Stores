@@ -1,8 +1,8 @@
 <div class="container-fluid" id="mainContent">
     <div class="row">
         <div class="col-12 p-1 p-md-3 p-lg-5">
-            <?php print_r($_SESSION["sesion_usuario"]["rol"]["nombre_rol"]); ?>
-            <h1 class="Quick-title text-uppercase mt-5 mt-lg-0">Nombre de la Empresa</h1>
+            <?php print_r($_SESSION["sesion_usuario"]); ?>
+            <h1 class="Quick-title text-uppercase mt-5 mt-lg-0" id="nombre_sucursal"></h1>
             <h3 class="Quick-title mt-5">Resumen Financiero</h3>
             <div class="row m-0 p-1 mt-3 ingresos-totales dashboard-gerente-widget">
                 <div class="col-12 col-md-4 p-2 d-flex flex-column justify-content-center align-items-center">
@@ -251,4 +251,5 @@
     </div>
 </div>
 
+<script type="module" src="api/client/dashboard-gerente.js"></script>
 <script src="view/js/dashboard-gerente.js"></script>

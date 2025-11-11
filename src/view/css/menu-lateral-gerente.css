@@ -172,27 +172,6 @@
     height: 80px;
 }
 
-.menu-flotante {
-    position: fixed;
-    top: 10px;
-    /* distancia desde arriba */
-    left: 10px;
-    /* distancia desde el borde izquierdo */
-    z-index: 1050;
-    /* asegúrate que quede por encima del contenido */
-    border-radius: 0.5rem;
-    background-color: var(--default-background-color);
-    color: white;
-    padding: 8px 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-.menu-flotante:hover {
-    background-color: var(--ligth-blue-Quick);
-    transform: scale(1.1);
-}
-
 @media(prefers-color-scheme: light) {
     .menu-lateral-gerente {
         background-color: var(--red-Quick);
@@ -224,6 +203,27 @@
         width: 100%;
         scrollbar-color: var(--font-color-light) var(--ligth-red-Quick);
         scrollbar-width: thin;
+    }
+
+    .menu-flotante {
+        position: fixed;
+        top: 10px;
+        /* distancia desde arriba */
+        left: 10px;
+        /* distancia desde el borde izquierdo */
+        z-index: 1050;
+        /* asegúrate que quede por encima del contenido */
+        border-radius: 0.5rem;
+        background-color: var(--default-background-color);
+        color: var(--default-font-color);
+        padding: 8px 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .menu-flotante:hover {
+        background-color: var(--ligth-red-Quick);
+        transform: scale(1.1);
     }
 }
 
@@ -258,5 +258,26 @@
         width: 100%;
         scrollbar-color: var(--font-color-light) var(--ligth-blue-Quick);
         scrollbar-width: thin;
+    }
+
+    .menu-flotante {
+        position: fixed;
+        top: 10px;
+        /* distancia desde arriba */
+        left: 10px;
+        /* distancia desde el borde izquierdo */
+        z-index: 1050;
+        /* asegúrate que quede por encima del contenido */
+        border-radius: 0.5rem;
+        background-color: var(--default-background-color);
+        color: white;
+        padding: 8px 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .menu-flotante:hover {
+        background-color: var(--ligth-blue-Quick);
+        transform: scale(1.1);
     }
 }
