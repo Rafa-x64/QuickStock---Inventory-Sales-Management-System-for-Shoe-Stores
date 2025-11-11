@@ -12,4 +12,6 @@ function conectar_base_datos()
     return $con;
 }
 
-
+function obtenerNombreSucursal(){
+    return ["nombre_sucursal" => $_SESSION["sesion_usuario"]["sucursal"]["nombre_sucursal"]];
+}
