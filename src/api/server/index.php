@@ -36,6 +36,11 @@ switch ($accion) {
         $out = obtenerEmpleados($peticion["sucursal"], $peticion["rol"], $peticion["estado"]);
         break;
 
+    case "obtener_un_usuario":
+        include_once __DIR__ . "/seguridad_acceso/usuario.php";
+        $out = obtenerUnUsuario($peticion["email"]);
+        break;
+
     default:
         $out = ["error" => "Acción no reconocida"];
 }

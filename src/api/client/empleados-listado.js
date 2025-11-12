@@ -56,15 +56,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 </span>
             </td>
             <td>
-                <a href="#" class="btn btn-sm btn-info text-white btn-action">
-                    <i class="bi bi-eye"></i>
-                </a>
-                <a href="#" class="btn btn-sm btn-warning btn-action">
-                    <i class="bi bi-pencil"></i>
-                </a>
-                <a href="#" class="btn btn-sm btn-danger btn-action">
-                    <i class="bi bi-person-x"></i>
-                </a>
+            <div class="d-flex gap-2 flex-row justify-content-center align-items-center">
+                <form action="empleados-detalle" method="POST" class="d-inline">
+                    <input type="hidden" name="accion" value="ver_detalle">
+                    <input type="hidden" name="email" value="${emp.email}">
+                    <button type="submit" class="btn btn-sm btn-info text-white btn-action">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                </form>
+                <form action="empleados-editar" method="POST" class="d-inline">
+                    <input type="hidden" name="accion" value="editar">
+                    <input type="hidden" name="email" value="${emp.email}">
+                    <button type="submit" class="btn btn-sm btn-warning btn-action">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </form>
+                <form action="empleados-eliminar" method="POST" class="d-inline">
+                    <input type="hidden" name="accion" value="eliminar">
+                    <input type="hidden" name="email" value="${emp.email}">
+                    <button type="submit" class="btn btn-sm btn-danger text-white btn-action">
+                        <i class="bi bi-person-x"></i>
+                    </button>
+                </form>
+            </div>
             </td>
         `;
 
@@ -78,17 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const estado = select_estado.value;
 
         // Aquí se hace la petición API con los datos de filtrado
-        /*fetch("api/server/index.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                accion: "obtener_todos_los_empleados",
-                sucursal: sucursal,
-                rol: rol,
-                estado: estado })
-        })
-            .then(r => r.text())
-            .then(t => console.log(t));*/
         api({
             accion: "obtener_todos_los_empleados",
             sucursal: sucursal,

@@ -74,7 +74,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+
                             </tbody>
                         </table>
                     </div>
@@ -83,11 +83,5 @@
         </div>
     </div>
 </div>
-
-<?php
-if (!$_SERVER["REQUEST_METHOD"] == "POST") {
-    include_once "controller/empleados_listado_C.php";
-}
-?>
 
 <script type="module" src="api/client/empleados-listado.js"></script>
