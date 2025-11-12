@@ -62,7 +62,9 @@ $paginas_existentes = [
     "ventas-punto-venta-view.php",
     "compras-historial-view.php",
     "compras-añadir-view.php",
-    "compras-detalle-view.php"
+    "compras-detalle-view.php",
+    "empleados-editar-view.php",
+    "empleados-eliminar-view.php"
 ];
 
 //paginas que no usan el js de menu lateral
@@ -96,7 +98,7 @@ if ($_SESSION["sesion_usuario"]["rol"]["nombre_rol"] == "Gerente" && in_array($v
 }
 
 //si el rol es Cajero y esta en la pagina de vistas existentes entonces...
-if($_SESSION["sesion_usuario"]["rol"]["nombre_rol"] == "Cajero" && in_array($vista, $paginas_existentes)){
+if ($_SESSION["sesion_usuario"]["rol"]["nombre_rol"] == "Cajero" && in_array($vista, $paginas_existentes)) {
     include_once("assets/elements/menu-lateral-cajero.php");
     include_once("view/html/" . $vista); // contenido principal
     include_once("assets/elements/scripts.php"); // scripts JS

@@ -74,3 +74,53 @@ function obtenerEmpleados($sucursal, $rol, $estado)
     $filas = pg_fetch_all($res) ?: [];
     return ["filas" => $filas];
 }
+
+function obtenerUnUsuario($email)
+{
+    if (!$email || trim($email) === "") {
+        return ["error" => "Email no proporcionado"];
+    }
+
+    $conn = conectar_base_datos();
+
+    $sql = "
+        SELECT 
+            U.id_usuario,
+            U.nombre,
+            U.apellido,
+            U.cedula,
+            U.email,
+            U.activo,
+            U.telefono,
+            U.fecha_registro,
+            U.direccion,
+            R.id_rol,
+            R.nombre_rol,
+            S.id_sucursal,
+            S.nombre AS sucursal_nombre,
+            S.direccion AS sucursal_direccion,
+            S.telefono AS sucursal_telefono,
+            S.rif AS sucursal_rif
+        FROM seguridad_acceso.usuario U
+        INNER JOIN seguridad_acceso.rol R 
+            ON U.id_rol = R.id_rol
+        LEFT JOIN core.sucursal S
+            ON U.id_sucursal = S.id_sucursal
+        WHERE U.email = $1
+        LIMIT 1
+    ";
+
+    $res = pg_query_params($conn, $sql, [$email]);
+
+    if (!$res) {
+        return ["error" => "Error ejecutando consulta"];
+    }
+
+    $fila = pg_fetch_assoc($res);
+
+    if (!$fila) {
+        return ["error" => "No se encontró ningún empleado con ese email"];
+    }
+
+    return ["empleado" => $fila];
+}
