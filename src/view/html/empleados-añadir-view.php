@@ -124,7 +124,9 @@
 </div>
 
 <?php
+//si se envia un formulario por el metodo post
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //se incluye el controlador
     include_once "controller/empleados_añadir_C.php";
     switch (empleados_añadir_C::agregarEmpleado($_POST)) {
         case "Este correo ya existe":
