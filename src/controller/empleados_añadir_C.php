@@ -1,4 +1,5 @@
 <?php
+//se incluye el modelo para instanciarlo
 include_once "model/seguridad_acceso.usuario.php";
 class empleados_añadir_C extends mainModel
 {

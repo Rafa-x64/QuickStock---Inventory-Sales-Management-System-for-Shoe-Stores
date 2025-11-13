@@ -2,15 +2,15 @@
 class usuario extends mainModel
 {
 
-    private $nombre; 
-    private $apellido; 
+    private $nombre;
+    private $apellido;
     private $cedula;
-    private $telefono; 
-    private $id_rol; 
+    private $telefono;
+    private $id_rol;
     private $email;
     private $contraseña;
-    private $direccion; 
-    private $id_sucursal; 
+    private $direccion;
+    private $id_sucursal;
     private $fecha_registro;
 
     public function __construct($nombre, $apellido, $cedula, $telefono, $id_rol, $email, $contraseña, $direccion, $id_sucursal, $fecha_registro)
@@ -30,15 +30,19 @@ class usuario extends mainModel
     public static function crearGerente($nombre, $apellido, $cedula, $email, $contraseña, $telefono)
     {
         $conn = parent::conectar_base_datos();
+        //para realizar la sentnecia ("la_conexion", "nombre_unico_query", "la sentencia sql")
         pg_prepare($conn, "agregar_gerente", "insert into seguridad_acceso.usuario (id_usuario, id_rol, nombre, apellido, cedula, email, contraseña, activo, id_sucursal, telefono) values (1, 1, $1, $2, $3, $4, $5, true, 1, $6)");
+        //guardar en variable... se ejecutas la sentencia("conexion", "nombre_unico_query", "array_con_variables")
         $resultado = pg_execute($conn, "agregar_gerente", [$nombre, $apellido, $cedula, $email, $contraseña, $telefono]);
+        //validas si se realizo la conssulta
         if (!$resultado) {
             return false;
         }
         return true;
     }
 
-    public function crearEmpleado(){
+    public function crearEmpleado()
+    {
         $conn = parent::conectar_base_datos();
         pg_prepare(
             $conn,
@@ -80,4 +84,8 @@ class usuario extends mainModel
 
         return $res ? true : false;
     }
+
+    //editar
+
+    //eliminar
 }

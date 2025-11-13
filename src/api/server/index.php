@@ -30,7 +30,7 @@ switch ($accion) {
     case "obtener_nombre_sucursal":
         $out = obtenerNombreSucursal();
         break;
-    
+
     case "obtener_todos_los_empleados":
         include_once __DIR__ . "/seguridad_acceso/usuario.php";
         $out = obtenerEmpleados($peticion["sucursal"], $peticion["rol"], $peticion["estado"]);
