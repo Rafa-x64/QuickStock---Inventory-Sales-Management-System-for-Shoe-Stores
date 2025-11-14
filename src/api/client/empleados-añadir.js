@@ -1,13 +1,17 @@
+//obligatorio uso de import { api } from "/DEV/PHP/QuickStock/src/api/client/index.js" 
 import { api } from "/DEV/PHP/QuickStock/src/api/client/index.js";
 
+//dispara el codigo cuando se carga la pagina
 document.addEventListener("DOMContentLoaded", () => {
 
     const select_rol = document.getElementById("id_rol");
 
+    //realizar peticion y hacer una funcion para utilizar el objeto recibido como respuesta
     api({ accion: "obtener_roles" }).then(res => {
+        //aplican la logica para operar con la respuesta
         res.filas.forEach(rol => {
 
-            if(rol.id_rol == 1){
+            if (rol.id_rol == 1) {
                 return;
             }
 

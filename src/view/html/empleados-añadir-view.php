@@ -1,3 +1,5 @@
+<!--ponerle id= y name= a los campos para procesarlos-->
+<!--hacer validacion tipo bootstrap con js-->
 <style>
     .was-validated .form-control:invalid~.invalid-tooltip,
     .form-control.is-invalid~.invalid-tooltip {
@@ -128,6 +130,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //se incluye el controlador
     include_once "controller/empleados_añadir_C.php";
+    //se evalua el resultado del retorno del controlador
     switch (empleados_añadir_C::agregarEmpleado($_POST)) {
         case "Este correo ya existe":
             echo "<script>alert('Este correo ya existe. Error al crear el empleado');</script>";
@@ -145,5 +148,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+<!--incluir script para hacer peticiones al server mediante funcion api-->
+<!--debe ser module-->
 <script type="module" src="api/client/empleados-añadir.js"></script>
+<!--js para las validaciones-->
 <script src="view/js/empleados-añadir.js"></script>

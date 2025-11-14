@@ -12,6 +12,7 @@ function conectar_base_datos()
     return $con;
 }
 
+//obligatorio retorno de array para interpretar con js
 function obtenerNombreSucursal(){
     return ["nombre_sucursal" => $_SESSION["sesion_usuario"]["sucursal"]["nombre_sucursal"]];
 }

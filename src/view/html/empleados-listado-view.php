@@ -84,4 +84,15 @@
     </div>
 </div>
 
+<?php 
+    if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["accion"] === "eliminar"){
+        include_once "controller/empleados_listado_C.php";
+        if(!empleados_listado_C::eliminarEmpleado($_POST["email"])){
+            echo "<script>alert('Error al eliminar el empleado');</script>";
+            exit();
+        }
+        echo "<script>alert('Empleado eliminado exitosamente');</script>";
+    }
+?>
+
 <script type="module" src="api/client/empleados-listado.js"></script>

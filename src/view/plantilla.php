@@ -8,13 +8,6 @@ $paginas_publicas = [
     "registro-usuario-view.php"
 ];
 
-// si la vista NO es pública y no hay sesión → redirigir
-if (!in_array($vista, $paginas_publicas) && !isset($_SESSION["sesion_usuario"])) {
-    echo "<script>window.location.href = 'inicio';</script>";
-    exit();
-}
-
-//paginas de la vista que puede manipular el usuario con los menus (importante poner aqui cada pagina nueva para que funcione el js y el menu)
 $paginas_existentes = [
     "dashboard-gerente-view.php",
     "inventario-ver-productos-view.php",
@@ -67,50 +60,62 @@ $paginas_existentes = [
     "empleados-eliminar-view.php"
 ];
 
-//paginas que no usan el js de menu lateral
-$no_menu_lateral = ["404-view.php", "inicio-sesion-usuario-view.php", "registro-usuario-view.php"];
-
-// siempre se incluyen los enlaces al inicio
-include_once("assets/elements/links.php");
-
-// si la vista es la página de inicio
-if ($vista === "inicio-view.php") {
-    include_once("assets/elements/header.php"); // encabezado
-    include_once("assets/elements/menu-lateral.php"); // menú lateral exclusivo de inicio
-    include_once("view/html/" . $vista); // contenido principal
-    include_once("assets/elements/footer.php"); // pie de página
-    include_once("assets/elements/scripts.php"); // scripts JS
+// Redirección si la vista NO es pública y no hay sesión
+if (!in_array($vista, $paginas_publicas) && !isset($_SESSION["sesion_usuario"])) {
+    echo "<script>window.location.href = 'inicio';</script>";
     exit();
 }
 
-//si la vista es del registro o del inicio de sesion se carga un menu exclusivo de volver al inico
+include_once("assets/elements/links.php");
+
+// Vista de inicio
+if ($vista === "inicio-view.php") {
+    include_once("assets/elements/header.php");
+    include_once("assets/elements/menu-lateral.php");
+    include_once("view/html/" . $vista);
+    include_once("assets/elements/footer.php");
+    include_once("assets/elements/scripts.php");
+    exit();
+}
+
+// Vista de login o registro
 if ($vista === "inicio-sesion-usuario-view.php" || $vista === "registro-usuario-view.php") {
-    include_once("assets/elements/menu_volver.php"); // menu para regresar exclusivo de registro y del inicio de sesion
-    include_once("view/html/" . $vista); // contenido principal
-    include_once("assets/elements/scripts.php"); // scripts JS
+    include_once("assets/elements/menu_volver.php");
+    include_once("view/html/" . $vista);
+    include_once("assets/elements/scripts.php");
+    exit();
 }
 
-//si el rol es Gerente y esta en la pagina de vistas existentes entonces...
-if ($_SESSION["sesion_usuario"]["rol"]["nombre_rol"] == "Gerente" && in_array($vista, $paginas_existentes)) {
-    include_once("assets/elements/menu-lateral-gerente.php");
-    include_once("view/html/" . $vista); // contenido principal
-    include_once("assets/elements/scripts.php"); // scripts JS
+// 🔥 SOLO EJECUTAR ESTO SI EXISTE SESIÓN
+if (isset($_SESSION["sesion_usuario"])) {
+
+    $rol = $_SESSION["sesion_usuario"]["rol"]["nombre_rol"];
+
+    if ($rol == "Gerente" && in_array($vista, $paginas_existentes)) {
+        include_once("assets/elements/menu-lateral-gerente.php");
+        include_once("view/html/" . $vista);
+        include_once("assets/elements/scripts.php");
+        exit();
+    }
+
+    if ($rol == "Cajero" && in_array($vista, $paginas_existentes)) {
+        include_once("assets/elements/menu-lateral-cajero.php");
+        include_once("view/html/" . $vista);
+        include_once("assets/elements/scripts.php");
+        exit();
+    }
+
+    if ($rol == "Administrador" && in_array($vista, $paginas_existentes)) {
+        include_once("assets/elements/menu-lateral-administrador.php");
+        include_once("view/html/" . $vista);
+        include_once("assets/elements/scripts.php");
+        exit();
+    }
 }
 
-//si el rol es Cajero y esta en la pagina de vistas existentes entonces...
-if ($_SESSION["sesion_usuario"]["rol"]["nombre_rol"] == "Cajero" && in_array($vista, $paginas_existentes)) {
-    include_once("assets/elements/menu-lateral-cajero.php");
-    include_once("view/html/" . $vista); // contenido principal
-    include_once("assets/elements/scripts.php"); // scripts JS
-}
+// si nada aplica, simplemente carga la vista normal
+include_once("view/html/" . $vista);
+include_once("assets/elements/scripts.php");
 
-//si el rol es Adminstrador y esta en la pagina de vistas existentes entonces...
-if ($_SESSION["sesion_usuario"]["rol"]["nombre_rol"] == "Administrador" && in_array($vista, $paginas_existentes)) {
-    include_once("assets/elements/menu-lateral-administrador.php");
-    include_once("view/html/" . $vista); // contenido principal
-    include_once("assets/elements/scripts.php"); // scripts JS
-}
 
-// si la vista está en no_menu_lateral (ej. 404)
-include_once("view/html/" . $vista); // solo se carga el contenido
-include_once("assets/elements/scripts.php"); // scripts JS
+?>
