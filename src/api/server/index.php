@@ -1,10 +1,14 @@
 <?php
+//se inici ala sesion para obtener datos de usuario
 session_start();
+//se procesaa la peticion por medio de json_decode
 $peticion = json_decode(file_get_contents("php://input"), true);
 $accion = $peticion["accion"] ?? null;
 
+//no tocar
 include_once __DIR__ . "/index.functions.php";
 
+//se procesan las peticiones
 switch ($accion) {
 
     case "existe_gerente":
@@ -40,6 +44,11 @@ switch ($accion) {
         include_once __DIR__ . "/seguridad_acceso/usuario.php";
         $out = obtenerUnUsuario($peticion["email"]);
         break;
+
+    //se procesa una peticion
+    /*case "mostrar_suma":
+        $out = mostrarSuma();
+        break;*/
 
     default:
         $out = ["error" => "Acción no reconocida"];

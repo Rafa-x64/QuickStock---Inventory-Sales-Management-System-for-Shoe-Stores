@@ -16,25 +16,30 @@ function obtenerNombreApellido()
 
 function obtenerEmpleados($sucursal, $rol, $estado)
 {
-    // Normalizar sucursal
+    // --- Normalizar sucursal y rol (enteros o NULL) ---
     $sucursal = ($sucursal === "" || $sucursal === null) ? null : (int)$sucursal;
-
-    // Normalizar rol
     $rol      = ($rol === "" || $rol === null) ? null : (int)$rol;
 
-    // Normalizar estado
-    if ($estado === null || $estado === "" || $estado === "todos") {
-        $estado = null;               // sin filtro
+    // --- Normalizar estado para pasarlo como texto 'true'|'false'|null ---
+    // El endpoint JS puede enviar: "activo", "inactivo", "todos" o ""
+    if ($estado === null || $estado === "" || strtolower($estado) === "todos") {
+        $estadoParam = null;
     } elseif (strtolower($estado) === "activo") {
-        $estado = true;               // BOOLEAN true
+        $estadoParam = 'true';
     } elseif (strtolower($estado) === "inactivo") {
-        $estado = false;              // BOOLEAN false
+        $estadoParam = 'false';
     } else {
-        $estado = null;               // valor inesperado
+        // valor inesperado -> no aplicar filtro
+        $estadoParam = null;
     }
 
+    // --- Conectar ---
     $conn = conectar_base_datos();
+    if (!$conn) {
+        return ["error" => "Error al conectar con la base de datos"];
+    }
 
+    // --- Consulta segura: usamos $3::TEXT IS NULL para evitar NULL::BOOLEAN ---
     $sql = "
         SELECT 
             U.id_usuario,
@@ -61,17 +66,24 @@ function obtenerEmpleados($sucursal, $rol, $estado)
         WHERE 
             ($1::INT IS NULL OR U.id_sucursal = $1)
             AND ($2::INT IS NULL OR U.id_rol = $2)
-            AND ($3::BOOLEAN IS NULL OR U.activo = $3)
+            AND ($3::TEXT IS NULL OR U.activo = $3::BOOLEAN)
         ORDER BY U.id_usuario ASC
     ";
 
-    $res = pg_query_params($conn, $sql, [$sucursal, $rol, $estado]);
+    // --- Ejecutar con parámetros (nota: $estadoParam es NULL o 'true'/'false') ---
+    $res = pg_query_params($conn, $sql, [$sucursal, $rol, $estadoParam]);
 
     if (!$res) {
-        return ["error" => "Error ejecutando consulta"];
+        // devolver error con detalle (útil para debug). Quita 'detalle' si no quieres exponerlo.
+        return [
+            "error" => "Error ejecutando consulta",
+            "detalle" => pg_last_error($conn)
+        ];
     }
 
-    $filas = pg_fetch_all($res) ?: [];
+    $filas = pg_fetch_all($res);
+    if (!$filas) $filas = []; // siempre devolver array
+
     return ["filas" => $filas];
 }
 
