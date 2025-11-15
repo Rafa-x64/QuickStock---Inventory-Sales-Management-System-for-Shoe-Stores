@@ -36,7 +36,7 @@ class usuario extends mainModel
         //conecta mediante el metodo de la clase padre
         $conn = parent::conectar_base_datos();
         //para realizar la sentnecia ("la_conexion", "nombre_unico_query", "la sentencia sql")
-        pg_prepare($conn, "agregar_gerente", "insert into seguridad_acceso.usuario (id_usuario, id_rol, nombre, apellido, cedula, email, contraseña, activo, id_sucursal, telefono) values (1, 1, $1, $2, $3, $4, $5, true, 1, $6)");
+        pg_prepare($conn, "agregar_gerente", "insert into seguridad_acceso.usuario (id_rol, id_sucursal, nombre, apellido, cedula, email, contraseña, activo, telefono) values (1, 1, $1, $2, $3, $4, $5, true, $6)");
         //guardar en variable... se ejecutas la sentencia("conexion", "nombre_unico_query", "array_con_variables")
         $resultado = pg_execute($conn, "agregar_gerente", [$nombre, $apellido, $cedula, $email, $contraseña, $telefono]);
         //validas si se realizo la conssulta

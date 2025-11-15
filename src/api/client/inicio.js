@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(t => console.log(t));*/
 
     api({ accion: "existe_gerente" }).then(res => {
-        if(res.existe == true){
+        if (res.existe == true) {
             registrarse_btn.style.display = "none";
             iniciar_sesion_btn.classList.remove("w-4");
             iniciar_sesion_btn.classList.add("w-50");
-        }else{
+        } else {
             iniciar_sesion_btn.style.display = "none";
             registrarse_btn.classList.remove("w-4");
             registrarse_btn.classList.add("w-50");

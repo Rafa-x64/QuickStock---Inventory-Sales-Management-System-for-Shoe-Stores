@@ -36,7 +36,8 @@ class registro_usuario_C extends mainModel
         $conn = parent::conectar_base_datos();
         pg_prepare(
             $conn,
-            "iniciar_sesion_gerente", "
+            "iniciar_sesion_gerente",
+            "
             SELECT 
                 U.id_usuario,
                 U.nombre,
@@ -59,8 +60,7 @@ class registro_usuario_C extends mainModel
             FROM seguridad_acceso.usuario U
             LEFT JOIN seguridad_acceso.rol R ON U.id_rol = R.id_rol
             LEFT JOIN core.sucursal S ON U.id_sucursal = S.id_sucursal
-            WHERE U.id_usuario = 1
-            AND U.id_rol = 1"
+            WHERE U.id_rol = 1"
         );
         $resultado = pg_execute($conn, "iniciar_sesion_gerente", []);
 
