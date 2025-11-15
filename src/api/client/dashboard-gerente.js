@@ -7,4 +7,5 @@ import { api } from "/DEV/PHP/QuickStock/src/api/client/index.js"
             console.log(res.nombre_sucursal);
             nombreSucursalInput.textContent = "" + res.nombre_sucursal;
         });
+        
     });
