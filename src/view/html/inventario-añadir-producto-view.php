@@ -2,110 +2,129 @@
     <div class="row d-flex flex-column justify-content-center align-items-center">
         <div class="col-12 p-3 p-lg-5">
             <div class="row d-flex flex-row justify-content-center align-items-center">
+
                 <div class="col-12 p-5 Quick-title">
                     <h1 class="m-0 p-0">Registrar Nuevo Producto</h1>
                 </div>
 
                 <div class="Quick-widget col-12 col-md-8 p-0 p-2">
                     <div class="col-12 Quick-form px-4 rounded-2">
-                        <form action="" method="POST" class="form py-3">
 
+                        <form id="formProducto" action="" method="POST" class="form py-3 needs-validation" novalidate>
                             <div class="row d-flex flex-row justify-content-center align-items-center">
 
-                                <!-- Identificación del producto -->
-                                <div class="col-md-6 d-flex flex-column py-3">
-                                    <label for="codigo_barras" class="form-label Quick-title">Código de Barras / SKU</label>
-                                    <input type="text" id="codigo_barras" name="codigo_barras" class="Quick-form-input" maxlength="50" required>
+                                <!-- CÓDIGO DE BARRA -->
+                                <div class="col-md-6 d-flex flex-column py-3 position-relative">
+                                    <label for="codigo_barra" class="form-label Quick-title">Código de Barras / SKU</label>
+                                    <input type="text" id="codigo_barra" name="codigo_barra" class="Quick-form-input" maxlength="255" required>
+                                    <div class="invalid-tooltip">
+                                        Código de barras obligatorio (solo letras, números y guiones).
+                                    </div>
                                 </div>
 
-                                <div class="col-md-6 d-flex flex-column py-3">
-                                    <label for="nombre_producto" class="form-label Quick-title">Nombre del Producto</label>
-                                    <input type="text" id="nombre_producto" name="nombre_producto" class="Quick-form-input" maxlength="255" required>
+                                <!-- NOMBRE -->
+                                <div class="col-md-6 d-flex flex-column py-3 position-relative">
+                                    <label for="nombre" class="form-label Quick-title">Nombre del Producto</label>
+                                    <input type="text" id="nombre" name="nombre" class="Quick-form-input" maxlength="150" required>
+                                    <div class="invalid-tooltip">
+                                        El nombre es obligatorio y solo puede contener letras, números y espacios.
+                                    </div>
                                 </div>
 
-                                <div class="col-12 d-flex flex-column py-3">
-                                    <label for="descripcion_producto" class="form-label Quick-title">Descripción</label>
-                                    <textarea id="descripcion_producto" name="descripcion_producto" class="Quick-form-input" rows="3" maxlength="255"></textarea>
+                                <!-- DESCRIPCIÓN -->
+                                <div class="col-12 d-flex flex-column py-3 position-relative">
+                                    <label for="descripcion" class="form-label Quick-title">Descripción</label>
+                                    <textarea id="descripcion" name="descripcion" class="Quick-form-input" rows="3" required></textarea>
+                                    <div class="invalid-tooltip">
+                                        Debe escribir una descripción válida.
+                                    </div>
                                 </div>
 
-                                <!-- Relacionales -->
-                                <div class="col-md-6 d-flex flex-column py-3">
-                                    <label for="categoria_id" class="form-label Quick-title">Categoría</label>
-                                    <select id="categoria_id" name="categoria_id" class="Quick-select" required>
-                                        <option value="">Seleccione la categoría</option>
-                                        <option value="1">Traer de la base de datos</option>
+                                <!-- CATEGORÍA -->
+                                <div class="col-md-6 d-flex flex-column py-3 position-relative">
+                                    <label for="id_categoria" class="form-label Quick-title">Categoría</label>
+                                    <input type="text" name="nombre_categoria" id="nombre_categoria" placeholder="Añadir nueva categoría" class="Quick-form-input">
+                                    <select id="id_categoria" name="id_categoria" class="Quick-select" required>
+                                        <option value="">Seleccione categoría</option>
                                     </select>
+                                    <div class="invalid-tooltip">
+                                        Debe seleccionar o agregar una categoría válida.
+                                    </div>
                                 </div>
 
-                                <div class="col-md-6 d-flex flex-column py-3">
-                                    <label for="proveedor_id" class="form-label Quick-title">Proveedor</label>
-                                    <select id="proveedor_id" name="proveedor_id" class="Quick-select" required>
-                                        <option value="">Seleccione el proveedor</option>
-                                        <option value="1">Traer de la base de datos</option>
+                                <!-- PROVEEDOR -->
+                                <div class="col-md-6 d-flex flex-column py-3 position-relative">
+                                    <label for="id_proveedor" class="form-label Quick-title">Proveedor</label>
+                                    <select id="id_proveedor" name="id_proveedor" class="Quick-select" required>
+                                        <option value="">Seleccione proveedor</option>
                                     </select>
+                                    <div class="invalid-tooltip">
+                                        Debe seleccionar un proveedor válido.
+                                    </div>
                                 </div>
 
-                                <!-- Características -->
-                                <div class="col-md-4 d-flex flex-column py-3">
-                                    <label for="color_producto" class="form-label Quick-title">Color</label>
-                                    <input type="text" id="color_producto" name="color_producto" class="Quick-form-input" maxlength="50">
-                                </div>
-
-                                <div class="col-md-4 d-flex flex-column py-3">
-                                    <label for="talla_producto" class="form-label Quick-title">Talla / Medida</label>
-                                    <input type="text" id="talla_producto" name="talla_producto" class="Quick-form-input">
-                                </div>
-
-                                <div class="col-md-4 d-flex flex-column py-3">
-                                    <label for="unidad_medida" class="form-label Quick-title">Unidad de Medida</label>
-                                    <select id="unidad_medida" name="unidad_medida" class="Quick-select">
-                                        <option value="">Seleccione unidad</option>
-                                        <option value="par">Par</option>
-                                        <option value="unidad">Unidad</option>
-                                        <option value="docena">Docena</option>
+                                <!-- COLOR -->
+                                <div class="col-md-4 d-flex flex-column py-3 position-relative">
+                                    <label for="id_color" class="form-label Quick-title">Color</label>
+                                    <input type="text" name="nombre_color" id="nombre_color" placeholder="Añadir color" class="Quick-form-input">
+                                    <select id="id_color" name="id_color" class="Quick-select" required>
+                                        <option value="">Seleccione color</option>
                                     </select>
+                                    <div class="invalid-tooltip">
+                                        Debe seleccionar o agregar un color válido.
+                                    </div>
                                 </div>
 
-                                <!-- Precios -->
-                                <div class="col-md-4 d-flex flex-column py-3">
-                                    <label for="precio_compra" class="form-label Quick-title">Costo de Compra (Bs.)</label>
-                                    <input type="number" id="precio_compra" name="precio_compra" class="Quick-form-input" step="0.01" min="0" required>
-                                </div>
-
-                                <div class="col-md-4 d-flex flex-column py-3">
-                                    <label for="precio_venta" class="form-label Quick-title">Precio de Venta (Bs.)</label>
-                                    <input type="number" id="precio_venta" name="precio_venta" class="Quick-form-input" step="0.01" min="0" required>
-                                </div>
-
-                                <div class="col-md-4 d-flex flex-column py-3">
-                                    <label for="impuesto_id" class="form-label Quick-title">Impuesto</label>
-                                    <select id="impuesto_id" name="impuesto_id" class="Quick-select">
-                                        <option value="">Seleccione impuesto</option>
-                                        <option value="0">Exento</option>
-                                        <option value="1">Traer de la base de datos</option>
+                                <!-- TALLA -->
+                                <div class="col-md-4 d-flex flex-column py-3 position-relative">
+                                    <label for="id_talla" class="form-label Quick-title">Talla</label>
+                                    <input type="text" name="rango_talla" id="rango_talla" placeholder="39 - 41" class="Quick-form-input">
+                                    <select id="id_talla" name="id_talla" class="Quick-select" required>
+                                        <option value="">Seleccione talla</option>
                                     </select>
+                                    <div class="invalid-tooltip">
+                                        Debe seleccionar o agregar una talla válida.
+                                    </div>
                                 </div>
 
-                                <!-- Stock y Sucursal -->
-                                <div class="col-md-6 d-flex flex-column py-3">
-                                    <label for="stock_inicial" class="form-label Quick-title">Stock Inicial</label>
-                                    <input type="number" id="stock_inicial" name="stock_inicial" class="Quick-form-input" min="0" required>
+                                <!-- PRECIO -->
+                                <div class="col-md-4 d-flex flex-column py-3 position-relative">
+                                    <label for="precio" class="form-label Quick-title">Precio (Bs.)</label>
+                                    <input type="number" id="precio" name="precio" class="Quick-form-input" step="0.01" min="0.01" required>
+                                    <div class="invalid-tooltip">
+                                        El precio debe ser mayor que 0.
+                                    </div>
                                 </div>
 
-                                <div class="col-md-6 d-flex flex-column py-3">
-                                    <label for="stock_minimo" class="form-label Quick-title">Stock Mínimo</label>
-                                    <input type="number" id="stock_minimo" name="stock_minimo" class="Quick-form-input" min="1" required>
-                                </div>
-
-                                <div class="col-md-12 d-flex flex-column py-3">
-                                    <label for="sucursal_id" class="form-label Quick-title">Sucursal</label>
-                                    <select id="sucursal_id" name="sucursal_id" class="Quick-select" required>
-                                        <option value="">Seleccione la sucursal</option>
-                                        <option value="1">QuickStock Central</option>
+                                <!-- SUCURSAL -->
+                                <div class="col-md-6 d-flex flex-column py-3 position-relative">
+                                    <label for="id_sucursal" class="form-label Quick-title">Sucursal</label>
+                                    <select id="id_sucursal" name="id_sucursal" class="Quick-select" required>
                                     </select>
+                                    <div class="invalid-tooltip">
+                                        Debe seleccionar una sucursal.
+                                    </div>
                                 </div>
 
-                                <!-- Botones -->
+                                <!-- CANTIDAD (STOCK) -->
+                                <div class="col-md-3 d-flex flex-column py-3 position-relative">
+                                    <label for="cantidad" class="form-label Quick-title">Stock Inicial</label>
+                                    <input type="number" id="cantidad" name="cantidad" class="Quick-form-input" min="0" required>
+                                    <div class="invalid-tooltip">
+                                        Stock inicial obligatorio y no puede ser negativo.
+                                    </div>
+                                </div>
+
+                                <!-- MINIMO -->
+                                <div class="col-md-3 d-flex flex-column py-3 position-relative">
+                                    <label for="minimo" class="form-label Quick-title">Stock Mínimo</label>
+                                    <input type="number" id="minimo" name="minimo" class="Quick-form-input" min="1" required>
+                                    <div class="invalid-tooltip">
+                                        Stock mínimo obligatorio y debe ser mayor o igual a 1.
+                                    </div>
+                                </div>
+
+                                <!-- BOTONES -->
                                 <div class="col-12 d-flex flex-row justify-content-center align-items-center py-3">
                                     <div class="row w-100 d-flex justify-content-around">
                                         <div class="col-5 col-md-3 d-flex justify-content-center">
@@ -119,9 +138,32 @@
 
                             </div>
                         </form>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        include_once "controller/inventario_añadir_producto_C.php";
+
+        $mensaje = inventario_añadir_producto_C::agregarProducto($_POST);
+
+        // Mostramos alerta usando JavaScript
+        echo "<script>
+        if ('{$mensaje}' === 'Producto agregado correctamente') {
+            alert('{$mensaje}');
+            // Opcional: limpiar el formulario automáticamente
+            document.getElementById('formProducto').reset();
+        } else {
+            alert('Error: {$mensaje}');
+        }
+    </script>";
+    }
+    ?>
 </div>
+
+<script type="module" src="api/client/inventario-añadir-producto.js"></script>
+<script src="view/js/inventario-añadir-producto.js"></script>

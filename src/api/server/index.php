@@ -45,13 +45,50 @@ switch ($accion) {
         $out = obtenerUnUsuario($peticion["email"]);
         break;
 
+    case "obtener_categorias":
+        include_once __DIR__ . "/core/categoria.php";
+        $out = obtenerCategorias();
+        break;
+
+    case "obtener_proveedores":
+        include_once __DIR__ . "/core/proveedor.php";
+        $out = obtenerProveedores();
+        break;
+
+    case "obtener_colores":
+        include_once __DIR__ . "/core/color.php";
+        $out = obtenerColores();
+        break;
+
+    case "obtener_tallas":
+        include_once __DIR__ . "/core/talla.php";
+        $out = obtenerTallas();
+        break;
+
+    case "filtrar_nombre_producto":
+        include_once __DIR__ . "/inventario/producto.php";
+        $out = obtenerProductoPorNombre($peticion["nombre"]);
+        break;
+
+    case "obtener_todos_los_productos":
+        include_once __DIR__ . "/inventario/producto.php";
+        $out = obtenerTodosLosProductos(
+            $peticion["nombre"] ?? null,
+            $peticion["codigo"] ?? null,
+            $peticion["categoria"] ?? null,
+            $peticion["proveedor"] ?? null,
+            $peticion["sucursal"] ?? null,
+            $peticion["estado"] ?? null
+        );
+        break;
+
     //se procesa una peticion
     /*case "mostrar_suma":
         $out = mostrarSuma();
         break;*/
 
     default:
-        $out = ["error" => "Acción no reconocida"];
+        $out = ["error" => "Accion no reconocida"];
 }
 
 echo json_encode($out);
