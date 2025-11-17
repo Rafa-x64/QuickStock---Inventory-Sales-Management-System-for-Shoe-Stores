@@ -7,60 +7,81 @@ function obtenerTodosLosProductos(
     $sucursal = null,
     $estado = null
 ) {
+    // Asegúrate de que esta función está definida para conectar a tu DB
     $conn = conectar_base_datos();
 
-    // Normalización manual
+    // --- 1. NORMALIZACIÓN Y PREPARACIÓN DE PARÁMETROS ---
     $nombre    = $nombre !== null ? trim($nombre) : null;
     $codigo    = $codigo !== null ? trim($codigo) : null;
+
+    // Los IDs de los selects deben ser enteros, o null si están vacíos ("")
     $categoria = $categoria ? (int)$categoria : null;
     $proveedor = $proveedor ? (int)$proveedor : null;
     $sucursal  = $sucursal ? (int)$sucursal : null;
-    $estado    = ($estado !== null && ($estado == 0 || $estado == 1)) ? (bool)$estado : null;
 
-    // Generar WHERE dinámico
+    // Manejo del estado: convertir el string JS ("true"/"false") a booleano PHP (true/false) o null
+    $estado_filtrar = null;
+    if ($estado === "true") {
+        $estado_filtrar = true;
+    } elseif ($estado === "false") {
+        $estado_filtrar = false;
+    }
+
+    // --- 2. GENERACIÓN DEL WHERE DINÁMICO ---
     $clauses = [];
     $params = [];
     $i = 1;
 
+    // Nombre (búsqueda parcial insensible a mayúsculas/minúsculas)
     if ($nombre) {
         $clauses[] = "p.nombre ILIKE $" . $i;
         $params[] = "%" . $nombre . "%";
         $i++;
     }
 
+    // Código de barra (búsqueda parcial insensible a mayúsculas/minúsculas)
     if ($codigo) {
         $clauses[] = "p.codigo_barra ILIKE $" . $i;
         $params[] = "%" . $codigo . "%";
         $i++;
     }
 
+    // Categoría (ID exacto)
     if ($categoria) {
         $clauses[] = "p.id_categoria = $" . $i;
         $params[] = $categoria;
         $i++;
     }
 
+    // Proveedor (ID exacto)
     if ($proveedor) {
         $clauses[] = "p.id_proveedor = $" . $i;
         $params[] = $proveedor;
         $i++;
     }
 
+    // Sucursal (ID exacto, filtrando por la tabla de inventario)
     if ($sucursal) {
         $clauses[] = "i.id_sucursal = $" . $i;
         $params[] = $sucursal;
         $i++;
     }
 
-    if ($estado !== null) {
+    // Estado (booleano)
+    if ($estado_filtrar !== null) {
         $clauses[] = "p.activo = $" . $i;
-        $params[] = $estado;
+
+        // CORRECCIÓN: Convertir el booleano PHP a un string de PostgreSQL ('t' o 'f')
+        $param_estado = $estado_filtrar ? 't' : 'f';
+
+        $params[] = $param_estado;
         $i++;
     }
 
+    // Construcción de la cláusula WHERE
     $where = !empty($clauses) ? "WHERE " . implode(" AND ", $clauses) : "";
 
-    // Consulta principal
+    // --- 3. CONSULTA SQL PRINCIPAL ---
     $sql = "
         SELECT 
             p.id_producto,
@@ -89,9 +110,18 @@ function obtenerTodosLosProductos(
         ORDER BY p.id_producto ASC
     ";
 
-    // Preparar y ejecutar
+    // --- 4. EJECUCIÓN DE LA CONSULTA ---
+
+    // Preparar y ejecutar la consulta con sentencias preparadas
     $stmt = "stmt_" . uniqid();
-    pg_prepare($conn, $stmt, $sql);
+    if (!pg_prepare($conn, $stmt, $sql)) {
+        return [
+            "status" => "error",
+            "message" => "Error al preparar la consulta",
+            "detalle" => pg_last_error($conn)
+        ];
+    }
+
     $result = pg_execute($conn, $stmt, $params);
 
     if (!$result) {
@@ -104,12 +134,12 @@ function obtenerTodosLosProductos(
 
     $productos = pg_fetch_all($result) ?: [];
 
+    // --- 5. RETORNO DE RESULTADOS ---
     return [
         "status" => "success",
         "data" => $productos
     ];
 }
-
 
 function traerProductosSucursal() {}
 
