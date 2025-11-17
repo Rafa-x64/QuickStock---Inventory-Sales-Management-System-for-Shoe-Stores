@@ -57,7 +57,9 @@ $paginas_existentes = [
     "compras-añadir-view.php",
     "compras-detalle-view.php",
     "empleados-editar-view.php",
-    "empleados-eliminar-view.php"
+    "empleados-eliminar-view.php",
+    "inventario-editar-producto-view.php",
+    "inventario-detalle-producto-view.php"
 ];
 
 // Redirección si la vista NO es pública y no hay sesión

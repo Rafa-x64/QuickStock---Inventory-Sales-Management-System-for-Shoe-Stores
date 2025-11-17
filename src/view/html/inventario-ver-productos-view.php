@@ -76,8 +76,16 @@
                     </table>
                 </div>
             </div>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["accion"] == "eliminar") {
+                echo $_POST["id_producto"];
+                echo $_POST["accion"];
+            }
+            ?>
         </div>
     </div>
 </div>
+
+
 
 <script type="module" src="api/client/inventario-ver-productos.js"></script>

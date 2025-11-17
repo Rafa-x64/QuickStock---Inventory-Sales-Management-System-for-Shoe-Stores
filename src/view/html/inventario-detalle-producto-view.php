@@ -1,6 +1,13 @@
+<?php
+$accion = $_POST["accion"] ?? null;
+$id_producto  = $_POST["id_producto"]  ?? ($_POST["id_producto"] ?? null);
+?>
 <div class="container-fluid" id="mainContent">
     <div class="row">
         <div class="col-12 p-4">
+
+            <?php echo $accion;
+            echo $id_producto; ?>
 
             <!-- Encabezado -->
             <div class="d-flex justify-content-between align-items-center mb-4">

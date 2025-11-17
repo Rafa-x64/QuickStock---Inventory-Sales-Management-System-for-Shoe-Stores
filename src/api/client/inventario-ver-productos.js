@@ -37,13 +37,25 @@ function cargarProductos() {
                     <div class="container-fluid p-0">
                         <div class="row g-1">
                             <div class="col-6">
-                                <button class="btn btn-warning btn-sm w-100" data-id="${prod.id_producto}">Editar</button>
+                                <form action="inventario-editar-producto" method="POST" class="d-inline">
+                                    <input type="hidden" name="accion" value="editar">
+                                    <input type="hidden" name="id_producto" value="${prod.id_producto}">
+                                    <input type="submit" class="btn btn-warning btn-sm w-100" value="Editar">
+                                </form>
                             </div>
                             <div class="col-6">
-                                <button class="btn btn-danger btn-sm w-100" data-id="${prod.id_producto}">Eliminar</button>
+                                <form action="" method="POST" class="d-inline">
+                                    <input type="hidden" name="accion" value="eliminar">
+                                    <input type="hidden" name="id_producto" value="${prod.id_producto}">
+                                    <input type="submit" class="btn btn-danger btn-sm w-100" value="Eliminar">
+                                </form>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary btn-sm w-100" data-id="${prod.id_producto}">Ver Detalle</button>
+                                <form action="inventario-detalle-producto" method="POST" class="d-inline">
+                                    <input type="hidden" name="accion" value="ver_detalle">
+                                    <input type="hidden" name="id_producto" value="${prod.id_producto}">
+                                    <input type="submit" class="btn btn-primary btn-sm w-100" value="Ver detalle">
+                                </form>
                             </div>
                         </div>
                     </div>

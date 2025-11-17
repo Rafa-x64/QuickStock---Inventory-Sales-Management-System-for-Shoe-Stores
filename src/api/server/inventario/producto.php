@@ -113,4 +113,75 @@ function obtenerTodosLosProductos(
 
 function traerProductosSucursal() {}
 
-function obtenerProductoPorNombre() {}
+function obtenerUnProducto($id_producto)
+{
+    $conn = conectar_base_datos();
+
+    // Validar ID
+    $id_producto = (int)$id_producto;
+    if ($id_producto <= 0) return null;
+
+    // Consulta principal: producto + categoría + color + talla + proveedor
+    $query = "
+        SELECT 
+            p.id_producto,
+            p.nombre,
+            p.descripcion,
+            p.codigo_barra,
+            p.precio_venta AS precio,
+            p.precio_compra,
+            p.id_categoria,
+            c.nombre AS nombre_categoria,
+            c.descripcion AS descripcion_categoria,
+            p.id_color,
+            col.nombre AS nombre_color,
+            p.id_talla,
+            t.rango_talla,
+            p.id_proveedor,
+            prov.nombre AS nombre_proveedor,
+            p.activo
+        FROM inventario.producto p
+        LEFT JOIN core.categoria c ON c.id_categoria = p.id_categoria
+        LEFT JOIN core.color col ON col.id_color = p.id_color
+        LEFT JOIN core.talla t ON t.id_talla = p.id_talla
+        LEFT JOIN core.proveedor prov ON prov.id_proveedor = p.id_proveedor
+        WHERE p.id_producto = $1
+        LIMIT 1
+    ";
+
+    $stmtName = "obtener_producto_" . uniqid();
+    pg_prepare($conn, $stmtName, $query);
+    $result = pg_execute($conn, $stmtName, [$id_producto]);
+
+    if (!$result) {
+        return ["error" => "Error al ejecutar la consulta", "detalle" => pg_last_error($conn)];
+    }
+
+    $producto = pg_fetch_assoc($result);
+    if (!$producto) return null;
+
+    // Traer inventario por sucursal
+    $queryInventario = "
+        SELECT 
+            i.id_sucursal,
+            s.nombre AS nombre_sucursal,
+            i.cantidad,
+            i.minimo
+        FROM inventario.inventario i
+        LEFT JOIN core.sucursal s ON s.id_sucursal = i.id_sucursal
+        WHERE i.id_producto = $1
+    ";
+
+    $stmtInvName = "obtener_inventario_" . uniqid();
+    pg_prepare($conn, $stmtInvName, $queryInventario);
+    $resInv = pg_execute($conn, $stmtInvName, [$id_producto]);
+
+    $inventario = [];
+    while ($row = pg_fetch_assoc($resInv)) {
+        $inventario[] = $row;
+    }
+
+    $producto["inventario"] = $inventario;
+
+    return $producto;
+}
