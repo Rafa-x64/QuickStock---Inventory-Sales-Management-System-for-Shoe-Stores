@@ -87,6 +87,11 @@ switch ($accion) {
         $out = obtenerDetalleProducto($peticion["id_producto"]);
         break;
 
+    case "obtener_categoria_por_id":
+        include_once __DIR__ . "/core/categoria.php";
+        $out = seleccionarCategoriaPorId($peticion["id_categoria"]);
+        break;
+
     //se procesa una peticion
     /*case "mostrar_suma":
         $out = mostrarSuma();
