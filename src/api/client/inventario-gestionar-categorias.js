@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </span>
         `;
 
-            const nombrePadre = categoria.id_categoria_padre
-                ? categoria.id_categoria_padre
+            const nombrePadre = categoria.nombre_categoria_padre
+                ? categoria.nombre_categoria_padre
                 : '<span>Ninguno</span>';
 
             const descripcion = categoria.descripcion
@@ -109,5 +109,76 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.log("No se ha seleccionado ninguna categoría para edición. El formulario de edición no se rellenará.");
     }
-    
+
+    //filtro de busqueda
+    const filtroBusqueda = document.getElementById("categoria_input");
+
+    filtroBusqueda.addEventListener("keyup", () => {
+        const busqueda = filtroBusqueda.value.trim().toLowerCase();
+        api({ accion: "obtener_categorias_filtro", string: busqueda }).then(res => {
+            let filas = '';
+
+            if (res.categorias && res.categorias.length > 0) {
+                res.categorias.forEach(categoria => {
+
+                    const esActivo = categoria.activo === 't' || categoria.activo === true;
+
+                    const estadoTexto = esActivo ? 'Activo' : 'Inactivo';
+                    const estadoClase = esActivo ? 'bg-success' : 'bg-danger';
+
+                    const estadoActivo = `
+            <span class="badge ${estadoClase} text-white p-2">
+                ${estadoTexto}
+            </span>
+        `;
+
+                    const nombrePadre = categoria.nombre_categoria_padre
+                        ? categoria.nombre_categoria_padre
+                        : '<span>Ninguno</span>';
+
+                    const descripcion = categoria.descripcion
+                        ? categoria.descripcion
+                        : '<span>Ninguno</span>';
+
+                    let fila =
+                        `<tr>
+                    <td>${categoria.nombre}</td>
+                    <td>${descripcion}</td>
+                    <td>${nombrePadre}</td>
+                    <td>${estadoActivo}</td>
+                    <td>
+                        <form action="inventario-editar-categorias" method="POST" class="d-inline">
+                            <input type="hidden" name="accion" id="accion" value="editar">
+                            <input type="hidden" name="id_categoria" id="id_categoria" value="${categoria.id_categoria}">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-pencil fs-5"></i>
+                            </button>
+                        </form>
+                        <form action="" method="POST" class="d-inline">
+                            <input type="hidden" name="accion" id="accion" value="eliminar">
+                            <input type="hidden" name="id_categoria" id="id_categoria" value="${categoria.id_categoria}">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="bi bi-trash fs-5"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>`;
+
+                    filas += fila;
+                });
+            } else {
+                // No hay resultados, mostrar el mensaje de "no hay categorías"
+                filas = `
+                <tr>
+                    <td colspan="5" class="text-center p-3">
+                        <i class="bi bi-exclamation-triangle-fill"></i> No hay categorías con este nombre.
+                    </td>
+                </tr>
+            `;
+            }
+
+            tablaCategorias.innerHTML = filas;
+        });
+    });
+
 });

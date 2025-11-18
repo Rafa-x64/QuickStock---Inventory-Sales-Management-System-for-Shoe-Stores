@@ -92,6 +92,11 @@ switch ($accion) {
         $out = seleccionarCategoriaPorId($peticion["id_categoria"]);
         break;
 
+    case "obtener_categorias_filtro":
+        include_once __DIR__ . "/core/categoria.php";
+        $out = obtenerCategoriasFiltro($peticion["string"]);
+        break;
+
     //se procesa una peticion
     /*case "mostrar_suma":
         $out = mostrarSuma();
