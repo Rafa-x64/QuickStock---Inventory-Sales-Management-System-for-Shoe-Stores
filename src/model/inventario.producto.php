@@ -84,86 +84,92 @@ class producto extends mainModel
     }
 
     public static function editar($data): array
-    {
-        $conn = parent::conectar_base_datos();
+{
+    $conn = parent::conectar_base_datos();
 
-        $id_producto = $data["id_producto"];
-        $id_sucursal = $data["id_sucursal"];
-        $precio_compra = $data["precio_compra"];
-        $activo_nuevo = $data["activo"];
+    $id_producto = $data["id_producto"];
+    $id_sucursal = $data["id_sucursal"];
+    $precio_compra = $data["precio_compra"];
 
-        pg_query($conn, "BEGIN");
+    // La lógica de la línea 118 para $activo_nuevo está bien, 
+    // pero debemos asegurarnos que el valor final para la BD sea 't' o 'f'.
+    $activo_nuevo = isset($data['activo']) && (bool)$data['activo']; 
 
-        try {
-            $sql_producto = "
-                UPDATE inventario.producto
-                SET
-                    codigo_barra = $1,
-                    nombre = $2,
-                    descripcion = $3,
-                    id_categoria = $4,
-                    id_color = $5,
-                    id_talla = $6,
-                    precio_venta = $7, 
-                    id_proveedor = $8,
-                    precio_compra = $10,
-                    activo = $11          -- AÑADIDO
-                WHERE id_producto = $9
-            ";
+    pg_query($conn, "BEGIN");
 
-            $params_producto = [
-                $data["codigo_barra"],
-                $data["nombre"],
-                $data["descripcion"], 
-                $data["id_categoria"],
-                $data["id_color"],
-                $data["id_talla"],
-                $data["precio"],
-                $data["id_proveedor"], 
-                $id_producto,
-                $precio_compra,
-                $activo_nuevo 
-            ];
+    try {
+        // A. Actualizar Producto (Tabla inventario.producto)
+        $sql_producto = "
+            UPDATE inventario.producto
+            SET
+                codigo_barra = $1,
+                nombre = $2,
+                descripcion = $3,
+                id_categoria = $4,
+                id_color = $5,
+                id_talla = $6,
+                precio_venta = $7,     /* precio_venta */
+                id_proveedor = $8,
+                precio_compra = $9,  /* AHORA $9 */
+                activo = $10     /* AHORA $10 */
+            WHERE id_producto = $11  /* AHORA $11 */
+        ";
 
-            $res_producto = pg_query_params($conn, $sql_producto, $params_producto);
+        $params_producto = [
+            $data["codigo_barra"], // $1
+            $data["nombre"],    // $2
+            $data["descripcion"],  // $3
+            $data["id_categoria"], // $4
+            $data["id_color"],   // $5
+            $data["id_talla"],   // $6
+            $data["precio"],    // $7 (Precio Venta)
+            $data["id_proveedor"], // $8
+            $precio_compra,     // $9 (Precio Compra)
+            // 👇 CORRECCIÓN CLAVE: Convertir el booleano PHP a cadena 't' o 'f' para PostgreSQL.
+            $activo_nuevo ? 't' : 'f', // $10 (Activo - TRUE/FALSE)
+            $id_producto      // $11 (ID para WHERE)
+        ];
 
-            if (!$res_producto) {
-                throw new Exception("Error al actualizar producto: " . pg_last_error($conn));
-            }
+        $res_producto = pg_query_params($conn, $sql_producto, $params_producto); // Línea 133
 
-            $sql_inventario = "
-                UPDATE inventario.inventario
-                SET
-                    cantidad = $1,
-                    minimo = $2
-                WHERE id_producto = $3 AND id_sucursal = $4
-            ";
-
-            $params_inventario = [
-                $data["cantidad"],
-                $data["minimo"],
-                $id_producto,
-                $id_sucursal
-            ];
-
-            $res_inventario = pg_query_params($conn, $sql_inventario, $params_inventario);
-
-            if (!$res_inventario) {
-                throw new Exception("Error al actualizar inventario: " . pg_last_error($conn));
-            }
-
-            if (pg_affected_rows($res_inventario) === 0) {
-                self::agregarInventario($id_producto, $id_sucursal, $data["cantidad"], $data["minimo"]);
-            }
-
-            pg_query($conn, "COMMIT");
-
-            return ["success" => true];
-        } catch (Exception $e) {
-            pg_query($conn, "ROLLBACK");
-            return ["error" => $e->getMessage()];
+        if (!$res_producto) {
+            throw new Exception("Error al actualizar producto: " . pg_last_error($conn));
         }
+
+        // B. Actualizar o Insertar Inventario
+        $sql_inventario = "
+            UPDATE inventario.inventario
+            SET
+                cantidad = $1,
+                minimo = $2
+            WHERE id_producto = $3 AND id_sucursal = $4
+        ";
+
+        $params_inventario = [
+            $data["cantidad"],
+            $data["minimo"],
+            $id_producto,
+            $id_sucursal
+        ];
+
+        $res_inventario = pg_query_params($conn, $sql_inventario, $params_inventario);
+
+        if (!$res_inventario) {
+            throw new Exception("Error al actualizar inventario: " . pg_last_error($conn));
+        }
+
+        if (pg_affected_rows($res_inventario) === 0) {
+            self::agregarInventario($id_producto, $id_sucursal, $data["cantidad"], $data["minimo"]);
+        }
+
+        pg_query($conn, "COMMIT");
+
+        return ["success" => true];
+    } catch (Exception $e) {
+        pg_query($conn, "ROLLBACK");
+        return ["error" => $e->getMessage()];
     }
+}
 
     public static function eliminar($id_producto)
     {
