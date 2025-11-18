@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 nombreCategoriaInput.value = cat.nombre || '';
                 descripcionCategoriaInput.value = cat.descripcion || '';
 
-                categoriaPadreSelect.value = cat.padre || '';
+                categoriaPadreSelect.value = cat.id_categoria_padre || '';
 
                 const esActivo = cat.activo === 't' || cat.activo === true;
 
