@@ -76,10 +76,15 @@ switch ($accion) {
             $peticion["estado"] ?? null
         );
         break;
-    
+
     case "obtener_un_producto":
         include_once __DIR__ . "/inventario/producto.php";
         $out = obtenerUnProducto($peticion["id_producto"]);
+        break;
+
+    case "obtener_detalle_producto":
+        include_once __DIR__ . "/inventario/producto.php";
+        $out = obtenerDetalleProducto($peticion["id_producto"]);
         break;
 
     //se procesa una peticion

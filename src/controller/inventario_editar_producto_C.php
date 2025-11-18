@@ -13,11 +13,12 @@ class inventario_editar_producto_C extends mainModel
             "codigo_barra",
             "nombre",
             "id_categoria",
-            "precio_compra", // <--- AÑADIDO: Ahora es obligatorio en el submit
+            "precio_compra",
             "precio",
             "cantidad",
             "minimo",
-            "id_sucursal"
+            "id_sucursal",
+            "activo" // <-- AÑADIDO: Ahora es obligatorio
         ];
 
         foreach ($requeridos as $campo) {
@@ -64,17 +65,21 @@ class inventario_editar_producto_C extends mainModel
         $id_proveedor_final = !empty($data["id_proveedor"]) ? (int)$data["id_proveedor"] : null;
         $descripcion_final = trim($data["descripcion"]) !== "" ? trim($data["descripcion"]) : null;
 
+        // Convertir el string "true"/"false" del formulario a booleano PHP
+        $activo_final = filter_var($data["activo"], FILTER_VALIDATE_BOOLEAN); 
+
         $producto_data = [
             "id_producto"   => (int)$data["id_producto"],
             "codigo_barra"  => trim($data["codigo_barra"]),
             "nombre"        => trim($data["nombre"]),
-            "descripcion"   => $descripcion_final, // Puede ser NULL
+            "descripcion"   => $descripcion_final, 
             "id_categoria"  => (int)$data["id_categoria"],
-            "id_proveedor"  => $id_proveedor_final, // Puede ser NULL
+            "id_proveedor"  => $id_proveedor_final, 
             "id_color"      => $id_color_final,
             "id_talla"      => $id_talla_final,
-            "precio_compra" => (float)$data["precio_compra"], // <--- AÑADIDO
+            "precio_compra" => (float)$data["precio_compra"],
             "precio"        => (float)$data["precio"],
+            "activo"        => $activo_final, // <-- YA CONVERTIDO A BOOLEANO
             "id_sucursal"   => (int)$data["id_sucursal"],
             "cantidad"      => (int)$data["cantidad"],
             "minimo"        => (int)$data["minimo"],

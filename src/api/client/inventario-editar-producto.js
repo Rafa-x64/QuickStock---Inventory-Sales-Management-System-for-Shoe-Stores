@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Rellenar campos simples
             codigoInput.value = p.codigo_barra ?? "";
             nombreInput.value = p.nombre ?? "";
+            document.getElementById("activo").value = String(p.activo);
             descripcionInput.value = p.descripcion ?? "";
             precioInput.value = p.precio ?? 0;
             precioCompraInput.value = p.precio_compra ?? 1.00; // <--- ASIGNACIÓN DE PRECIO DE COMPRA

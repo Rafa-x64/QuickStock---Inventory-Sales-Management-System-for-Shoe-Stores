@@ -22,7 +22,7 @@ $id_producto  = $_POST["id_producto"]  ?? ($_POST["id_producto"] ?? null);
                                 <input type="hidden" name="id_producto" id="id_producto" value="<?php echo $id_producto ?>">
 
                                 <!-- CÓDIGO DE BARRA -->
-                                <div class="col-md-6 d-flex flex-column py-3 position-relative">
+                                <div class="col-md-4 d-flex flex-column py-3 position-relative">
                                     <label for="codigo_barra" class="form-label Quick-title">Código de Barras / SKU</label>
                                     <input type="text" id="codigo_barra" name="codigo_barra" class="Quick-form-input" maxlength="255" required>
                                     <div class="invalid-tooltip">
@@ -31,11 +31,23 @@ $id_producto  = $_POST["id_producto"]  ?? ($_POST["id_producto"] ?? null);
                                 </div>
 
                                 <!-- NOMBRE -->
-                                <div class="col-md-6 d-flex flex-column py-3 position-relative">
+                                <div class="col-md-4 d-flex flex-column py-3 position-relative">
                                     <label for="nombre" class="form-label Quick-title">Nombre del Producto</label>
                                     <input type="text" id="nombre" name="nombre" class="Quick-form-input" maxlength="150" required>
                                     <div class="invalid-tooltip">
                                         El nombre es obligatorio y solo puede contener letras, números y espacios.
+                                    </div>
+                                </div>
+
+                                <!-- ACTIVO  -->
+                                <div class="col-md-4 d-flex flex-column py-3 position-relative">
+                                    <label for="activo" class="form-label Quick-title">Estado</label>
+                                    <select id="activo" name="activo" class="Quick-select" required>
+                                        <option value="true">Activo</option>
+                                        <option value="false">Inactivo</option>
+                                    </select>
+                                    <div class="invalid-tooltip">
+                                        Debe seleccionar un estado (Activo o Inactivo).
                                     </div>
                                 </div>
 

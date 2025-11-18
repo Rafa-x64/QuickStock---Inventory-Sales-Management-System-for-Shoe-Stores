@@ -146,12 +146,9 @@ function traerProductosSucursal() {}
 function obtenerUnProducto($id_producto)
 {
     $conn = conectar_base_datos();
-
-    // Validar ID
     $id_producto = (int)$id_producto;
     if ($id_producto <= 0) return null;
 
-    // Consulta principal: producto + categoría + color + talla + proveedor
     $query = "
         SELECT 
             p.id_producto,
@@ -190,7 +187,10 @@ function obtenerUnProducto($id_producto)
     $producto = pg_fetch_assoc($result);
     if (!$producto) return null;
 
-    // Traer inventario por sucursal
+    if (isset($producto['activo'])) {
+        $producto['activo'] = filter_var($producto['activo'], FILTER_VALIDATE_BOOLEAN);
+    }
+
     $queryInventario = "
         SELECT 
             i.id_sucursal,
@@ -214,4 +214,94 @@ function obtenerUnProducto($id_producto)
     $producto["inventario"] = $inventario;
 
     return $producto;
+}
+
+function obtenerDetalleProducto($id_producto)
+{
+    if (!$id_producto) {
+        return ["status" => "error", "message" => "ID de producto es requerido."];
+    }
+
+    $conn = conectar_base_datos();
+
+    // --- 1. Obtener la información principal del producto ---
+    $sql_producto = "
+        SELECT 
+            p.nombre,
+            p.descripcion,
+            p.codigo_barra,
+            p.precio_compra,
+            p.precio_venta,
+            p.activo AS estado,
+            c.nombre AS categoria_nombre,
+            col.nombre AS color_nombre,
+            t.rango_talla AS talla,
+            pr.nombre AS proveedor_nombre
+        FROM inventario.producto p
+        LEFT JOIN core.categoria c ON c.id_categoria = p.id_categoria
+        LEFT JOIN core.color col ON col.id_color = p.id_color
+        LEFT JOIN core.talla t ON t.id_talla = p.id_talla
+        LEFT JOIN core.proveedor pr ON pr.id_proveedor = p.id_proveedor
+        WHERE p.id_producto = $1
+    ";
+
+    $stmt_prod = "stmt_detalle_prod_" . uniqid();
+    if (!pg_prepare($conn, $stmt_prod, $sql_producto)) {
+        return ["status" => "error", "message" => "Error preparando producto", "detalle" => pg_last_error($conn)];
+    }
+
+    $result_prod = pg_execute($conn, $stmt_prod, [(int)$id_producto]);
+    $producto = pg_fetch_assoc($result_prod);
+
+    if (!$producto) {
+        return ["status" => "error", "message" => "Producto no encontrado."];
+    }
+
+    // --- 2. Obtener la información de inventario por sucursal ---
+    $sql_inventario = "
+        SELECT 
+            s.nombre AS sucursal_nombre,
+            i.cantidad AS stock,
+            i.minimo
+        FROM inventario.inventario i
+        JOIN core.sucursal s ON s.id_sucursal = i.id_sucursal
+        WHERE i.id_producto = $1
+        ORDER BY s.nombre
+    ";
+
+    // Si no tienes 'ultima_actualizacion', reemplázalo con otra columna o usa NULL.
+
+    $stmt_inv = "stmt_detalle_inv_" . uniqid();
+    if (!pg_prepare($conn, $stmt_inv, $sql_inventario)) {
+        return ["status" => "error", "message" => "Error preparando inventario", "detalle" => pg_last_error($conn)];
+    }
+
+    $result_inv = pg_execute($conn, $stmt_inv, [(int)$id_producto]);
+    $inventario = pg_fetch_all($result_inv) ?: [];
+
+    // --- 3. Calcular estadísticas globales (totales) ---
+    $total_inventario = 0;
+    $stock_minimo_global = 0;
+    $sucursales_bajo_stock = 0;
+
+    foreach ($inventario as $item) {
+        $total_inventario += (int)$item['stock'];
+        $stock_minimo_global += (int)$item['minimo'];
+
+        if ((int)$item['stock'] < (int)$item['minimo']) {
+            $sucursales_bajo_stock++;
+        }
+    }
+
+    // --- 4. Retorno final ---
+    return [
+        "status" => "success",
+        "producto" => $producto,
+        "inventario" => $inventario,
+        "estadisticas" => [
+            "total_inventario" => $total_inventario,
+            "stock_minimo_global" => $stock_minimo_global,
+            "sucursales_bajo_stock" => $sucursales_bajo_stock,
+        ]
+    ];
 }
