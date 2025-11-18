@@ -76,8 +76,22 @@
                     </table>
                 </div>
             </div>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["accion"] == "eliminar") {
+                include "controller/inventario_eliminar_producto_C.php";
+                if (!inventario_eliminar_producto_C::eliminarProducto($_POST["id_producto"])) {
+                    echo "<script>alert('Error al eliminar el producto');</script>";
+                    exit();
+                }
+
+                echo "<script>alert('Producto eliminado correctamente');</script>";
+                echo "<script>window.location.href='inventario-ver-productos';</script>";
+            }
+            ?>
         </div>
     </div>
 </div>
+
+
 
 <script type="module" src="api/client/inventario-ver-productos.js"></script>

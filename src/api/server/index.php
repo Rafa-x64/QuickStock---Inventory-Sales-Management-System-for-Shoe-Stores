@@ -65,11 +65,6 @@ switch ($accion) {
         $out = obtenerTallas();
         break;
 
-    case "filtrar_nombre_producto":
-        include_once __DIR__ . "/inventario/producto.php";
-        $out = obtenerProductoPorNombre($peticion["nombre"]);
-        break;
-
     case "obtener_todos_los_productos":
         include_once __DIR__ . "/inventario/producto.php";
         $out = obtenerTodosLosProductos(
@@ -80,6 +75,16 @@ switch ($accion) {
             $peticion["sucursal"] ?? null,
             $peticion["estado"] ?? null
         );
+        break;
+
+    case "obtener_un_producto":
+        include_once __DIR__ . "/inventario/producto.php";
+        $out = obtenerUnProducto($peticion["id_producto"]);
+        break;
+
+    case "obtener_detalle_producto":
+        include_once __DIR__ . "/inventario/producto.php";
+        $out = obtenerDetalleProducto($peticion["id_producto"]);
         break;
 
     //se procesa una peticion

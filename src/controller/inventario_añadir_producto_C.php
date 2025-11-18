@@ -8,11 +8,12 @@ class inventario_añadir_producto_C extends mainModel
     public static function agregarProducto($formulario)
     {
         try {
-            // 1. Sanitizar campos
             $codigo_barra   = trim($formulario['codigo_barra']);
             $nombre         = ucwords(trim($formulario['nombre']));
             $descripcion    = trim($formulario['descripcion']);
-            $precio         = floatval($formulario['precio']);
+            $precio_compra  = floatval($formulario['precio_compra']);
+            $precio         = floatval($formulario['precio']);    
+
             $id_proveedor   = isset($formulario['id_proveedor']) && intval($formulario['id_proveedor']) > 0 ? intval($formulario['id_proveedor']) : null;
             $id_sucursal    = intval($formulario['id_sucursal']);
             $cantidad       = intval($formulario['cantidad']);
@@ -27,16 +28,15 @@ class inventario_añadir_producto_C extends mainModel
             $rango_talla = !empty($formulario['rango_talla']) ? trim($formulario['rango_talla']) : null;
             $id_talla    = !empty($formulario['id_talla']) ? intval($formulario['id_talla']) : null;
 
-            // 2. Validaciones
             if (empty($codigo_barra)) return "Código de barras obligatorio";
             if (empty($nombre)) return "Nombre obligatorio";
             if (empty($descripcion)) return "Descripción obligatoria";
-            if ($precio < 1) return "Precio mínimo 1";
+            if ($precio_compra < 0.01) return "Precio de compra mínimo 0.01"; // <-- VALIDACIÓN NUEVA
+            if ($precio < 0.01) return "Precio de venta mínimo 0.01"; // Ajustado a 0.01 para ser consistente con compra y vista
             if ($cantidad < 0) return "Stock inicial no puede ser negativo";
             if ($minimo < 1) return "Stock mínimo debe ser ≥ 1";
             if (!$id_sucursal) return "Debe seleccionar una sucursal";
 
-            // 3. Categoría
             if ($nombre_categoria) {
                 if (strlen($nombre_categoria) < 4) return "Nombre de categoría mínimo 4 letras";
                 $categoria = new categoria(0, $nombre_categoria);
@@ -45,7 +45,6 @@ class inventario_añadir_producto_C extends mainModel
                 return "Debe seleccionar o agregar una categoría";
             }
 
-            // 4. Color
             if ($nombre_color) {
                 if (strlen($nombre_color) < 3) return "Color mínimo 3 letras";
                 $color = new color(0, $nombre_color);
@@ -54,20 +53,17 @@ class inventario_añadir_producto_C extends mainModel
                 return "Debe seleccionar o agregar un color";
             }
 
-            // 5. Talla
             if ($rango_talla) {
-                if (!preg_match('/^(\d+)(\s?-\s?\d+)+$/', $rango_talla)) return 'Formato de talla inválido (ej: 39 - 41)';
+                if (strlen($rango_talla) < 1) return 'Formato de talla inválido (no puede estar vacío)';
                 $talla = new talla(0, $rango_talla);
                 $id_talla = $talla->crear();
             } elseif (!$id_talla) {
                 return "Debe seleccionar o agregar una talla";
             }
 
-            // 6. Verificar si el producto ya existe
             $productoExistente = producto::buscarPorNombreOCodigo($nombre, $codigo_barra);
             if ($productoExistente) return "El producto ya está registrado";
 
-            // 7. Crear producto
             $producto = new producto(
                 0,
                 $nombre,
@@ -75,16 +71,16 @@ class inventario_añadir_producto_C extends mainModel
                 $id_categoria,
                 $id_color,
                 $id_talla,
-                $precio,
+                $precio,          
                 $id_proveedor,
                 true,
-                $codigo_barra
+                $codigo_barra,
+                $precio_compra    
             );
 
             $id_producto = $producto->crear();
             if (!$id_producto) return "Error al crear el producto";
 
-            // 8. Agregar inventario inicial
             $producto->agregarInventario($id_producto, $id_sucursal, $cantidad, $minimo);
 
             return "Producto agregado correctamente";
