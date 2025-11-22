@@ -5,19 +5,21 @@
             <p class="text-secondary">Resumen visual del estado del stock general</p>
         </div>
 
-        <div class="row Quick-widget mb-3">
-            <!-- STOCK BAJO -->
-            <div class="col-12 col-md-6 p-3 mb-4 rounded-3 d-flex flex-column">
-                <h4 class="Quick-title mb-3">Productos con Stock Bajo</h4>
-                <div class="Quick-chart w-100" style="height: 300px;">
-                    <canvas id="chartStockBajo"></canvas>
+        <div class="col-12 col-md-10">
+            <div class="row Quick-widget mb-3">
+                <!-- STOCK BAJO -->
+                <div class="col-12 col-md-6 p-3 mb-4 rounded-3 d-flex flex-column">
+                    <h4 class="Quick-title mb-3">Productos con Stock Bajo</h4>
+                    <div class="Quick-chart w-100" style="height: 300px;">
+                        <canvas id="chartStockBajo"></canvas>
+                    </div>
                 </div>
-            </div>
-            <!-- STOCK ALTO -->
-            <div class="col-12 col-md-6 p-3 mb-4 rounded-3 d-flex flex-column">
-                <h4 class="Quick-title mb-3">Productos con Mayor Stock</h4>
-                <div class="Quick-chart w-100" style="height: 300px;">
-                    <canvas id="chartStockAlto"></canvas>
+                <!-- STOCK ALTO -->
+                <div class="col-12 col-md-6 p-3 mb-4 rounded-3 d-flex flex-column">
+                    <h4 class="Quick-title mb-3">Productos con Mayor Stock</h4>
+                    <div class="Quick-chart w-100" style="height: 300px;">
+                        <canvas id="chartStockAlto"></canvas>
+                    </div>
                 </div>
             </div>
         </div>

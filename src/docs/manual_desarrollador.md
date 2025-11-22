@@ -1,339 +1,501 @@
-# 📘 Manual del Desarrollador: Proyecto Base MVC en PHP
+<!-- Manual de desarrollador completo para QuickStock -->
+# Manual de Desarrollador — QuickStock
 
-Este repositorio contiene una aplicación web estructurada bajo el patrón **Modelo-Vista-Controlador** (**MVC**), diseñada para facilitar el desarrollo **escalable, seguro y mantenible** de interfaces dinámicas en PHP. Este manual es la guía técnica de referencia para todos los colaboradores.
+> Versión: 1.0
+> Ruta base del proyecto: `c:\xampp\htdocs\DEV\PHP\QuickStock\src`
 
----
-
-<h2 align="center">Índice de Navegación Rápida</h2>
-
-<div align="center">
-  <table>
-    <tr>
-      <td><a href="#1-introducción-general" style="text-decoration:none; color:inherit;">1. Introducción General</a></td>
-      <td><a href="#2-estructura-del-proyecto" style="text-decoration:none; color:inherit;">2. Estructura del Proyecto</a></td>
-      <td><a href="#3-instalación-y-configuración" style="text-decoration:none; color:inherit;">3. Instalación y Configuración</a></td>
-      <td><a href="#4-flujo-de-ejecución" style="text-decoration:none; color:inherit;">4. Flujo de Ejecución</a></td>
-    </tr>
-    <tr>
-      <td><a href="#5-convenciones-de-desarrollo" style="text-decoration:none; color:inherit;">5. Convenciones de Desarrollo</a></td>
-      <td><a href="#6-frontend" style="text-decoration:none; color:inherit;">6. Frontend</a></td>
-      <td><a href="#7-backend" style="text-decoration:none; color:inherit;">7. Backend</a></td>
-      <td><a href="#8-reutilización-y-helpers" style="text-decoration:none; color:inherit;">8. Reutilización y Helpers</a></td>
-    </tr>
-    <tr>
-      <td><a href="#9-testing-y-depuración" style="text-decoration:none; color:inherit;">9. Testing y Depuración</a></td>
-      <td><a href="#10-seguridad-y-buenas-prácticas" style="text-decoration:none; color:inherit;">10. Seguridad y Buenas Prácticas</a></td>
-      <td><a href="#11-colaboración-y-control-de-versiones" style="text-decoration:none; color:inherit;">11. Colaboración y Control de Versiones</a></td>
-      <td><a href="#12-documentación-adicional" style="text-decoration:none; color:inherit;">12. Documentación Adicional</a></td>
-    </tr>
-    <tr>
-      <td><a href="#13-extensión-y-mantenimiento" style="text-decoration:none; color:inherit;">13. Extensión y Mantenimiento</a></td>
-      <td><a href="#14-conclusión" style="text-decoration:none; color:inherit;">14. Conclusión</a></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-</div>
+**Índice**
+- [Manual de Desarrollador — QuickStock](#manual-de-desarrollador--quickstock)
+  - [1. Introducción general](#1-introducción-general)
+  - [2. Arquitectura del sistema](#2-arquitectura-del-sistema)
+  - [3. Entorno de desarrollo](#3-entorno-de-desarrollo)
+  - [4. Estructura del proyecto](#4-estructura-del-proyecto)
+  - [5. Flujo completo: vistas, controlador y plantilla](#5-flujo-completo-vistas-controlador-y-plantilla)
+  - [6. Peticiones Front → API (api/client → api/server/index.php)](#6-peticiones-front--api-apiclient--apiserverindexphp)
+  - [7. Consultas a la base de datos desde `api/server` y formato de respuesta](#7-consultas-a-la-base-de-datos-desde-apiserver-y-formato-de-respuesta)
+  - [8. Validaciones: `view/js/*.js` y validación backend](#8-validaciones-viewjsjs-y-validación-backend)
+  - [9. Cómo crear un Modelo, una Vista y un Controlador (MVC local)](#9-cómo-crear-un-modelo-una-vista-y-un-controlador-mvc-local)
+  - [10. Modificar/Importar la base de datos (pgAdmin4)](#10-modificarimportar-la-base-de-datos-pgadmin4)
+  - [11. Buenas prácticas y checklist de despliegue](#11-buenas-prácticas-y-checklist-de-despliegue)
+  - [12. Anexos: ejemplos de código y comandos útiles](#12-anexos-ejemplos-de-código-y-comandos-útiles)
 
 ---
 
-## 1. Introducción General
+## 1. Introducción general
 
-Este proyecto sirve como **plantilla base** para construir aplicaciones web en PHP con una arquitectura modular. Su objetivo es proporcionar una base **escalable, segura y mantenible** adaptable a contextos como paneles administrativos, sistemas internos o prototipos funcionales.
+Breve: este manual amplía la documentación técnica y muestra patrones prácticos para que un desarrollador nuevo entienda, extienda y despliegue QuickStock.
 
-### Propósito y Descripción Funcional
-
-El enfoque principal es la **separación clara de responsabilidades** (lógica, presentación, control de flujo) mediante el patrón MVC. Esto se logra permitiendo:
-
-* **Carga dinámica de vistas** mediante URLs amigables gestionadas por **`.htaccess`**.
-* Gestión centralizada de configuración y seguridad a través de los módulos **`APP`** y **`SERVER`**.
-* **Reutilización de componentes** (layouts, helpers, assets) para mantener una interfaz coherente y eficiente.
-* **Seguridad incorporada** mediante encriptación de datos sensibles, *hashing* de contraseñas y validación.
-
-### Público Objetivo y Tecnologías Utilizadas
-
-Dirigido a **Desarrolladores web** que trabajen en entornos PHP y requieran una base estructurada para sistemas dinámicos.
-
-#### Tecnologías Principales
-
-* **PHP 8.0 o superior** (Programación orientada a objetos y modularidad)
-* **Composer** (Gestión de dependencias y autoloading eficiente)
-* **Bootstrap 5** (Estilización y componentes *frontend* responsivos)
-* **Apache + .htaccess** (Reescritura de URLs y control de flujo)
-* **PDO** (Acceso seguro a bases de datos con *prepared statements*)
-* **OpenSSL** (Encriptación de datos sensibles)
-* **AJAX** y **JavaScript** (Interactividad y peticiones asíncronas)
-* **GIT/Github** (Control de versiones)
+Audiencia: desarrolladores PHP/JS que trabajarán con la base de código del repositorio.
 
 ---
 
-## 2. Estructura del Proyecto
+## 2. Arquitectura del sistema
 
-El sistema está organizado en **módulos funcionales** bajo la arquitectura **MVC**.
-
-> **Consulta la descripción detallada de cada archivo/carpeta en:** `docs/estructura_proyecto.md`
-
-### Archivos que NO deben modificarse directamente ⚠️
-
-Alterar estos archivos puede comprometer la estabilidad, seguridad o compatibilidad del sistema.
-
-* **`.htaccess`** (Reescritura de URLs)
-* **`index.php`** (Punto de entrada principal)
-* **`composer.json`** / **`composer.lock`** (Gestión de dependencias)
-* **`config/SERVER/`** (Credenciales y parámetros sensibles)
-* **`model/mainModel/`** (Modelo base, lógica de conexión)
-* **`vendor/`** (Librerías externas de Composer)
-
-### Carpetas pensadas para Extensión o Personalización ✅
-
-Estas carpetas están diseñadas para que los desarrolladores agreguen nuevas funcionalidades.
-
-* `view/html/` → Contiene las vistas del sistema (`nombre-view.php`).
-* `assets/components/` → Almacena fragmentos HTML reutilizables (botones, formularios).
-* `helpers/js/` y `helpers/php/` → Contienen funciones auxiliares reutilizables.
-* `docs/` → Documentación técnica y seguimiento de tareas.
-* `model/` → Crear nuevos modelos que **extiendan** de `mainModel`.
-* `controller/` → Agregar nuevos controladores si se amplía la lógica.
+- Monolito con organización estilo MVC: `controller/`, `model/`, `view/`.
+- Punto de entrada frontal: `index.php` (instancia `vista_controller`).
+- API JSON centralizado en `api/server/index.php` (recibe JSON con `accion` y parámetros).
+- Persistencia: PostgreSQL accedido por funciones `pg_*` desde clases en `model/` o funciones en `api/server/*`.
 
 ---
 
-## 3. Instalación y Configuración
-
-### Requisitos del Sistema
-
-* **PHP 8.0 o superior**
-* **Servidor web Apache** (Ej: XAMPP, WAMP)
-* **Composer** (Gestor de dependencias)
-
-### Pasos para Clonar e Instalar el Proyecto
-
-1.  **Clonar** el repositorio en la carpeta `htdocs` (o similar) utilizando Git.
-    ```bash
-    git clone [URL_DEL_REPO]
-    cd proyecto
-    ```
-2.  Ejecutar **`composer install`** para instalar las dependencias (`vendor/` y Bootstrap).
-    ```bash
-    composer install
-    ```
-3.  Acceder al proyecto desde el navegador: `http://localhost/nombre_del_proyecto/`
-
-### Configuración Inicial
-
-La configuración se centraliza en dos módulos clave:
-
-* **`config/SERVER`**: Contiene constantes sensibles (credenciales de base de datos, claves de encriptación). ⚠️ **No debe modificarse sin autorización y debe estar fuera del control de versiones (`.gitignore`).**
-* **`config/APP`**: Contiene constantes generales (nombre del sistema, ruta base y configuraciones de frontend/backend).
-
----
-
-## 4. Flujo de Ejecución (Petición - Respuesta)
-
-El sistema utiliza un flujo de carga dinámico para renderizar vistas en función de la URL solicitada, manteniendo una arquitectura desacoplada.
-
-**Secuencia de Ejecución:**
-
-1. **Entrada:** `.htaccess` ➡️ 
-2. **Inicialización:** `index.php` ➡️ 
-3. **Control:** `vista_controller.php` ➡️ 
-4. **Datos:** `vista_model.php` ➡️ 
-5. **Ensamblaje:** `plantilla.php` ➡️ 
-6. **Salida:** **Layouts + Vista** 🚀
-
-### Explicación del Ciclo:
-
-* **1. Entrada (.htaccess):** Dirige todas las peticiones a `index.php`.
-* **3. Lógica (vista_controller.php):** Procesa la solicitud, valida datos y decide qué información necesita.
-* **5. Renderizado (plantilla.php):** Une los datos obtenidos con la estructura visual (Layouts).
-
----
-
-## 5. Convenciones de Desarrollo
-
-Es fundamental seguir estas convenciones para garantizar la coherencia, legibilidad y escalabilidad del código.
-
-### Nombres y Estructura
-
-* **Archivos PHP:** Minúsculas y con guiones bajos (ejemplo: `vista_controller.php`).
-* **Funciones:** Estilo **`camelCase`** (ejemplo: `cargarVista`, `desencriptarDato`).
-* **Vistas:** Deben nombrarse como `nombre-view.php` (ejemplo: `usuario-view.php`).
-* **Modelos/Controladores:** Deben seguir el patrón `Nombre_tipo.php`.
-
-### Reglas para Agregar Nuevos Componentes o Vistas
-
-* Toda nueva **vista** debe agregarse en `view/html` con el sufijo `-view.php`.
-* El nombre de la vista debe añadirse al arreglo **`paginas_existentes`** en **`vista_model.php`** para su reconocimiento.
-* Los **componentes nuevos** deben ubicarse en `assets/components`.
-* Los estilos y *scripts* específicos de una vista deben colocarse en `view/css` y `view/js` respectivamente.
-
----
-
-## 6. Frontend
-
-El desarrollo *frontend* se centra en la modularidad y el uso de **Bootstrap 5** para la responsividad y consistencia visual.
-
-### Estructura y Elementos
-
-* **Framework principal:** **Bootstrap 5** (uso local o por CDN).
-* **Elementos Comunes** (`assets/Elements`):
-    * `header.php`, `footer.php`, `links.php`, `scripts.php`.
-    * Se cargan automáticamente en `plantilla.php` para mantener consistencia.
-* **Componentes Reutilizables:**
-    * Se ubican en **`assets/components`** y se incluyen mediante PHP en cualquier vista o *layout*.
-* **Scripts y Estilos Específicos:**
-    * `view/js` y `view/css` son para archivos que solo aplican a vistas particulares.
-
----
-
-## 7. Backend
-
-El *backend* centraliza la lógica de negocio y la seguridad del acceso a datos, basándose en la herencia de un modelo principal.
-
-### Funcionamiento de Modelos
-
-* **`mainModel`**: Contiene métodos base para **conexión PDO**, encriptación con **OpenSSL**, **hashing** de contraseñas y validación.
-* **Modelos Específicos**: Deben **extender de `mainModel`** para heredar la funcionalidad base y garantizar la consistencia en el acceso a datos.
-* El modelo `vista_model` se encarga de la lógica de validación de vistas.
-
-### Acceso a Datos y Seguridad
-
-* Se utiliza **PDO** con **consultas preparadas** (`prepare` y `execute`) para prevenir inyecciones SQL.
-* Datos sensibles se **encriptan** usando `encriptar_dato` de `mainModel` antes de almacenarse.
-* Contraseñas se **hashean** mediante `password_hash`.
-* **Constantes Globales**: La configuración se maneja a través de **`config/APP`** y **`config/SERVER`**, incluidas automáticamente en el flujo.
-
----
-
-## 8. Reutilización y Helpers
-
-El proyecto promueve la reutilización de código mediante la carpeta `helpers/`.
-
-### Uso de Fragmentos de Código
-
-* **`helpers/js`**: Contiene funciones JavaScript reutilizables (validaciones del lado del cliente, alertas).
-* **`helpers/php`**: Incluye funciones auxiliares para el *backend* (validación de entrada, formateo de datos, generación de *tokens* **CSRF**).
-
-> Estas funciones deben ser independientes y cargarse mediante `require_once` o a través de la inclusión automática de *scripts* y *links* en la plantilla.
-
----
-
-## 9. Testing y Depuración
-
-### Métodos Recomendados para Probar
-
-* Acceder directamente a vistas mediante la **URL amigable** (`https://localhost/proyecto/?page=nombre`) para verificar la carga de componentes.
-* Utilizar valores de prueba para validar la respuesta del sistema en funciones clave (encriptación, sesiones, BD).
-
-### Activación/Desactivación de Errores
-
-* **Activar (Desarrollo):** Modificar `php.ini` o incluir:
-    ```php
-    error_reporting(E_ALL);
-    ini_set("display_errors", 1);
-    ```
-* **Desactivar (Producción):** Se recomienda: `error_reporting(0); ini_set("display_errors", 0);` (crucial para la seguridad).
-
-### Herramientas Sugeridas para Debugging
-
-* **Consola del navegador** (inspección de errores JS, red, DOM).
-* **XAMPP Panel** (monitoreo de logs de Apache y MySQL).
-* Funciones nativas de PHP: **`var_dump()`** y **`print_r()`**.
-* Herramientas externas como Postman/Insomnia para probar *endpoints*.
-
----
-
-## 10. Seguridad y Buenas Prácticas
-
-La seguridad y la integridad del sistema dependen de respetar estas prácticas y las restricciones de archivos.
-
-### Archivos Protegidos (Ver sección 2)
-
-* Nunca modificar: `.htaccess`, `composer.lock`, `vendor/`, `config/SERVER`, `index.php`.
-
-### Manejo de Credenciales y Datos Sensibles
-
-* Las credenciales deben definirse en **`config/SERVER`** y **mantenerse fuera del control de versiones** (usar `.gitignore`).
-* Nunca deben exponerse en el *frontend* ni imprimirse en pantalla.
-
-### Prevención de Vulnerabilidades Comunes
-
-* Usar **consultas preparadas** (`prepare + execute`) para prevenir inyecciones SQL.
-* **Hashear** todas las contraseñas con `password_hash`.
-* **Sanitizar y validar** todas las entradas del usuario.
-* **Encriptar** datos sensibles con OpenSSL.
-
----
-
-## 11. Colaboración y Control de Versiones
-
-Se utiliza **Git** para el control de versiones. Es obligatorio seguir este flujo de trabajo para mantener la estabilidad de la rama principal.
-
-### Uso de Git (Ramas, Commits)
-
-1.  Cada desarrollador debe trabajar en una **rama propia** basada en **`master`** (o `main`).
-2.  Los **commits** deben ser descriptivos, breves y reflejar el cambio.
-3.  Las **Pull Requests** deben ser claras y concisas, y **no deben fusionarse sin revisión previa**.
-
-### Comandos Recomendados para Trabajo en Equipo
-
-```bash
-# 1. Actualizar la rama principal
-git checkout master
-git pull origin master
-
-# 2. Crear una nueva rama para trabajar
-git checkout -b nombre-de-tu-rama
-
-# 3. Agregar y confirmar cambios
-git add .
-git commit -m "Descripción clara del cambio"
-
-# 4. Subir la rama al repositorio remoto
-git push origin nombre-de-tu-rama
-
-# 5. Sincronizar con master antes del Pull Request
-git checkout master
-git pull origin master
-git checkout nombre-de-tu-rama
-git merge master # Resolver conflictos si aparecen
-
-# 6. Subir cambios corregidos y solicitar Pull Request
-git push origin nombre-de-tu-rama
+## 3. Entorno de desarrollo
+
+- Recomendado: PHP 8+, PostgreSQL 12+, Apache (XAMPP) en Windows.
+- Variables sensibles en `.env` (usar `.env.example` como plantilla).
+- Conexión a BD centralizada en `config/SERVER.php` (constante `PostgreSQL`) o adaptar para usar dotenv.
+
+Pasos rápidos (PowerShell):
+```powershell
+# Crear base de datos y cargar dump (si psql está en PATH)
+psql -U postgres -d postgres -c "CREATE DATABASE \"QuickStock\";"
+psql -U postgres -d QuickStock -f "C:/xampp/htdocs/DEV/PHP/QuickStock/src/config/quickstock.sql"
 ```
-###
->Ir a [Contributing.md](Contributing.md) para mas informaacion acerca de como colaboracion y trabajo en equipo.
 
 ---
 
-## 12. Documentación Adicional
+## 4. Estructura del proyecto
 
-La carpeta `docs/` centraliza los archivos de documentación técnica y es esencial para el *onboarding* y la trazabilidad.
+- `index.php` — front controller que instancia `vista_controller`.
+- `controller/` — controladores de vistas (p.ej. `empleados_listado_C.php`).
+- `model/` — clases y funciones para acceder a la BD (extienden `mainModel`).
+- `view/` — plantillas y vistas (`plantilla.php`, `html/*.php`, `js/*`).
+- `api/client/` — scripts JS que realizan peticiones a `api/server/index.php`.
+- `api/server/` — funciones PHP que atienden las acciones y devuelven arrays/JSON.
+- `config/` — scripts de BD y constantes (ej. `SERVER.php`).
 
-### Contenido de la Carpeta `docs/`
-
-* [todo.md](todo.md): Ver los requisitos funcionales y no funcionales del sistema.
-* [Changelog.md](Changelog.md): Lista cronológica de funcionalidades, mejoras y correcciones por versión.
-* [estructura_proyecto.md](estructura_proyecto.md): Descripción jerárquica de la arquitectura.
-* [manual_desarrollador.md](manual_desarrollador.md): Guía técnica principal de funcionamiento.
-* [Contributing.md](Contributing.md): Guía para colaboradores y trabajo en equipo.
-
-### Mantenimiento del Archivo README.md
-
-El [README.md](../../README.MD) debe mantenerse **actualizado** con cada cambio relevante en funcionalidades, estructura o requisitos técnicos.
+Convención importante: todas las vistas públicas terminan en `-view.php` (ej. `inventario-ver-productos-view.php`).
 
 ---
 
-## 13. Extensión y Mantenimiento
+## 5. Flujo completo: vistas, controlador y plantilla
 
-* **Agregar nuevas vistas**:
-1. Crear `nombre-view.php` en `view/html`.
-2. Registrar el nombre en `paginas_existentes` de `vista_model.php`.
-* **Agregar nuevos modelos**: Crear el archivo en `model/` y debe **extender de `mainModel`**.
-* **Actualización de dependencias**: Utiliza **`composer update`** para actualizar librerías.
-* **Escalabilidad**: La estructura modular facilita la adición de nuevos módulos o *plugins* sin alterar la base.
+Descripción paso a paso del flujo principal cuando se carga una página:
+
+1. El usuario solicita una URL como `http://.../src/?page=inventario-ver-productos`.
+2. `index.php` instancia `vista_controller`.
+3. `vista_controller` toma `$_GET['page']` y decide la vista a cargar:
+	 - Normaliza el nombre (seguridad: sanitize el string).
+	 - Comprueba si existe un archivo en `view/html/<page>-view.php`.
+	 - Si existe, delega a `vista_model` para cargar la `plantilla.php` con la vista.
+	 - Si no existe, carga `view/html/404-view.php`.
+
+4. `vista_model` prepara cualquier dato necesario (ejecuta llamadas a modelos si la vista requiere datos) y pasa esos datos a la `plantilla.php`.
+5. `plantilla.php` contiene el layout (header, footer, menú lateral) y un lugar donde incluir la vista concreta:
+	 - Ej. `require_once __DIR__ . '/html/' . $viewFile;`
+	 - `plantilla.php` también incluye `elements/header.php`, `elements/menu-lateral.php`, y `elements/footer.php` según permisos.
+6. La vista `*-view.php` ejecuta su propio PHP para pintar datos provistos por `vista_model` y enlaza scripts JS específicos (`view/js/...` o `api/client/...`).
+
+Ejemplo simplificado de `vista_controller` (pseudo-PHP):
+```php
+// controller/vista_controller.php
+class vista_controller {
+	public function cargarVista(){
+		$page = $_GET['page'] ?? 'inicio-view';
+		$page = basename($page); // seguridad
+		$file = __DIR__ . '/../view/html/' . $page . '-view.php';
+		if(file_exists($file)){
+			// pasa control a model para preparar datos
+			$model = new vista_model();
+			$data = $model->prepararDatosPara($page);
+			include __DIR__ . '/../view/plantilla.php';
+		} else {
+			include __DIR__ . '/../view/html/404-view.php';
+		}
+	}
+}
+```
+
+Notas:
+- Todas las vistas deben terminar en `-view.php` para mantener la convención.
+- Cualquier lógica de negocio (consultas SQL, validaciones complejas) debe estar en `model/` o `controller/`, no en la vista.
 
 ---
 
-## 14. Conclusión
+## 6. Peticiones Front → API (api/client → api/server/index.php)
 
-Este manual proporciona una guía completa para comprender, utilizar y extender el sistema de forma segura y colaborativa. La **claridad**, la **modularidad** y la **responsabilidad compartida** son pilares fundamentales del proyecto. Se recomienda utilizar este documento como referencia principal durante todo el ciclo de desarrollo.
+Patrón general usado en el proyecto:
+
+- El frontend usa archivos JS dentro de `api/client/` o `view/js/` para construir un objeto JSON con una propiedad `accion` y otros parámetros.
+- Envío: `fetch()` o `XMLHttpRequest` hacia `api/server/index.php` con `Content-Type: application/json`.
+- `api/server/index.php` ejecuta `json_decode(file_get_contents('php://input'), true)` y hace un `switch($accion)` para llamar a la función apropiada.
+
+Ejemplo de petición desde `api/client/inventario-ver-productos.js`:
+```javascript
+import { api } from "/DEV/PHP/QuickStock/src/api/client/index.js";
+
+// 📦 OBJETO GLOBAL PARA GUARDAR EL ESTADO DE LOS FILTROS
+let filtrosActivos = {
+    nombre: "",
+    codigo: "",
+    categoria: "",
+    proveedor: "",
+    sucursal: "",
+    estado: "" // Valores posibles: "", "true", "false"
+};
+
+// 🔄 FUNCIÓN REUTILIZABLE PARA CARGAR PRODUCTOS APLICANDO LOS FILTROS
+function cargarProductos() {
+    // La función 'api' enviará 'filtrosActivos' como parámetros GET/POST al index.php
+    api({
+        accion: "obtener_todos_los_productos",
+        ...filtrosActivos // Despliega todos los filtros como parámetros de la petición
+    }).then(res => {
+        const tabla = document.getElementById("tabla_productos");
+        tabla.innerHTML = ""; // Limpia la tabla antes de cargar nuevos datos
+        const productos = res.data || [];
+
+        if (productos.length === 0) {
+            tabla.innerHTML = '<tr><td colspan="11" class="text-center">No se encontraron productos con estos filtros.</td></tr>';
+            return;
+        }
+
+        // Mapeo y renderizado de las filas (sin cambios en la lógica de renderizado)
+        productos.forEach(prod => {
+            const estadoTexto = prod.estado == 1 || prod.estado === "t"
+                ? '<span class="badge text-bg-success">Activo</span>'
+                : '<span class="badge text-bg-danger">Inactivo</span>';
+
+            const fila = document.createElement("tr");
+            fila.innerHTML = `
+                <td>${prod.codigo ?? '-'}</td>
+                <td>${prod.nombre ?? '-'}</td>
+                <td>${prod.categoria_nombre ?? '-'}</td>
+                <td>${prod.talla ?? '-'}</td>
+                <td>${prod.precio_compra ?? '-'}</td>
+                <td>${prod.precio_venta ?? '-'}</td>
+                <td>${prod.stock ?? 0}</td>
+                <td>${prod.sucursal_nombre ?? 'Sin sucursal'}</td>
+                <td>${estadoTexto}</td>
+                <td class="text-center">
+                    <div class="container-fluid p-0">
+                        <div class="row g-1">
+                            <div class="col-6">
+                                <form action="inventario-editar-producto" method="POST" class="d-inline">
+                                    <input type="hidden" name="accion" value="editar">
+                                    <input type="hidden" name="id_producto" value="${prod.id_producto}">
+                                    <input type="submit" class="btn btn-warning btn-sm w-100" value="Editar">
+                                </form>
+                            </div>
+                            <div class="col-6">
+                                <form action="" method="POST" class="d-inline">
+                                    <input type="hidden" name="accion" value="eliminar">
+                                    <input type="hidden" name="id_producto" value="${prod.id_producto}">
+                                    <input type="submit" class="btn btn-danger btn-sm w-100" value="Eliminar">
+                                </form>
+                            </div>
+                            <div class="col-12">
+                                <form action="inventario-detalle-producto" method="POST" class="d-inline">
+                                    <input type="hidden" name="accion" value="ver_detalle">
+                                    <input type="hidden" name="id_producto" value="${prod.id_producto}">
+                                    <input type="submit" class="btn btn-primary btn-sm w-100" value="Ver detalle">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            `;
+            tabla.appendChild(fila);
+        });
+    }).catch(error => {
+        console.error("Error al cargar productos:", error);
+        document.getElementById("tabla_productos").innerHTML = '<tr><td colspan="11" class="text-center text-danger">Error al cargar los datos.</td></tr>';
+    });
+}
+
+// 🎛️ FUNCIÓN PARA INICIALIZAR EVENTOS DE FILTRO
+function inicializarFiltros() {
+    // Función auxiliar para adjuntar eventos a selects e inputs
+    const addEventListener = (id, eventType, filterKey) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.addEventListener(eventType, (e) => {
+                filtrosActivos[filterKey] = e.target.value.trim();
+                cargarProductos();
+            });
+        }
+    };
+
+    // Filtros de texto (Input event para una búsqueda rápida)
+    addEventListener("filtro_nombre", "input", "nombre");
+    addEventListener("filtro_codigo", "input", "codigo");
+
+    // Filtros de Select (Change event)
+    addEventListener("filtro_sucursal", "change", "sucursal");
+    addEventListener("filtro_categoria", "change", "categoria");
+    addEventListener("filtro_proveedor", "change", "proveedor");
+    addEventListener("filtro_estado", "change", "estado");
+
+    // 🗑️ BOTÓN REESTABLECER FILTROS (ID CORREGIDO: "btn-reestablecer")
+    document.getElementById("btn-reestablecer")?.addEventListener("click", () => {
+        // 1. Resetear el objeto de filtros
+        filtrosActivos = {
+            nombre: "",
+            codigo: "",
+            categoria: "",
+            proveedor: "",
+            sucursal: "",
+            estado: ""
+        };
+
+        // 2. Resetear los valores de los elementos de la vista
+        document.getElementById("filtro_nombre").value = "";
+        document.getElementById("filtro_codigo").value = "";
+
+        // Asignar el valor de la opción por defecto ("") a los selects
+        document.getElementById("filtro_categoria").value = "";
+        document.getElementById("filtro_proveedor").value = "";
+        document.getElementById("filtro_sucursal").value = "";
+        document.getElementById("filtro_estado").value = "";
+
+        // 3. Recargar productos sin filtros
+        cargarProductos();
+    });
+}
+
+// ⚙️ FUNCIÓN PARA CARGAR OPCIONES DINÁMICAS EN LOS SELECTS
+function cargarOpcionesSelects() {
+    // Función auxiliar para cargar opciones
+    const cargarOpciones = (selectId, accionApi, valueKey, textKey, resKey) => {
+        const select = document.getElementById(selectId);
+        if (!select) return;
+
+        api({ accion: accionApi }).then(res => {
+            // Manejar diferentes estructuras de respuesta (res.filas, res.categorias, res.proveedores)
+            const data = res[resKey] || res.filas || [];
+            data.forEach(item => {
+                const op = document.createElement("option");
+                op.value = item[valueKey];
+                op.textContent = item[textKey];
+                select.appendChild(op);
+            });
+        }).catch(error => {
+            console.error(`Error al cargar ${selectId}:`, error);
+        });
+    };
+
+    cargarOpciones("filtro_sucursal", "obtener_sucursales", "id_sucursal", "nombre", "filas");
+    cargarOpciones("filtro_categoria", "obtener_categorias", "id_categoria", "nombre", "categorias");
+    cargarOpciones("filtro_proveedor", "obtener_proveedores", "id_proveedor", "nombre", "proveedores");
+}
+
+// 🚀 CUANDO CARGA LA PÁGINA
+document.addEventListener("DOMContentLoaded", () => {
+    cargarOpcionesSelects(); // Llenar los selects
+    inicializarFiltros();    // Configurar los listeners
+    cargarProductos();       // Cargar la lista inicial de productos
+});
+```
+
+Ejemplo de `api/server/index.php` (simplificado):
+```php
+session_start();
+$peticion = json_decode(file_get_contents('php://input'), true);
+$accion = $peticion['accion'] ?? null;
+include_once __DIR__ . '/index.functions.php';
+
+switch($accion) {
+	case 'obtener_todos_los_productos':
+		include __DIR__ . '/inventario/producto.php';
+		$out = obtenerTodosLosProductos(
+			$peticion['nombre'] ?? null,
+			$peticion['codigo'] ?? null,
+			$peticion['categoria'] ?? null,
+			$peticion['proveedor'] ?? null,
+			$peticion['sucursal'] ?? null,
+			$peticion['estado'] ?? null
+		);
+		break;
+	// otras acciones...
+	default:
+		$out = ['error' => 'Accion no reconocida'];
+}
+
+echo json_encode($out);
+```
+
+Puntos clave:
+- Siempre devolver estructuras JSON consistentes: `{ status, data }` o `{ error, message }`.
+- Validar y sanitizar los parámetros entrantes antes de usarlos en consultas.
+
+---
+
+## 7. Consultas a la base de datos desde `api/server` y formato de respuesta
+
+Buenas prácticas ya aplicadas en el repo:
+
+- Uso de `conectar_base_datos()` (ver `api/server/index.functions.php`) para obtener conexión `pg_connect`.
+- Uso de `pg_prepare` / `pg_execute` o `pg_query_params` para evitar inyección SQL.
+
+Ejemplo de función en `api/server/inventario/producto.php` que consulta la BD y devuelve un array:
+```php
+function obtenerTodosLosProductos($nombre=null, $codigo=null, $categoria=null, $proveedor=null, $sucursal=null, $estado=null){
+	$conn = conectar_base_datos();
+	$clauses = []; $params = []; $i = 1;
+	if($nombre){ $clauses[] = "p.nombre ILIKE $".$i; $params[] = "%$nombre%"; $i++; }
+	// ... construir WHERE dinámico similar al ejemplo existente ...
+	$sql = "SELECT p.id_producto, p.nombre FROM inventario.producto p WHERE " . implode(' AND ', $clauses);
+	$stmt = 'stmt_' . uniqid();
+	pg_prepare($conn, $stmt, $sql);
+	$res = pg_execute($conn, $stmt, $params);
+	if(!$res) return ['status'=>'error','message'=>pg_last_error($conn)];
+	$rows = pg_fetch_all($res) ?: [];
+	return ['status'=>'success','data'=>$rows];
+}
+```
+
+Cómo estructurar la respuesta:
+- `['status'=>'success','data'=>[...] ]` en caso OK.
+- `['status'=>'error','message'=>'...', 'detalle'=>'...']` en caso de error (ocultar `detalle` en producción).
+
+---
+
+## 8. Validaciones: `view/js/*.js` y validación backend
+
+Estrategia de validación en dos capas:
+
+1. Validación Frontend (`view/js/archivo.js` o `api/client/archivo.js`):
+	 - Validaciones UX: campos obligatorios, formatos básicos (email, número), longitudes.
+	 - Mostrar errores con Bootstrap: añadir `.is-invalid` al campo y llenar `.invalid-feedback`.
+	 - Evitar enviar peticiones inválidas al servidor (mejora UX y reduce tráfico).
+
+Ejemplo de frontend:
+```javascript
+function validarFormularioProducto(form){
+	const nombre = form.querySelector('[name="nombre"]').value.trim();
+	const precio = parseFloat(form.querySelector('[name="precio"]').value);
+	const errores = [];
+	if(!nombre) errores.push('Nombre requerido');
+	if(isNaN(precio) || precio <= 0) errores.push('Precio inválido');
+	return errores;
+}
+
+form.addEventListener('submit', async (e) => {
+	e.preventDefault();
+	const errores = validarFormularioProducto(e.target);
+	if(errores.length) { mostrarErrores(errores); return; }
+	// enviar petición a api/server/index.php
+});
+```
+
+2. Validación Backend (obligatoria):
+	 - Siempre volver a validar todo en `controller`/`api/server` y en `model` antes de insertar/actualizar.
+	 - Comprobar tipos, rangos, unicidad y permisos del usuario.
+
+Ejemplo en PHP (server/model):
+```php
+if(empty($data['nombre'])) return ['status'=>'error','message'=>'Nombre requerido'];
+if(!is_numeric($data['precio']) || $data['precio'] <= 0) return ['status'=>'error','message'=>'Precio inválido'];
+// luego ejecutar prepared statement
+```
+
+---
+
+## 9. Cómo crear un Modelo, una Vista y un Controlador (MVC local)
+
+Plantilla mínima para crear cada componente:
+
+- Modelo: `model/nuevo_modelo.php`
+	- Debe extender `mainModel` si necesita conexión compartida.
+	- Implementar métodos: `crear()`, `editar()`, `eliminar()`, `buscar()`.
+
+Ejemplo:
+```php
+// model/producto_model.php
+class ProductoModel extends mainModel {
+	public static function listarProductos($filtros = []){
+		$conn = parent::conectar_base_datos();
+		$sql = 'SELECT * FROM inventario.producto ORDER BY id_producto';
+		$res = pg_query($conn, $sql);
+		return pg_fetch_all($res) ?: [];
+	}
+}
+```
+
+- Controlador: `controller/producto_C.php`
+	- Recibe POST/GET de la vista, valida, usa el modelo y redirige o devuelve JSON.
+
+Ejemplo:
+```php
+// controller/producto_C.php
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+	$data = $_POST; // o json_decode(file_get_contents('php://input'), true)
+	// validar
+	$id = ProductoModel::crear($data);
+	header('Location: ?page=inventario-ver-productos');
+}
+```
+
+- Vista: `view/html/inventario-añadir-producto-view.php`
+	- Archivo que contiene el HTML del formulario y enlaza el JS necesario.
+
+Ejemplo (esqueleto):
+```php
+<form id="formProducto">
+	<input name="nombre" />
+	<input name="precio" />
+	<button type="submit">Guardar</button>
+</form>
+<script src="/DEV/PHP/QuickStock/src/view/js/inventario-añadir-producto.js"></script>
+```
+
+Integración con `plantilla.php`:
+- `plantilla.php` debe exponer una variable `$data` o similar, y hacer `require` de la vista correspondiente.
+
+---
+
+## 10. Modificar/Importar la base de datos (pgAdmin4)
+
+Importar `config/quickstock.sql` en pgAdmin4:
+
+1. Abrir pgAdmin4 y conectar al servidor PostgreSQL.
+2. Crear nueva base de datos `QuickStock` (clic derecho → Create → Database).
+3. Seleccionar la base de datos, ir a la pestaña "Query Tool".
+4. Cargar el archivo SQL (`Open File`) o usar el comando `
+	 \i 'C:/ruta/a/quickstock.sql'` en la consola psql.
+
+También se puede usar `psql` desde PowerShell:
+```powershell
+psql -U postgres -d QuickStock -f "C:/xampp/htdocs/DEV/PHP/QuickStock/src/config/quickstock.sql"
+```
+
+Si haces cambios en el esquema:
+- Mantén migraciones en `config/migrations/` y actualiza `config/quickstock.sql` con el snapshot.
+
+---
+
+## 11. Buenas prácticas y checklist de despliegue
+
+- Validar cambios en un entorno de staging antes de producción.
+- Hacer backup de la base de datos antes de correr migraciones.
+- Ejecutar tests automatizados y revisar logs.
+
+Checklist mínimo antes de merge/despliegue:
+- [ ] Tests locales pasan
+- [ ] Migraciones listas y probadas
+- [ ] Backup de la BD tomado
+- [ ] Documentación (manual y cambios de BD) actualizada
+
+---
+
+## 12. Anexos: ejemplos de código y comandos útiles
+
+- Ejemplo cURL para llamar al endpoint central:
+```bash
+curl -X POST "http://localhost/DEV/PHP/QuickStock/src/api/server/index.php" \
+	-H "Content-Type: application/json" \
+	-d '{"accion":"obtener_todos_los_productos","nombre":"camisa"}'
+```
+
+- Ejemplo de respuesta consistente (JSON):
+```json
+{ "status": "success", "data": [ { "id_producto": 1, "nombre": "Camisa" } ] }
+```
+
+---
+
+Si quieres, guardo ahora este archivo y puedo también:
+- Generar ejemplos concretos por cada acción en `api/server/index.php` (documentar parámetros y respuestas).
+- Añadir diagramas MER (archivo SVG/PNG) bajo `docs/diagrams/` si me das permiso para crear imágenes.
+
+Fin del manual.
+
