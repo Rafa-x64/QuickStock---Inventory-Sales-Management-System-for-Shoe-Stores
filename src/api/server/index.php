@@ -31,6 +31,11 @@ switch ($accion) {
         $out = obtenerSucursales();
         break;
 
+    case "obtener_una_sucursal":
+        include_once __DIR__ . "/core/sucursal.php";
+        $out = obtenerUnaSucursalPorId($peticion["id_sucursal"]);
+        break;
+
     case "obtener_nombre_sucursal":
         $out = obtenerNombreSucursal();
         break;

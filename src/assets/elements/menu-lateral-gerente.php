@@ -142,7 +142,6 @@
                             <div class="menu-submenu d-flex flex-column ps-2">
                                 <a href="empleados-listado" class="ms-3">Listado de Empleados</a>
                                 <a href="empleados-añadir" class="ms-3">Añadir Empleado</a>
-                                <a href="empleados-detalle" class="ms-3">Detalle Empleado</a>
                                 <a href="empleados-añadir-rol" class="ms-3">Añadir Rol</a>
                                 <a href="empleados-lista-roles" class="ms-3">Lista de Roles</a>
                                 <a href="empleados-detalle-rol" class="ms-3">Detalle Rol</a>
@@ -334,7 +333,6 @@
                     <div class="menu-submenu d-flex flex-column ps-5">
                         <a href="empleados-listado" class="ms-3">Listado de Empleados</a>
                         <a href="empleados-añadir" class="ms-3">Añadir Empleado</a>
-                        <a href="empleados-detalle" class="ms-3">Detalle Empleado</a>
                         <a href="empleados-añadir-rol" class="ms-3">Añadir Rol</a>
                         <a href="empleados-lista-roles" class="ms-3">Lista de Roles</a>
                         <a href="empleados-detalle-rol" class="ms-3">Detalle Rol</a>

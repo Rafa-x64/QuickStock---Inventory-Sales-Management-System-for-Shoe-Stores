@@ -1,4 +1,4 @@
-import { api } from "/DEV/PHP/QuickStock/src/api/client/index.js"
+/*import { api } from "/DEV/PHP/QuickStock/src/api/client/index.js"
 
     document.addEventListener("DOMContentLoaded", () => {
         const nombreSucursalInput = document.getElementById("nombre_sucursal");
@@ -8,4 +8,4 @@ import { api } from "/DEV/PHP/QuickStock/src/api/client/index.js"
             nombreSucursalInput.textContent = "" + res.nombre_sucursal;
         });
         
-    });
+    });*/

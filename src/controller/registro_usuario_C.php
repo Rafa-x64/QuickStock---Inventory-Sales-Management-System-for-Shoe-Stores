@@ -7,13 +7,36 @@ class registro_usuario_C extends mainModel
 {
     public static function agregarSucursal($formulario)
     {
-        $rif = ucfirst($formulario["sucursal_rif"]);
-        $nombre = ucwords($formulario["sucursal_nombre"]);
-        $direccion = ucwords($formulario["sucursal_direccion"]);
-        $telefono = $formulario["sucursal_telefono"];
-        if (!sucursal::crearSucursal($rif, $nombre, $direccion, $telefono)) {
+
+        $rif = strtoupper(trim($formulario["sucursal_rif"]));
+
+        $nombre = ucwords(trim($formulario["sucursal_nombre"]));
+
+        $direccion = trim($formulario["sucursal_direccion"]);
+        $direccion = !empty($direccion) ? ucwords($direccion) : null;
+
+        $telefono = str_replace([' ', '-'], '', trim($formulario["sucursal_telefono"]));
+
+        $fecha_registro = trim($formulario["sucursal_fecha_registro"] ?? ''); // Usar null coalescing para seguridad
+
+        if (empty($fecha_registro) || $fecha_registro === 'null') {
+            $fecha_registro_final = date('Y-m-d');
+        } else {
+            $fecha_registro_final = $fecha_registro;
+        }
+
+        $nuevaSucursal = new sucursal(
+            $rif,
+            $nombre,
+            $direccion,
+            $telefono,
+            $fecha_registro_final
+        );
+
+        if (!$nuevaSucursal->crear()) {
             return false;
         }
+
         return true;
     }
 

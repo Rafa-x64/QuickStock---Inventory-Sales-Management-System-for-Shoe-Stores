@@ -30,9 +30,6 @@ $email  = $_POST["email"]  ?? ($_POST["id_email"] ?? null);
             <div class="card mb-4 shadow-sm">
                 <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                     <h5 class="mb-0"><i class="bi bi-person-badge"></i> Información General</h5>
-                    <a href="empleados-editar" class="btn btn-light btn-sm">
-                        <i class="bi bi-pencil"></i> Editar
-                    </a>
                 </div>
                 <div class="card-body">
                     <div class="row">
