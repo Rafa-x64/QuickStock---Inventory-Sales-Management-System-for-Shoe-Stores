@@ -24,73 +24,12 @@
                                 <th class="ps-1">Nombre de la Sucursal</th>
                                 <th class="ps-1">Dirección</th>
                                 <th class="ps-1">Teléfono</th>
+                                <th class="ps-1">Estado</th>
                                 <th class="ps-1 text-center">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>QuickStock Central</td>
-                                <td>Av. Principal 123, Ciudad Central</td>
-                                <td>+58 412-5551234</td>
-                                <td class="text-center">
-                                    <div class="container-fluid p-0">
-                                        <div class="row g-1">
-                                            <div class="col-6">
-                                                <button class="btn btn-warning btn-sm w-100">Editar</button>
-                                            </div>
-                                            <div class="col-6">
-                                                <button class="btn btn-danger btn-sm w-100">Eliminar</button>
-                                            </div>
-                                            <div class="col-12">
-                                                <button class="btn btn-primary btn-sm w-100">Ver Detalle Sucursal</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Sucursal Norte</td>
-                                <td>Calle 45, Zona Norte</td>
-                                <td>+58 416-4445678</td>
-                                <td class="text-center">
-                                    <div class="container-fluid p-0">
-                                        <div class="row g-1">
-                                            <div class="col-6">
-                                                <button class="btn btn-warning btn-sm w-100">Editar</button>
-                                            </div>
-                                            <div class="col-6">
-                                                <button class="btn btn-danger btn-sm w-100">Eliminar</button>
-                                            </div>
-                                            <div class="col-12">
-                                                <button class="btn btn-primary btn-sm w-100">Ver Detalle Sucursal</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Sucursal Este</td>
-                                <td>Av. Los Jardines, Local 12</td>
-                                <td>+58 414-3332233</td>
-                                <td class="text-center">
-                                    <div class="container-fluid p-0">
-                                        <div class="row g-1">
-                                            <div class="col-6">
-                                                <button class="btn btn-warning btn-sm w-100">Editar</button>
-                                            </div>
-                                            <div class="col-6">
-                                                <button class="btn btn-danger btn-sm w-100">Eliminar</button>
-                                            </div>
-                                            <div class="col-12">
-                                                <button class="btn btn-primary btn-sm w-100">Ver Detalle Sucursal</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tbody id="tabla_sucursales">
+
                         </tbody>
                     </table>
                 </div>
@@ -98,3 +37,5 @@
         </div>
     </div>
 </div>
+
+<script type="module" src="api/client/sucursales-listado.js"></script>
